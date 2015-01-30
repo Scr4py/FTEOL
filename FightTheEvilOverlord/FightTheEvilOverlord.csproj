@@ -35,9 +35,11 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Component\Buttons.cs" />
+    <Compile Include="Component\CompoundRenderer.cs" />
+    <Compile Include="GameObjects\Buttons.cs" />
     <Compile Include="Component\SpriteAnimation.cs" />
     <Compile Include="Menue.cs" />
+    <Compile Include="Component\Renderer.cs" />
     <Compile Include="System\ICharacterInterface.cs" />
     <Compile Include="System\Component.cs" />
     <Compile Include="System\EventManager.cs" />
@@ -69,14 +71,13 @@
       <Link>SDL.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Button.png" />
     <Content Include="Content\test.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameObjects\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
