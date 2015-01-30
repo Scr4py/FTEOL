@@ -17,6 +17,7 @@ namespace FightTheEvilOverlord
         SpriteBatch spriteBatch;
         Background background;
         Button play;
+        Button startImage;
         Button option;
         Button credits;
         Transform transform;
@@ -45,6 +46,8 @@ namespace FightTheEvilOverlord
             
             this.play = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             this.play.GetComponent<Transform>().Position = new Vector2(300, 150);
+            this.startImage = new Button(Content.Load<Texture2D>("Start"), new Rectangle(0, 0, 200, 75));
+            this.startImage.GetComponent<Transform>().Position = new Vector2(300, 150);
             this.option = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             this.option.GetComponent<Transform>().Position = new Vector2(300,250);
             this.credits = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));

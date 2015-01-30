@@ -41,6 +41,7 @@
     <Compile Include="Component\SpriteAnimation.cs" />
     <Compile Include="Menue.cs" />
     <Compile Include="Component\Renderer.cs" />
+    <Compile Include="MouseInteractive.cs" />
     <Compile Include="System\ICharacterInterface.cs" />
     <Compile Include="System\Component.cs" />
     <Compile Include="System\EventManager.cs" />
@@ -76,6 +77,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Start.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\test.mp4">

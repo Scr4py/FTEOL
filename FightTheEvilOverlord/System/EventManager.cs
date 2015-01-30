@@ -28,9 +28,5 @@ namespace FightTheEvilOverlord
             OnUpdate(gameTime);
         }
 
-        public static void InvokeClick()
-        {
-
-        }
     }
 }
