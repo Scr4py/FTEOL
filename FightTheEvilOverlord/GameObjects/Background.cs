@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-
 namespace FightTheEvilOverlord
 {
-    class Button :  GameObject
+    class Background : GameObject
     {
-        private CompoundRenderer render;
-        private Transform transform;
-        public bool isPlayed = false;
+        Transform transform;
+        CompoundRenderer render;
 
-        public Button(Texture2D image, Rectangle source)
+        public Background(Texture2D image, Rectangle source)
         {
             this.transform = this.AddComponent<Transform>();
-
             this.render = this.AddComponent<CompoundRenderer>();
             this.render.AddInLists(image, source);
             this.render.start();

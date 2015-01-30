@@ -1,0 +1,13 @@
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.csprojResolveAssemblyReference.cache
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\SDL.dll
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\test.mp4
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\FightTheEvilOverlord.exe
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\FightTheEvilOverlord.pdb
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.exe
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.pdb
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Background-Test.png
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Button.png

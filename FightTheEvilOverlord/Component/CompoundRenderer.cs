@@ -33,6 +33,11 @@ namespace FightTheEvilOverlord
             textureList.Add(image);
             rectangleList.Add(source);
         }
+
+        public override void Destroy()
+        {
+            EventManager.OnRender -= Render;
+        }
         
     }
 }

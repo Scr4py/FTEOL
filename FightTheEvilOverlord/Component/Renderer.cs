@@ -28,5 +28,10 @@ namespace FightTheEvilOverlord
         {
             this.image = image;
         }
+
+        public override void Destroy()
+        {
+            EventManager.OnRender -= Render;
+        }
     }
 }

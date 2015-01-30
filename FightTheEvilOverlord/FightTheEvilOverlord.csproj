@@ -35,6 +35,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameObjects\Background.cs" />
     <Compile Include="Component\CompoundRenderer.cs" />
     <Compile Include="GameObjects\Buttons.cs" />
     <Compile Include="Component\SpriteAnimation.cs" />
@@ -71,7 +72,12 @@
       <Link>SDL.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Button.png" />
+    <Content Include="Content\Background-Test.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\test.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

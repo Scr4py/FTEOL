@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace FightTheEvilOverlord
 {
-    class GameObject
+    public class GameObject
     {
         protected Hashtable componentList = new Hashtable();
 

@@ -83,5 +83,11 @@ namespace FightTheEvilOverlord
             dictionary.Add(spriteName, spriteRectangle.ToArray());
         }
 
+        public override void Destroy()
+        {
+            EventManager.OnRender -= Render;
+            EventManager.OnUpdate -= Update;
+        }
+
     }
 }
