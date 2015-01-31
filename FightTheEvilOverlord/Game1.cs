@@ -16,11 +16,11 @@ namespace FightTheEvilOverlord
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Background background;
-        Button play;
-        Button startImage;
-        Button option;
-        Button credits;
-        Button exit;
+        Menue play;
+        Menue startImage;
+        Menue option;
+        Menue credits;
+        Menue exit;
         Transform transform;
 
         public Game1()
@@ -45,15 +45,15 @@ namespace FightTheEvilOverlord
             spriteBatch = new SpriteBatch(GraphicsDevice);
             this.background = new Background(Content.Load<Texture2D>("Background-Test"), new Rectangle(0,0,800,600));
             
-            this.play = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
+            this.play = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             this.play.GetComponent<Transform>().Position = new Vector2(300, 150);
-            this.startImage = new Button(Content.Load<Texture2D>("Start"), new Rectangle(0, 0, 200, 75));
+            this.startImage = new Menue(Content.Load<Texture2D>("Start"), new Rectangle(0, 0, 200, 75));
             this.startImage.GetComponent<Transform>().Position = new Vector2(300, 150);
-            this.option = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
+            this.option = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             this.option.GetComponent<Transform>().Position = new Vector2(300,250);
-            this.credits = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
+            this.credits = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             this.credits.GetComponent<Transform>().Position = new Vector2(300, 350);
-            this.exit = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
+            this.exit = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             this.exit.GetComponent<Transform>().Position = new Vector2(300, 450);
         }
 

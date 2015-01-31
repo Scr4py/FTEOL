@@ -26,3 +26,17 @@ C:\Users\Scr4py\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\OpenTK.dll
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Tao.Sdl.dll
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.csprojResolveAssemblyReference.cache
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.exe
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.pdb
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\SDL.dll
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Background-Test.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Button.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Start.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\test.mp4
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\FightTheEvilOverlord.exe
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\FightTheEvilOverlord.pdb
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.csprojResolveAssemblyReference.cache

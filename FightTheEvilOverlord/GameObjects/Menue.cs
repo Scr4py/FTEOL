@@ -7,13 +7,13 @@ using Microsoft.Xna.Framework;
 
 namespace FightTheEvilOverlord
 {
-    class Button :  GameObject
+    class Menue :  GameObject
     {
         private CompoundRenderer render;
         private Transform transform;
         public bool isPlayed = false;
 
-        public Button(Texture2D image, Rectangle source)
+        public Menue(Texture2D image, Rectangle source)
         {
             this.transform = this.AddComponent<Transform>();
 
