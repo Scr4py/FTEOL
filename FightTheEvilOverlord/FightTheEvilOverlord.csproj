@@ -41,7 +41,7 @@
     <Compile Include="Component\Renderer.cs" />
     <Compile Include="Component\MouseInteractive.cs" />
     <Compile Include="GameObjects\Map\Map.cs" />
-    <Compile Include="GameObjects\Map\Tiles.cs" />
+    <Compile Include="GameObjects\Map\Tile.cs" />
     <Compile Include="GameObjects\Menue.cs" />
     <Compile Include="System\ICharacterInterface.cs" />
     <Compile Include="System\Component.cs" />
@@ -76,19 +76,27 @@
     <Content Include="Content\Background-Test.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\berg_tile.png" />
+    <Content Include="Content\berg_tile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\dorf_tile.png" />
+    <Content Include="Content\dorf_tile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Start.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\test.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\wald_tile.png" />
-    <Content Include="Content\wiese_tile.png" />
+    <Content Include="Content\wald_tile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\wiese_tile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup />

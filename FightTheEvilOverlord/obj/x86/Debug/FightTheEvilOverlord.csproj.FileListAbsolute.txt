@@ -40,3 +40,7 @@ C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\M
 C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\OpenTK.dll
 C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Tao.Sdl.dll
 C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.csprojResolveAssemblyReference.cache
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\berg_tile.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\dorf_tile.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\wald_tile.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\wiese_tile.png

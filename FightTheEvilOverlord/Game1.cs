@@ -22,6 +22,7 @@ namespace FightTheEvilOverlord
         Menue credits;
         Menue exit;
         Transform transform;
+        Map map;
 
         public Game1()
             : base()
@@ -29,8 +30,7 @@ namespace FightTheEvilOverlord
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            graphics.PreferredBackBufferHeight = 600;
-            graphics.PreferredBackBufferWidth = 800;
+            graphics.IsFullScreen = true;
         }
 
 
@@ -44,7 +44,7 @@ namespace FightTheEvilOverlord
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             this.background = new Background(Content.Load<Texture2D>("Background-Test"), new Rectangle(0,0,800,600));
-            
+            this.map = new Map(Content.Load<Texture2D>("berg_tile"));
             this.play = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             this.play.GetComponent<Transform>().Position = new Vector2(300, 150);
             this.startImage = new Menue(Content.Load<Texture2D>("Start"), new Rectangle(0, 0, 200, 75));
@@ -80,7 +80,8 @@ namespace FightTheEvilOverlord
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            EventManager.InvokeRender(spriteBatch);
+            //EventManager.InvokeRender(spriteBatch);
+            this.map.generateAndDrawTiles(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

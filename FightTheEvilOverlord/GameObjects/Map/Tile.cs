@@ -7,18 +7,16 @@ using Microsoft.Xna.Framework;
 
 namespace FightTheEvilOverlord
 {
-    class Tiles
+    class Tile : GameObject
     {
-        private enum Types { plaines, mountain, forest, village };
-
-        public Types type { get; set; }
-
-        public Tiles()
+        public enum Types { plaines, mountain, forest, village };
+        public Types Type { get; private set; }
+        public Tile()
         {
             Random rnd = new Random();
             int random = rnd.Next(2);
         }
-        public Tiles(String village)
+        public Tile(String village)
         {
 
         }
