@@ -40,6 +40,8 @@
     <Compile Include="Component\SpriteAnimation.cs" />
     <Compile Include="Component\Renderer.cs" />
     <Compile Include="Component\MouseInteractive.cs" />
+    <Compile Include="GameObjects\Map\Map.cs" />
+    <Compile Include="GameObjects\Map\Tiles.cs" />
     <Compile Include="GameObjects\Menue.cs" />
     <Compile Include="System\ICharacterInterface.cs" />
     <Compile Include="System\Component.cs" />
@@ -49,7 +51,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Component\Transform.cs" />
-    <Compile Include="Component\Tile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">
@@ -75,15 +76,19 @@
     <Content Include="Content\Background-Test.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\berg_tile.png" />
     <Content Include="Content\Button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\dorf_tile.png" />
     <Content Include="Content\Start.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\test.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\wald_tile.png" />
+    <Content Include="Content\wiese_tile.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup />
