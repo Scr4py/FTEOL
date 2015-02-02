@@ -16,14 +16,16 @@ namespace FightTheEvilOverlord
         int mapWidth = 23;
 
         public Texture2D Tiles;
-
+        Renderer render;
         Tile[,] tilesArray;
         public Map(Texture2D tex)
         {
             //this.mapHeight = y;
             //this.mapWidth = x;
             this.Tiles = tex;
-
+            this.render = this.AddComponent<Renderer>();
+            this.render.Render(tex);
+            this.render.start();
             tilesArray = new Tile[mapWidth, mapHeight];
         }
 
