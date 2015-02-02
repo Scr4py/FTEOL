@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
-namespace FightTheEvilOverlord
-{
-    class Menue :  GameObject
-    {
-        private CompoundRenderer render;
+private CompoundRenderer render;
         private Transform transform;
         public bool isPlayed = false;
 
@@ -21,5 +10,3 @@ namespace FightTheEvilOverlord
             this.render.AddInLists(image, source);
             this.render.start();
         }
-    }
-}
