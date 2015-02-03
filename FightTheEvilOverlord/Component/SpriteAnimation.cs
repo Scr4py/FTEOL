@@ -11,7 +11,6 @@ namespace FightTheEvilOverlord
     class SpriteAnimation : Component
     {
         private Dictionary<string, Rectangle[]> dictionary = new Dictionary<string, Rectangle[]>();
-        private string atlasName;
         private int frame;
         public float AnimationSpeed = 100;
         private float timer;
