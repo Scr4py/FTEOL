@@ -42,6 +42,7 @@
     <Compile Include="Component\MouseInteractive.cs" />
     <Compile Include="GameObjects\Map\Map.cs" />
     <Compile Include="GameObjects\Map\Tile.cs" />
+    <Compile Include="GameObjects\Map\Village.cs" />
     <Compile Include="GameObjects\Menue.cs" />
     <Compile Include="System\ICharacterInterface.cs" />
     <Compile Include="System\Component.cs" />

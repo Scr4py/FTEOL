@@ -28,10 +28,6 @@ namespace FightTheEvilOverlord
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
-            
-            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-
 
             Content.RootDirectory = "Content";
 

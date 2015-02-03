@@ -20,6 +20,7 @@ namespace FightTheEvilOverlord
         public Texture2D texVillage;
 
         Tile[,] tilesArray;
+        Village[,] villageArray;
         public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines, Texture2D texVillage)
         {
             this.texForrest = texForrest;
@@ -27,6 +28,7 @@ namespace FightTheEvilOverlord
             this.texPlaines = texPlaines;
             this.texVillage = texVillage;
             tilesArray = new Tile[mapWidth, mapHeight];
+            villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
             generateVillages();
         }
@@ -68,22 +70,22 @@ namespace FightTheEvilOverlord
         public void generateVillages()
         {
             tilesArray[mapWidth / 5, mapHeight / 5] = null;
-            tilesArray[mapWidth / 5, mapHeight / 5] = new Tile(texVillage, mapWidth / 5, mapHeight / 5, "village");
+            villageArray[mapWidth / 5, mapHeight / 5] = new Village(texVillage, mapWidth / 5, mapHeight / 5);
 
             tilesArray[mapWidth / 2, mapHeight / 2] = null;
-            tilesArray[mapWidth / 2, mapHeight / 2] = new Tile(texVillage, mapWidth / 2, mapHeight / 2, "village");
+            villageArray[mapWidth / 2, mapHeight / 2] = new Village(texVillage, mapWidth / 2, mapHeight / 2);
 
             tilesArray[mapWidth / 3 + 3, mapHeight / 4] = null;
-            tilesArray[mapWidth / 3 + 3, mapHeight / 4] = new Tile(texVillage, mapWidth / 3 + 3, mapHeight / 4, "village");
+            villageArray[mapWidth / 3 + 3, mapHeight / 4] = new Village(texVillage, mapWidth / 3 + 3, mapHeight / 4);
 
             tilesArray[mapWidth - 5, mapHeight - 4] = null;
-            tilesArray[mapWidth - 5, mapHeight - 4] = new Tile(texVillage, mapWidth - 5, mapHeight - 4, "village");
+            villageArray[mapWidth - 5, mapHeight - 4] = new Village(texVillage, mapWidth - 5, mapHeight - 4);
 
             tilesArray[mapWidth / 5, mapHeight - 4] = null;
-            tilesArray[mapWidth / 5, mapHeight - 4] = new Tile(texVillage, mapWidth / 5, mapHeight - 4, "village");
+            villageArray[mapWidth / 5, mapHeight - 4] = new Village(texVillage, mapWidth / 5, mapHeight - 4);
 
             tilesArray[mapWidth - 6, mapHeight / 2 - 4] = null;
-            tilesArray[mapWidth - 6, mapHeight / 2 - 4] = new Tile(texVillage, mapWidth - 6, mapHeight / 2 - 4, "village");
+            villageArray[mapWidth - 6, mapHeight / 2 - 4] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 4);
         }
     }
 }
