@@ -28,7 +28,7 @@ namespace FightTheEvilOverlord
             this.texVillage = texVillage;
             tilesArray = new Tile[mapWidth, mapHeight];
             generateTiles();
-            //generateVillages();
+            generateVillages();
         }
 
         public void generateTiles()
@@ -67,8 +67,23 @@ namespace FightTheEvilOverlord
 
         public void generateVillages()
         {
-            tilesArray[mapHeight / 5, mapWidth / 5] = null;
-            tilesArray[mapHeight / 5, mapWidth / 5] = new Tile(texVillage, mapWidth / 5, mapHeight / 5, "village");
+            tilesArray[mapWidth / 5, mapHeight / 5] = null;
+            tilesArray[mapWidth / 5, mapHeight / 5] = new Tile(texVillage, mapWidth / 5, mapHeight / 5, "village");
+
+            tilesArray[mapWidth / 2, mapHeight / 2] = null;
+            tilesArray[mapWidth / 2, mapHeight / 2] = new Tile(texVillage, mapWidth / 2, mapHeight / 2, "village");
+
+            tilesArray[mapWidth / 3 + 3, mapHeight / 4] = null;
+            tilesArray[mapWidth / 3 + 3, mapHeight / 4] = new Tile(texVillage, mapWidth / 3 + 3, mapHeight / 4, "village");
+
+            tilesArray[mapWidth - 5, mapHeight - 4] = null;
+            tilesArray[mapWidth - 5, mapHeight - 4] = new Tile(texVillage, mapWidth - 5, mapHeight - 4, "village");
+
+            tilesArray[mapWidth / 5, mapHeight - 4] = null;
+            tilesArray[mapWidth / 5, mapHeight - 4] = new Tile(texVillage, mapWidth / 5, mapHeight - 4, "village");
+
+            tilesArray[mapWidth - 6, mapHeight / 2 - 4] = null;
+            tilesArray[mapWidth - 6, mapHeight / 2 - 4] = new Tile(texVillage, mapWidth - 6, mapHeight / 2 - 4, "village");
         }
     }
 }
