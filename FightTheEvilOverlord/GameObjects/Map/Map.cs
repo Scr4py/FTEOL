@@ -36,7 +36,7 @@ namespace FightTheEvilOverlord
                 {
                     Tile tile = new Tile(getTileTexture(), x, y);
                     this.tilesArray[x, y] = tile;
-                    System.Threading.Thread.Sleep(2);
+                    System.Threading.Thread.Sleep(1);
                 }
             }
         }
