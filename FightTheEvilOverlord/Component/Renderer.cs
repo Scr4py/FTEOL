@@ -10,6 +10,7 @@ namespace FightTheEvilOverlord
 {
     class Renderer : Component
     {
+        public const float scale = 0.3f;
         Transform transform;
         Texture2D image;
 
@@ -21,7 +22,7 @@ namespace FightTheEvilOverlord
 
         private void Render(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(this.image, this.transform.Position, Color.White);
+            spriteBatch.Draw(this.image, this.transform.Position, null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
         }
 
         public void Render(Texture2D image)

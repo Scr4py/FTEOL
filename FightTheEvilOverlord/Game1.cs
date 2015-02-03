@@ -28,10 +28,12 @@ namespace FightTheEvilOverlord
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
+            
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+
+
             Content.RootDirectory = "Content";
-            this.graphics.PreferredBackBufferWidth = 1240;
-            this.graphics.PreferredBackBufferHeight = 720;
-            this.graphics.IsFullScreen = true;
 
             IsMouseVisible = true;
             
@@ -48,17 +50,19 @@ namespace FightTheEvilOverlord
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //this.background = new Background(Content.Load<Texture2D>("Background-Test"), new Rectangle(0,0,800,600));
-            this.map = new Map(Content.Load<Texture2D>("berg_tile"));
-            this.play = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
-            this.play.GetComponent<Transform>().Position = new Vector2(300, 150);
-            this.startImage = new Menue(Content.Load<Texture2D>("Start"), new Rectangle(0, 0, 200, 75));
-            this.startImage.GetComponent<Transform>().Position = new Vector2(300, 150);
-            this.option = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
-            this.option.GetComponent<Transform>().Position = new Vector2(300,250);
-            this.credits = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
-            this.credits.GetComponent<Transform>().Position = new Vector2(300, 350);
-            this.exit = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
-            this.exit.GetComponent<Transform>().Position = new Vector2(300, 450);
+            this.map = new Map(Content.Load<Texture2D>("berg_tile"), Content.Load<Texture2D>("wald_tile"), Content.Load<Texture2D>("wiese_tile"), Content.Load<Texture2D>("dorf_tile"));
+            //this.play = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
+            //this.play.GetComponent<Transform>().Position = new Vector2(300, 150);
+            //this.startImage = new Menue(Content.Load<Texture2D>("Start"), new Rectangle(0, 0, 200, 75));
+            //this.startImage.GetComponent<Transform>().Position = new Vector2(300, 150);
+            //this.option = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
+            //this.option.GetComponent<Transform>().Position = new Vector2(300,250);
+            //this.credits = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
+            //this.credits.GetComponent<Transform>().Position = new Vector2(300, 350);
+            //this.exit = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
+            //this.exit.GetComponent<Transform>().Position = new Vector2(300, 450);
+            graphics.IsFullScreen = true;
+
         }
 
       

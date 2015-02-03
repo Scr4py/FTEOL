@@ -12,37 +12,50 @@ namespace FightTheEvilOverlord
         public const int TileWidth = 32;
         public const int TileHeight = 32;
 
-        int mapHeight = 13;
-        int mapWidth = 23;
+        int mapHeight = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (200 * Renderer.scale));
+        int mapWidth = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (169 * Renderer.scale));
 
-        public Texture2D Tiles;
-        Transform transform;
-        Renderer render;
+        public Texture2D texMountain;
+        public Texture2D texForrest;
+        public Texture2D texPlaines;
         Tile[,] tilesArray;
-        public Map(Texture2D tex)
+        public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines,Texture2D texVillage)
         {
-            //this.mapHeight = y;
-            //this.mapWidth = x;
-            this.Tiles = tex;
-            this.transform = this.AddComponent<Transform>();
-            this.render = this.AddComponent<Renderer>();
-            this.render.Render(tex);
-            this.render.start();
+            this.texForrest = texForrest;
+            this.texMountain = texMountain;
+            this.texPlaines = texPlaines;
             tilesArray = new Tile[mapWidth, mapHeight];
+            generateTiles();
         }
 
-        public void generateAndDrawTiles(SpriteBatch spritebatch)
+        public void generateTiles()
         {
             for (int y = 0; y < mapHeight; y++)
             {
                 for (int x = 0; x < mapWidth; x++)
                 {
-                    Tile tile = new Tile();
+                    Tile tile = new Tile(getTileTexture(), x, y);
                     this.tilesArray[x, y] = tile;
-                    Vector2 position = new Vector2(x * TileWidth, y * TileHeight);
-                    Rectangle sourceRect = new Rectangle((int)tile.Type * TileWidth, 0, TileWidth, TileHeight);
-                    spritebatch.Draw(this.Tiles, position, sourceRect, Color.White);
+                    System.Threading.Thread.Sleep(2);
                 }
+            }
+        }
+
+        public Texture2D getTileTexture()
+        {
+            Random rnd = new Random();
+            int i = rnd.Next(0,3);
+            if (i == 1)
+            {
+                return texForrest;
+            }
+            else if (i == 2)
+            {
+                return texMountain;
+            }
+            else
+            {
+                return texPlaines;
             }
         }
     }
