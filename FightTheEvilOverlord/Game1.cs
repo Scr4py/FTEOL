@@ -29,8 +29,12 @@ namespace FightTheEvilOverlord
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            this.graphics.PreferredBackBufferWidth = 1240;
+            this.graphics.PreferredBackBufferHeight = 720;
+            this.graphics.IsFullScreen = true;
+
             IsMouseVisible = true;
-            graphics.IsFullScreen = true;
+            
         }
 
 
