@@ -27,11 +27,11 @@ namespace FightTheEvilOverlord
             getStartSoldier();
 
             this.transform = this.AddComponent<Transform>();
-            this.render = this.AddComponent<Renderer>();
+            this.unitRender = this.AddComponent<UnitRenderer>();
             //TODO: replace int 10 with half of screen rest size
-            this.transform.Position = new Vector2(tile.transform.Position.X, tile.transform.Position.Y);
-            this
-            this.render.start();
+            this.transform.Position = new Vector2((tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
+            this.unitRender.SetImage(image);
+            this.unitRender.start();
         }
 
         void getStartSoldier()

@@ -56,7 +56,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Component\Transform.cs" />
-    <Compile Include="UnitRenderer.cs" />
+    <Compile Include="Component\UnitRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">
