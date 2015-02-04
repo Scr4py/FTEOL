@@ -9,8 +9,8 @@ namespace FightTheEvilOverlord
 {
     class Map : GameObject
     {
-        int mapHeight = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (200 * Renderer.scale));
-        int mapWidth = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (169 * Renderer.scale));
+        int mapHeight = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (1260 * Renderer.scale));
+        int mapWidth = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1065 * Renderer.scale));
 
         string Type;
 
@@ -84,8 +84,8 @@ namespace FightTheEvilOverlord
             tilesArray[mapWidth / 5, mapHeight - 4] = null;
             villageArray[mapWidth / 5, mapHeight - 4] = new Village(texVillage, mapWidth / 5, mapHeight - 4);
 
-            tilesArray[mapWidth - 6, mapHeight / 2 - 4] = null;
-            villageArray[mapWidth - 6, mapHeight / 2 - 4] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 4);
+            tilesArray[mapWidth - 6, mapHeight / 2 - 2] = null;
+            villageArray[mapWidth - 6, mapHeight / 2 - 2] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 2);
         }
     }
 }

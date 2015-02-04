@@ -40,10 +40,6 @@ C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\M
 C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\OpenTK.dll
 C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Tao.Sdl.dll
 C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.csprojResolveAssemblyReference.cache
-C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\berg_tile.png
-C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\dorf_tile.png
-C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\wald_tile.png
-C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\wiese_tile.png
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.exe
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.pdb
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\SDL.dll
@@ -66,3 +62,8 @@ C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\dorf_tile.png
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\wald_tile.png
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\wiese_tile.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\forest_tile.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\mountain_tile.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\plains_tile.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\village_tile_wip.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\wheat_tile.png

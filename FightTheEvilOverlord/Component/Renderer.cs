@@ -10,7 +10,7 @@ namespace FightTheEvilOverlord
 {
     class Renderer : Component
     {
-        public const float scale = 0.3f;
+        public const float scale = 0.08f;
         Transform transform;
         Texture2D image;
 

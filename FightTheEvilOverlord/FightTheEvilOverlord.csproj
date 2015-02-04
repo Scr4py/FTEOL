@@ -44,7 +44,10 @@
     <Compile Include="GameObjects\Map\Tile.cs" />
     <Compile Include="GameObjects\Map\Village.cs" />
     <Compile Include="GameObjects\Menue.cs" />
-    <Compile Include="System\ICharacterInterface.cs" />
+    <Compile Include="GameObjects\Units\Archer.cs" />
+    <Compile Include="GameObjects\Units\swordsMen.cs" />
+    <Compile Include="GameObjects\Units\flyingPigs.cs" />
+    <Compile Include="GameObjects\Units\UnitSpawner.cs" />
     <Compile Include="System\Component.cs" />
     <Compile Include="System\EventManager.cs" />
     <Compile Include="Game1.cs" />
@@ -77,13 +80,16 @@
     <Content Include="Content\Background-Test.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\berg_tile.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\dorf_tile.png">
+    <Content Include="Content\forest_tile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\mountain_tile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\plains_tile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Start.png">
@@ -92,10 +98,10 @@
     <Content Include="Content\test.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\wald_tile.png">
+    <Content Include="Content\village_tile_wip.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\wiese_tile.png">
+    <Content Include="Content\wheat_tile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />

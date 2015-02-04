@@ -11,6 +11,10 @@ namespace FightTheEvilOverlord
     {
         string Type;
 
+        public flyingPigs pigs;
+        public swordsMen swords;
+        public Archer archer;
+
         Renderer render;
         Transform transform;
         public Tile(Texture2D image, int x, int y, string Type)
@@ -18,7 +22,7 @@ namespace FightTheEvilOverlord
             this.transform = this.AddComponent<Transform>();
             this.render = this.AddComponent<Renderer>();
             //TODO: replace int 10 with half of screen rest size
-            this.transform.Position = new Vector2(x * 169 * Renderer.scale + 10, getPosition(x, y) * Renderer.scale + 10);
+            this.transform.Position = new Vector2(x * 1065 * Renderer.scale + 10, getPosition(x, y) * Renderer.scale + 10);
             this.render.Render(image);
             this.render.start();
 
@@ -29,12 +33,12 @@ namespace FightTheEvilOverlord
         {
             if (x % 2 == 0)
             {
-                return y * 200;
+                return y * 1260;
             }
 
             else
             {
-                return (y * 200) + 100;
+                return (y * 1260) + 628;
             }
         }
     }
