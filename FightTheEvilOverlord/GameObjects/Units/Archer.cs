@@ -8,7 +8,7 @@ namespace FightTheEvilOverlord
     class Archer : GameObject
     {
         public int number;
-        public int owner;
+        public Player player;
         public Tile tile;
         public Archer(Tile tile)
         {

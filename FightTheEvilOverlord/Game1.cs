@@ -23,10 +23,15 @@ namespace FightTheEvilOverlord
         Menue option;
         Menue credits;
         Menue exit;
-        
-        Map map;
 
         UnitSpawner spawner;
+
+        Player pigPlayer;
+        Player archerPlayer;
+        Player swordPlayer;
+        Player evilOverLord;
+
+        Map map;
 
         public Game1()
             : base()
@@ -48,7 +53,7 @@ namespace FightTheEvilOverlord
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //this.background = new Background(Content.Load<Texture2D>("Background-Test"), new Rectangle(0,0,800,600));
-            this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"));
+            this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"));
             //this.spawner = new UnitSpawner();
             //this.play = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             //this.play.GetComponent<Transform>().Position = new Vector2(300, 150);
@@ -60,6 +65,8 @@ namespace FightTheEvilOverlord
             //this.credits.GetComponent<Transform>().Position = new Vector2(300, 350);
             //this.exit = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             //this.exit.GetComponent<Transform>().Position = new Vector2(300, 450);
+            spawner = new UnitSpawner(Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("sword_unit"), Content.Load<Texture2D>("bow_unit"));
+            this.pigPlayer = new Player(1, 2, spawner, this.map.tilesArray[1, map.mapHeight / 2], Content.Load<Texture2D>("pig_unit"));
             graphics.IsFullScreen = true;
 
         }

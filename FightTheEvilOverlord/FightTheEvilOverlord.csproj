@@ -44,10 +44,11 @@
     <Compile Include="GameObjects\Map\Tile.cs" />
     <Compile Include="GameObjects\Map\Village.cs" />
     <Compile Include="GameObjects\Menue.cs" />
+    <Compile Include="GameObjects\Player.cs" />
     <Compile Include="GameObjects\Units\Archer.cs" />
     <Compile Include="GameObjects\Units\swordsMen.cs" />
     <Compile Include="GameObjects\Units\flyingPigs.cs" />
-    <Compile Include="GameObjects\Units\UnitSpawner.cs" />
+    <Compile Include="GameObjects\UnitSpawner.cs" />
     <Compile Include="System\Component.cs" />
     <Compile Include="System\EventManager.cs" />
     <Compile Include="Game1.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Component\Transform.cs" />
+    <Compile Include="UnitRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">
@@ -80,6 +82,9 @@
     <Content Include="Content\Background-Test.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\bow_unit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -89,10 +94,16 @@
     <Content Include="Content\mountain_tile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\pig_unit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\plains_tile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Start.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sword_unit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\test.mp4">

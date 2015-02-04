@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-
+using Microsoft.Xna.Framework.Graphics;
 
 namespace FightTheEvilOverlord
 {
-    class Renderer : Component
+    class UnitRenderer : Component
     {
         public const float scale = 0.08f;
         Transform transform;
@@ -34,5 +33,6 @@ namespace FightTheEvilOverlord
         {
             EventManager.OnRender -= Render;
         }
+
     }
 }

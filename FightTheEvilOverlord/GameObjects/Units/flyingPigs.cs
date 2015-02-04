@@ -8,7 +8,7 @@ namespace FightTheEvilOverlord
     class flyingPigs : GameObject
     {
         public int number;
-        public string owner;
+        public Player player;
         public Tile tile;
         public flyingPigs(Tile tile)
         {
