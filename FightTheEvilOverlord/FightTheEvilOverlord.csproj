@@ -35,6 +35,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Component\CheckButtonPress.cs" />
+    <Compile Include="Component\UnitMovement.cs" />
     <Compile Include="GameObjects\Background.cs" />
     <Compile Include="Component\CompoundRenderer.cs" />
     <Compile Include="Component\SpriteAnimation.cs" />
@@ -46,8 +48,8 @@
     <Compile Include="GameObjects\Menue.cs" />
     <Compile Include="GameObjects\Player.cs" />
     <Compile Include="GameObjects\Units\Archer.cs" />
-    <Compile Include="GameObjects\Units\swordsMen.cs" />
-    <Compile Include="GameObjects\Units\flyingPigs.cs" />
+    <Compile Include="GameObjects\Units\SwordsMen.cs" />
+    <Compile Include="GameObjects\Units\FlyingPigs.cs" />
     <Compile Include="GameObjects\UnitSpawner.cs" />
     <Compile Include="System\Component.cs" />
     <Compile Include="System\EventManager.cs" />

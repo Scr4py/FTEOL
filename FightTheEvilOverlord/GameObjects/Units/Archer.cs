@@ -8,11 +8,21 @@ namespace FightTheEvilOverlord
     class Archer : GameObject
     {
         public int number;
-        public Player player;
         public Tile tile;
-        public Archer(Tile tile)
+        public Player player;
+        public int playerNumber;
+        public int activeSoldiers;
+        public int soldiersNumber;
+
+
+        public Archer(Tile Spawntile, int PlayerNumber, int ActiveSoldiers, int SoldiersNumber)
         {
-            this.tile = tile;
+            
+
+            this.tile = Spawntile;
+            this.playerNumber = PlayerNumber;
+            this.activeSoldiers = ActiveSoldiers;
+            this.soldiersNumber = SoldiersNumber;
         }
     }
 }

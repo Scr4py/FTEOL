@@ -11,9 +11,14 @@ namespace FightTheEvilOverlord
     {
         string Type;
 
-        public flyingPigs pigs;
-        public swordsMen swords;
+        public FlyingPigs pigs;
+        public SwordsMen swords;
         public Archer archer;
+        float tileWidth;
+        float tileHeight;
+
+        CheckButtonPress checkPress;
+        MouseInteractive mouseInteractive;
 
         Renderer render;
         public Transform transform;
@@ -21,12 +26,29 @@ namespace FightTheEvilOverlord
         {
             this.transform = this.AddComponent<Transform>();
             this.render = this.AddComponent<Renderer>();
+
             //TODO: replace int 10 with half of screen rest size
             this.transform.Position = new Vector2(x * 1065 * Renderer.scale + 10, getPosition(x, y) * Renderer.scale + 10);
             this.render.SetImage(image);
             this.render.start();
 
             this.Type = Type;
+
+            tileHeight = 1252 * Renderer.scale;
+            tileWidth = 1065 * Renderer.scale;
+
+            checkPress = new CheckButtonPress();
+            checkPress.SetBounds((int)this.transform.Position.X, (int)this.transform.Position.Y, (int)tileHeight, (int)tileWidth);
+
+            mouseInteractive = new MouseInteractive();
+            mouseInteractive.Start();
+            MouseInteractive.OnClick += OnClick;
+
+
+        }
+
+        void OnClick(int mouseX, int mouseY)
+        {
         }
 
         public int getPosition(int x, int y)

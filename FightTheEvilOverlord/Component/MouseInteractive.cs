@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 
@@ -9,19 +6,37 @@ namespace FightTheEvilOverlord
 {
     class MouseInteractive : Component
     {
-      public delegate void OnClickEventHandler();
-      public static event OnClickEventHandler OnClick = delegate { };
+        int mouseX;
+        int mouseY;
 
-      Rectangle mouseRectangle;
+        public delegate void OnClickEventHandler(int mouseX, int mouseY);
+        public static event OnClickEventHandler OnClick = delegate { };
 
-      public void start()
+      public void Start()
       {
-          EventManager.OnUpdate += Update;
+          EventManager.OnUpdate += OnUpdate;
       }
 
-      private void Update(GameTime gameTime)
+      void OnUpdate(GameTime gameTime)
       {
-          
+          this.getMouseInput();
+          Console.WriteLine(11);
+      }
+
+      void getMouseInput()
+      {
+          MouseState mouseState = Mouse.GetState();
+
+          if(mouseState.LeftButton == ButtonState.Pressed)
+          {
+              OnClick(mouseState.Position.X, mouseState.Position.Y);
+          }
+      }
+
+      public override void Destroy()
+      {
+          EventManager.OnUpdate -= OnUpdate;
+          base.Destroy();
       }
     }
 }

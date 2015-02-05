@@ -5,14 +5,21 @@ using System.Text;
 
 namespace FightTheEvilOverlord
 {
-    class flyingPigs : GameObject
+    class FlyingPigs : GameObject
     {
         public int number;
-        public Player player;
         public Tile tile;
-        public flyingPigs(Tile tile)
+        public Player player;
+        public int playerNumber;
+        public int activeSoldiers;
+        public int soldiersNumber;
+
+        public FlyingPigs(Tile Spawntile, int PlayerNumber, int ActiveSoldiers, int SoldiersNumber)
         {
-            this.tile = tile;
+            this.tile = Spawntile;
+            this.playerNumber = PlayerNumber;
+            this.activeSoldiers = ActiveSoldiers;
+            this.soldiersNumber = SoldiersNumber;
         }
     }
 }

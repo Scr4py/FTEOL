@@ -11,9 +11,9 @@ namespace FightTheEvilOverlord
     {
         public int playerNumber;
         int unitNumber;
-        Archer[] archerArray;
-        flyingPigs[] pigArray;
-        swordsMen[] swordArray;
+        //Archer[] archerArray;
+        //FlyingPigs[] pigArray;
+        //SwordsMen[] swordArray;
         Tile startTile;
         Transform transform;
         UnitRenderer unitRender;
