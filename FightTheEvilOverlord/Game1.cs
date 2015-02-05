@@ -31,6 +31,8 @@ namespace FightTheEvilOverlord
         Player swordPlayer;
         Player evilOverLord;
 
+        GameManager gameManager;
+
         Map map;
 
         public Game1()
@@ -39,7 +41,6 @@ namespace FightTheEvilOverlord
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            
         }
 
 
@@ -69,6 +70,7 @@ namespace FightTheEvilOverlord
             this.pigPlayer = new Player(1, 2, spawner, this.map.tilesArray[1, map.mapHeight / 2], Content.Load<Texture2D>("pig_unit"));
             this.archerPlayer = new Player(0, 2, spawner, this.map.tilesArray[1, 1], Content.Load<Texture2D>("bow_unit"));
             this.swordPlayer = new Player(2, 2, spawner, this.map.tilesArray[1, map.mapHeight - 2], Content.Load<Texture2D>("sword_unit"));
+            this.gameManager = new GameManager(pigPlayer, archerPlayer, swordPlayer, swordPlayer, map);
             graphics.IsFullScreen = true;
 
         }

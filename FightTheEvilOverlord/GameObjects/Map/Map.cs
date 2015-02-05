@@ -32,7 +32,7 @@ namespace FightTheEvilOverlord
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
-            generateVillages();
+            //generateVillages();
         }
 
         public void generateTiles()

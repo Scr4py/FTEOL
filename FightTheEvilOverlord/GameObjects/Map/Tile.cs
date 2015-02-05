@@ -14,11 +14,19 @@ namespace FightTheEvilOverlord
         public FlyingPigs pigs;
         public SwordsMen swords;
         public Archer archer;
-        float tileWidth;
-        float tileHeight;
+
+        private List<Tile> nextTiles = new List<Tile>();
+
+        public bool isActive;
+
+        public int owner;
+
+        public float tileWidth;
+        public float tileHeight;
+
+        public Texture2D image;
 
         CheckButtonPress checkPress;
-        MouseInteractive mouseInteractive;
 
         Renderer render;
         public Transform transform;
@@ -37,14 +45,9 @@ namespace FightTheEvilOverlord
             tileHeight = 1252 * Renderer.scale;
             tileWidth = 1065 * Renderer.scale;
 
+
             checkPress = new CheckButtonPress();
             checkPress.SetBounds((int)this.transform.Position.X, (int)this.transform.Position.Y, (int)tileHeight, (int)tileWidth);
-
-            mouseInteractive = new MouseInteractive();
-            mouseInteractive.Start();
-            MouseInteractive.OnClick += OnClick;
-
-
         }
 
         void OnClick(int mouseX, int mouseY)
@@ -68,8 +71,5 @@ namespace FightTheEvilOverlord
         {
             render.SetImage(null);
         }
-
-        
-
     }
 }

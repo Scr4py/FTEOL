@@ -12,14 +12,14 @@ namespace FightTheEvilOverlord
         public Player player;
         public int playerNumber;
         public int activeSoldiers;
-        public int soldiersNumber;
+        public int totalSoldiers;
 
         public FlyingPigs(Tile Spawntile, int PlayerNumber, int ActiveSoldiers, int SoldiersNumber)
         {
             this.tile = Spawntile;
             this.playerNumber = PlayerNumber;
             this.activeSoldiers = ActiveSoldiers;
-            this.soldiersNumber = SoldiersNumber;
+            this.totalSoldiers = SoldiersNumber;
         }
     }
 }

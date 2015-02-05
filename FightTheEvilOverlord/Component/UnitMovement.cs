@@ -7,41 +7,29 @@ namespace FightTheEvilOverlord
 {
     class UnitMovement : Component
     {
-        Tile tile;
-        int movedSoldiers;
-        int activeSoldiers;
-        string unitType;
 
-        void Start (Tile tile, int movedSoldiers)
+        public void initilateMovement (Tile beginningTile, Tile destinationTile, int toMoveSoldiers, Player player)
         {
-            this.tile = tile;
-            this.movedSoldiers = movedSoldiers;
+            if (beginningTile.isActive)
+            {
+                Console.WriteLine("dritter");
+                if (beginningTile.archer != null)
+                {
+                    beginningTile.archer.activeSoldiers -= toMoveSoldiers;
+                    beginningTile.archer.totalSoldiers -= toMoveSoldiers;
+
+                    if (destinationTile.archer != null)
+                    {
+                        destinationTile.archer.totalSoldiers += toMoveSoldiers;
+                    }
+                    else
+                    {
+                        destinationTile.archer = new Archer(destinationTile, player.playerNumber, 0, toMoveSoldiers);
+                    }
+                }
+            }
         }
 
-        string getUnitType()
-        {
-            if(tile.archer.activeSoldiers != 0)
-            {
-                this.activeSoldiers = tile.archer.activeSoldiers;
-                return "archer";
-            }
-
-            else if (tile.pigs.activeSoldiers != 0)
-            {
-                this.activeSoldiers = tile.archer.activeSoldiers;
-                return "pigs";
-            }
-
-            else if (tile.swords.activeSoldiers != 0)
-            {
-                this.activeSoldiers = tile.swords.activeSoldiers;
-                return "swords";
-            }
-            else
-            {
-                return null;
-            }
-        }
 
         void Move(string unitType)
         {

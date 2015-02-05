@@ -37,11 +37,11 @@
   <ItemGroup>
     <Compile Include="Component\CheckButtonPress.cs" />
     <Compile Include="Component\UnitMovement.cs" />
+    <Compile Include="System\GameManager.cs" />
     <Compile Include="GameObjects\Background.cs" />
     <Compile Include="Component\CompoundRenderer.cs" />
     <Compile Include="Component\SpriteAnimation.cs" />
     <Compile Include="Component\Renderer.cs" />
-    <Compile Include="Component\MouseInteractive.cs" />
     <Compile Include="GameObjects\Map\Map.cs" />
     <Compile Include="GameObjects\Map\Tile.cs" />
     <Compile Include="GameObjects\Map\Village.cs" />
