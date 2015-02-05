@@ -63,5 +63,13 @@ namespace FightTheEvilOverlord
                 return (y * 1252) + 628;
             }
         }
+
+        public void RemoveTile()
+        {
+            render.SetImage(null);
+        }
+
+        
+
     }
 }

@@ -32,6 +32,7 @@ namespace FightTheEvilOverlord
         public override void Destroy()
         {
             EventManager.OnRender -= Render;
+            base.Destroy();
         }
 
     }

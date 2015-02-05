@@ -22,7 +22,10 @@ namespace FightTheEvilOverlord
 
         private void Render(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(this.image, this.transform.Position, null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+            if (this.image != null)
+            {
+                spriteBatch.Draw(this.image, this.transform.Position, null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+            }
         }
 
         public void SetImage(Texture2D image)

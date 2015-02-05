@@ -76,23 +76,29 @@ namespace FightTheEvilOverlord
 
         public void generateVillages()
         {
-            tilesArray[mapWidth / 5, mapHeight / 5] = null;
+            RemoveTile(mapWidth / 5, mapHeight / 5);
             villageArray[mapWidth / 5, mapHeight / 5] = new Village(texVillage, mapWidth / 5, mapHeight / 5);
 
-            tilesArray[mapWidth / 2, mapHeight / 2] = null;
+            RemoveTile(mapWidth / 2, mapHeight / 2);
             villageArray[mapWidth / 2, mapHeight / 2] = new Village(texVillage, mapWidth / 2, mapHeight / 2);
 
-            tilesArray[mapWidth / 3 + 3, mapHeight / 4] = null;
+            RemoveTile(mapWidth / 3 + 3, mapHeight / 4);
             villageArray[mapWidth / 3 + 3, mapHeight / 4] = new Village(texVillage, mapWidth / 3 + 3, mapHeight / 4);
 
-            tilesArray[mapWidth - 5, mapHeight - 4] = null;
+            RemoveTile(mapWidth - 5, mapHeight - 4);
             villageArray[mapWidth - 5, mapHeight - 4] = new Village(texVillage, mapWidth - 5, mapHeight - 4);
 
-            tilesArray[mapWidth / 5, mapHeight - 4] = null;
+            RemoveTile(mapWidth / 5, mapHeight - 4);
             villageArray[mapWidth / 5, mapHeight - 4] = new Village(texVillage, mapWidth / 5, mapHeight - 4);
 
-            tilesArray[mapWidth - 6, mapHeight / 2 - 2] = null;
+            RemoveTile(mapWidth - 6, mapHeight / 2 - 2);
             villageArray[mapWidth - 6, mapHeight / 2 - 2] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 2);
+        }
+
+        void RemoveTile(int tileX,int tileY)
+        {
+            tilesArray[tileX, tileY].RemoveTile();
+            tilesArray[tileX, tileY] = null;
         }
     }
 }

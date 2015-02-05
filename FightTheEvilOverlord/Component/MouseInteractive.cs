@@ -20,7 +20,6 @@ namespace FightTheEvilOverlord
       void OnUpdate(GameTime gameTime)
       {
           this.getMouseInput();
-          Console.WriteLine(11);
       }
 
       void getMouseInput()
