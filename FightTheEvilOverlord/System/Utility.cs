@@ -7,6 +7,6 @@ namespace FightTheEvilOverlord
 {
     static class Utility
     {
-        public static int activePlayerNumber;
+        public static int activePlayerNumber = 0;
     }
 }

@@ -28,7 +28,7 @@ namespace FightTheEvilOverlord
             }
             else
             {
-                tile.pigs = new FlyingPigs(tile, player.playerNumber, 0, unitNumber);
+                tile.pigs = new FlyingPigs(tile, player.playerNumber, 0, unitNumber, pigTex, player, null);
             }
         }
 
@@ -40,7 +40,7 @@ namespace FightTheEvilOverlord
             }
             else
             {
-                tile.swords = new SwordsMen(tile, player.playerNumber, 0, unitNumber);
+                tile.swords = new SwordsMen(tile, player.playerNumber, 0, unitNumber, swordTex, player, null);
             }
         }
 
@@ -52,7 +52,7 @@ namespace FightTheEvilOverlord
             }
             else
             {
-                tile.archer = new Archer(tile, player.playerNumber, 0, unitNumber, archTex, player);
+                tile.archer = new Archer(tile, player.playerNumber, 0, unitNumber, archTex, player, null);
             }
         }
     }

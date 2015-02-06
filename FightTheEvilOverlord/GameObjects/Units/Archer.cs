@@ -12,6 +12,7 @@ namespace FightTheEvilOverlord
     {
         public int number;
         public Tile tile;
+        Tile lastTile;
         public Player owner;
         public int playerNumber;
         public int activeSoldiers;
@@ -25,8 +26,9 @@ namespace FightTheEvilOverlord
         Transform transform;
         UnitRenderer render;
 
-        public Archer(Tile Spawntile, int PlayerNumber, int ActiveSoldiers, int SoldiersNumber, Texture2D image, Player player)
+        public Archer(Tile Spawntile, int PlayerNumber, int ActiveSoldiers, int SoldiersNumber, Texture2D image, Player player, Archer lastArcher)
         {
+            removeLastArcher(lastArcher);
             this.owner = player;
             this.image = image;
             currentState = new MouseState();
@@ -37,7 +39,7 @@ namespace FightTheEvilOverlord
             EventManager.OnUpdate += Draw;
             this.transform = this.AddComponent<Transform>();
             this.render = this.AddComponent<UnitRenderer>();
-            this.transform.Position = new Vector2((tile.transform.Position.X) + ((470 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (tile.transform.Position.Y) + ((550 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
+            this.transform.Position = this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
             this.render.SetImage(image);
             this.render.start();
         }
@@ -47,43 +49,64 @@ namespace FightTheEvilOverlord
             lastState = currentState;
             currentState = Mouse.GetState();
 
-            if (currentState.LeftButton == ButtonState.Pressed && isColliding())
+            if (currentState.LeftButton == ButtonState.Pressed && isColliding(this.transform) && Utility.activePlayerNumber == owner.playerNumber && activeSoldiers != 0)
             {
                 if (Utility.activePlayerNumber == owner.playerNumber)
                 {
                     foreach (var nextTile in tile.nextTiles)
                     {
-                        nextTile.render.drawColor = Color.Green;
+                        if (nextTile.owner == 4 || nextTile.owner == 0)
+                        {
+                            nextTile.render.drawColor = Color.DodgerBlue;
+                        }
+                        if (isColliding(nextTile))
+                        {
+                            if (nextTile.owner == 4 || nextTile.owner == 0)
+                            {
+                                nextTile.render.drawColor = Color.Green;
+                            }
+                        }
                     }
                     this.transform.Position = new Vector2(currentState.Position.X - ((image.Width / 2) * UnitRenderer.scale), currentState.Position.Y - (image.Height / 2) * UnitRenderer.scale);
                 }
             }
-            else if (currentState.LeftButton == ButtonState.Released && lastState.LeftButton == ButtonState.Pressed)
+            else if (currentState.LeftButton == ButtonState.Released && lastState.LeftButton == ButtonState.Pressed && Utility.activePlayerNumber == owner.playerNumber && isColliding(this.transform))
             {
                 foreach (var nextTile in tile.nextTiles)
                 {
                     nextTile.render.drawColor = Color.White;
-                }
-                if (isInsideTile(tile))
-                {
-                    this.transform.Position = new Vector2((tile.transform.Position.X) + ((470 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (tile.transform.Position.Y) + ((550 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
-                }
-                foreach (var nextTile in tile.nextTiles)
-                {
-                    if (isInsideTile(nextTile))
+
+                    if (isColliding(nextTile) && activeSoldiers != 0 && nextTile.owner == 4)
                     {
+                        activeSoldiers = 0;
+                        this.lastTile = tile;
+                        this.tile.owner = 4;
                         this.tile = nextTile;
-                        this.transform.Position = new Vector2((tile.transform.Position.X) + ((470 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (tile.transform.Position.Y) + ((550 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
+                        this.tile.owner = 0;
+                        nextTile.archer = new Archer(nextTile, 0, 0, totalSoldiers, image, owner, this);
+                    }
+                    else if (isColliding(nextTile) && activeSoldiers != 0 && nextTile.owner == 0)
+                    {
+                        activeSoldiers = 0;
+                        this.tile.owner = 4;
+                        nextTile.archer.totalSoldiers += totalSoldiers;
+                        nextTile.archer.removeLastArcher(this);
+                    }
+                    else 
+                    {
+                        this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
                     }
                 }
             }
         }
 
-        private bool isColliding()
+        private bool isColliding(Tile toCheckTile)
         {
-            if (currentState.Position.X >= this.transform.Position.X && currentState.Position.Y >= this.transform.Position.Y)
+            if (currentState.Position.X >= toCheckTile.transform.Position.X + ((toCheckTile.image.Width * Renderer.scale) * 0.25)&&
+                currentState.Position.Y >= toCheckTile.transform.Position.Y)
             {
-                if (currentState.Position.X <= this.transform.Position.X + (image.Width * UnitRenderer.scale) && currentState.Position.Y <= this.transform.Position.Y + (image.Height * UnitRenderer.scale))
+                if (currentState.Position.X <= toCheckTile.transform.Position.X + ((toCheckTile.image.Width * Renderer.scale) * 0.75) &&
+                    currentState.Position.Y <= toCheckTile.transform.Position.Y + (toCheckTile.image.Height * Renderer.scale))
                 {
                     return true;
                 }
@@ -91,17 +114,27 @@ namespace FightTheEvilOverlord
             return false;
         }
 
-        private bool isInsideTile(Tile tile)
+        private bool isColliding(Transform toCheckTransform)
         {
-            Vector2 Position = new Vector2(this.transform.Position.X + ((image.Width / 2) * UnitRenderer.scale), this.transform.Position.Y + ((image.Height / 2) * UnitRenderer.scale));
-            if (Position.X >= tile.transform.Position.X && 
-                Position.X <= tile.transform.Position.X + tile.image.Width && 
-                Position.Y >= tile.transform.Position.Y && 
-                Position.Y <= tile.transform.Position.Y + tile.image.Height)
+            if (currentState.Position.X >= toCheckTransform.Position.X &&
+                currentState.Position.Y >= toCheckTransform.Position.Y)
             {
-                return true;
+                if (currentState.Position.X <= toCheckTransform.Position.X + (image.Width * UnitRenderer.scale) &&
+                    currentState.Position.Y <= toCheckTransform.Position.Y + (image.Height * UnitRenderer.scale))
+                {
+                    return true;
+                }
             }
             return false;
+        }
+
+        public void removeLastArcher(Archer archer)
+        {
+            if (archer !=null)
+            {
+                archer.render.Destroy();
+                archer = null;
+            }
         }
     }
 }

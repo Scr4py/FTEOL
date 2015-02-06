@@ -9,8 +9,8 @@ namespace FightTheEvilOverlord
 {
     class Map : GameObject
     {
-        public int mapHeight = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (1252 * Renderer.scale));
-        public int mapWidth = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1065 * Renderer.scale));
+        public int mapHeight = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (1252 * Renderer.scale)) / 2.5);
+        public int mapWidth = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1065 * Renderer.scale)) / 2.5);
 
         string Type;
 
@@ -110,38 +110,65 @@ namespace FightTheEvilOverlord
                 {
                     if (tilesArray[x,y] != null)
                     {
-                        if (x-1 >= 0 && x+1 <= mapWidth - 1)
+                        if (x % 2 == 0)
                         {
-                            if (tilesArray[x - 1, y] != null)
+                            if (y - 1 >= 0 && y + 1 <= mapHeight - 1 && x - 1 >= 0 && x + 1 <= mapWidth - 1)
                             {
-                                tilesArray[x, y].nextTiles.Add(tilesArray[x - 1, y]);
-                            }
-                            if (tilesArray[x + 1, y] != null)
-                            {
-                                tilesArray[x, y].nextTiles.Add(tilesArray[x + 1, y]);
-                            }
+                                if (tilesArray[x - 1, y - 1] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x - 1, y - 1]);
+                                }
+                                if (tilesArray[x + 1, y - 1] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x + 1, y - 1]);
+                                }
+                                if (tilesArray[x, y - 1] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x, y - 1]);
+                                }
+                                if (tilesArray[x, y + 1] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x, y + 1]);
+                                }
+                                if (tilesArray[x + 1, y] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x + 1, y]);
+                                }
+                                if (tilesArray[x - 1, y] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x - 1, y]);
+                                }
+                            }             
                         }
-                        if (y-1 >= 0 && y+1 <= mapHeight - 1)
+                        else
                         {
-                            if (tilesArray[x, y - 1] != null)
+                            if (y - 1 >= 0 && y + 1 <= mapHeight - 1 && x - 1 >= 0 && x + 1 <= mapWidth - 1)
                             {
-                                tilesArray[x, y].nextTiles.Add(tilesArray[x, y - 1]);
-                            }
-                            if (tilesArray[x, y + 1] != null)
-                            {
-                                tilesArray[x, y].nextTiles.Add(tilesArray[x, y + 1]);
-                            }
-                        }
-                        if (y-1 >= 0 && y+1 <= mapHeight - 1 && x-1 >= 0 && x+1 <= mapWidth - 1)
-                        {
-                            if (tilesArray[x + 1, y + 1] != null)
-                            {
-                                tilesArray[x, y].nextTiles.Add(tilesArray[x + 1, y + 1]);
-                            }
-                            if (tilesArray[x - 1, y + 1] != null)
-                            {
-                                tilesArray[x, y].nextTiles.Add(tilesArray[x - 1, y + 1]);
-                            }
+                                if (tilesArray[x - 1, y] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x - 1, y]);
+                                }
+                                if (tilesArray[x + 1, y] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x + 1, y]);
+                                }
+                                if (tilesArray[x, y - 1] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x, y - 1]);
+                                }
+                                if (tilesArray[x, y + 1] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x, y + 1]);
+                                }
+                                if (tilesArray[x + 1, y + 1] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x + 1, y + 1]);
+                                }
+                                if (tilesArray[x - 1, y + 1] != null)
+                                {
+                                    tilesArray[x, y].nextTiles.Add(tilesArray[x - 1, y + 1]);
+                                }
+                            }         
                         }
                     }
                 }

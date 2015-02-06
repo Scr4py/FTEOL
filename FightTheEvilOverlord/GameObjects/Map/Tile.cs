@@ -19,7 +19,7 @@ namespace FightTheEvilOverlord
 
         public bool isActive;
 
-        public int owner;
+        public int owner = 4;
 
         public float tileWidth;
         public float tileHeight;
@@ -28,10 +28,15 @@ namespace FightTheEvilOverlord
 
         CheckButtonPress checkPress;
 
+        public int mapX;
+        public int mapY;
+
         public Renderer render;
         public Transform transform;
         public Tile(Texture2D image, int x, int y, string Type)
         {
+            this.mapX = x;
+            this.mapY = y;
             this.image = image;
             this.transform = this.AddComponent<Transform>();
             this.render = this.AddComponent<Renderer>();
