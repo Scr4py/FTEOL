@@ -21,14 +21,9 @@ namespace FightTheEvilOverlord
         bool firstIsSet = false;
         bool lastPressed = false;
 
-        Map map;
-
-        int playerNumber;
+        public Map map;
 
         UnitMovement uM;
-
-        MouseState currentState;
-        MouseState lastState;
 
         public GameManager(Player pig, Player archer, Player swords, Player overlord, Map map)
         {
@@ -40,79 +35,38 @@ namespace FightTheEvilOverlord
             this.map = map;
             EventManager.OnUpdate += OnUpdate;
 
-            currentState = new MouseState();
         }
 
         private void OnUpdate(GameTime gameTime)
         {
-            input();
+
         }
 
         public void NextPlayer()
         {
-            if (playerNumber == 0)
+            if (Utility.activePlayerNumber == 0)
             {
                 activeplayer = this.archer;
-                setSoldiersToActive();
-                playerNumber++;
+                //setSoldiersToActive();
+                Utility.activePlayerNumber++;
             }
-            else if (playerNumber == 1)
+            else if (Utility.activePlayerNumber == 1)
             {
                 activeplayer = this.pig;
-                setSoldiersToActive();
-                playerNumber++;
+                //setSoldiersToActive();
+                Utility.activePlayerNumber++;
             }
-            else if (playerNumber == 2)
+            else if (Utility.activePlayerNumber == 2)
             {
                 activeplayer = this.swords;
-                setSoldiersToActive();
-                playerNumber++;
+                //setSoldiersToActive();
+                Utility.activePlayerNumber++;
             }
-            else if (playerNumber == 3)
+            else if (Utility.activePlayerNumber == 3)
             {
                 activeplayer = this.overlord;
-                setSoldiersToActive();
-                playerNumber = 0;
-            }
-        }
-
-
-
-        void input()
-        {
-            if (currentState.LeftButton == ButtonState.Pressed)
-            {
-                lastPressed = true;
-            }
-            else
-            {
-                lastPressed = false;
-            }
-            currentState = new MouseState();
-
-            if (!lastPressed && currentState.LeftButton == ButtonState.Pressed)
-            {
-                foreach (var tile in map.tilesArray)
-                {
-                    if (tile.transform.Position.X <= currentState.Position.X && tile.transform.Position.X + tile.tileWidth >= currentState.Position.X)
-                    {
-                        if (tile.transform.Position.Y <= currentState.Position.Y && tile.transform.Position.Y + tile.tileHeight >= currentState.Position.Y)
-                        {
-                            if (!firstIsSet)
-                            {
-                                firstTile = tile;
-                                firstIsSet = true;
-                                Console.WriteLine("erster");
-                            }
-                            else
-                            {
-                                secondTile = tile;
-                                uM.initilateMovement(firstTile, secondTile, 1, activeplayer);
-                                Console.WriteLine("zweiter");
-                            }
-                        }
-                    }
-                }
+                //setSoldiersToActive();
+                Utility.activePlayerNumber = 0;
             }
         }
 
@@ -120,25 +74,25 @@ namespace FightTheEvilOverlord
         {
             foreach (var tile in map.tilesArray)
             {
-                if (playerNumber == 0 && tile.owner == 0)
+                if (Utility.activePlayerNumber == 0 && tile.owner == 0)
                 {
                     tile.archer.activeSoldiers = tile.archer.totalSoldiers;
                     tile.isActive = true;
                 }
 
-                else if (playerNumber == 1 && tile.owner == 1)
+                else if (Utility.activePlayerNumber == 1 && tile.owner == 1)
                 {
                     tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
                     tile.isActive = true;
                 }
 
-                else if (playerNumber == 2 && tile.owner == 2)
+                else if (Utility.activePlayerNumber == 2 && tile.owner == 2)
                 {
                     tile.swords.activeSoldiers = tile.swords.totalSoldiers;
                     tile.isActive = true;
                 }
 
-                else if (playerNumber == 3 && tile.owner == 3)
+                else if (Utility.activePlayerNumber == 3 && tile.owner == 3)
                 {
                     tile.archer.activeSoldiers = tile.archer.totalSoldiers;
                     tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;

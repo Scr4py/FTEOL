@@ -13,7 +13,7 @@ namespace FightTheEvilOverlord
         public const float scale = 0.08f;
         Transform transform;
         Texture2D image;
-
+        public Color drawColor = Color.White;
         public void start()
         {
             this.transform = GameObject.GetComponent<Transform>();
@@ -24,7 +24,7 @@ namespace FightTheEvilOverlord
         {
             if (this.image != null)
             {
-                spriteBatch.Draw(this.image, this.transform.Position, null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+                spriteBatch.Draw(this.image, this.transform.Position, null, drawColor, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
             }
         }
 

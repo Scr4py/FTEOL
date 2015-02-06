@@ -32,6 +32,7 @@ namespace FightTheEvilOverlord
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
+            getNextTiles();
             //generateVillages();
         }
 
@@ -43,7 +44,7 @@ namespace FightTheEvilOverlord
                 {
                     Tile tile = new Tile(getTileTexture(), x, y, Type);
                     this.tilesArray[x, y] = tile;
-                    System.Threading.Thread.Sleep(10);
+                    System.Threading.Thread.Sleep(2);
                 }
             }
         }
@@ -99,6 +100,52 @@ namespace FightTheEvilOverlord
         {
             tilesArray[tileX, tileY].RemoveTile();
             tilesArray[tileX, tileY] = null;
+        }
+
+        void getNextTiles()
+        {
+            for (int y = 0; y < mapHeight; y++)
+            {
+                for (int x = 0; x < mapWidth; x++)
+                {
+                    if (tilesArray[x,y] != null)
+                    {
+                        if (x-1 >= 0 && x+1 <= mapWidth - 1)
+                        {
+                            if (tilesArray[x - 1, y] != null)
+                            {
+                                tilesArray[x, y].nextTiles.Add(tilesArray[x - 1, y]);
+                            }
+                            if (tilesArray[x + 1, y] != null)
+                            {
+                                tilesArray[x, y].nextTiles.Add(tilesArray[x + 1, y]);
+                            }
+                        }
+                        if (y-1 >= 0 && y+1 <= mapHeight - 1)
+                        {
+                            if (tilesArray[x, y - 1] != null)
+                            {
+                                tilesArray[x, y].nextTiles.Add(tilesArray[x, y - 1]);
+                            }
+                            if (tilesArray[x, y + 1] != null)
+                            {
+                                tilesArray[x, y].nextTiles.Add(tilesArray[x, y + 1]);
+                            }
+                        }
+                        if (y-1 >= 0 && y+1 <= mapHeight - 1 && x-1 >= 0 && x+1 <= mapWidth - 1)
+                        {
+                            if (tilesArray[x + 1, y + 1] != null)
+                            {
+                                tilesArray[x, y].nextTiles.Add(tilesArray[x + 1, y + 1]);
+                            }
+                            if (tilesArray[x - 1, y + 1] != null)
+                            {
+                                tilesArray[x, y].nextTiles.Add(tilesArray[x - 1, y + 1]);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

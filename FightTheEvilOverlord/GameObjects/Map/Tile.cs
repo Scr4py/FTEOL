@@ -15,7 +15,7 @@ namespace FightTheEvilOverlord
         public SwordsMen swords;
         public Archer archer;
 
-        private List<Tile> nextTiles = new List<Tile>();
+        public List<Tile> nextTiles = new List<Tile>();
 
         public bool isActive;
 
@@ -28,10 +28,11 @@ namespace FightTheEvilOverlord
 
         CheckButtonPress checkPress;
 
-        Renderer render;
+        public Renderer render;
         public Transform transform;
         public Tile(Texture2D image, int x, int y, string Type)
         {
+            this.image = image;
             this.transform = this.AddComponent<Transform>();
             this.render = this.AddComponent<Renderer>();
 
@@ -45,13 +46,13 @@ namespace FightTheEvilOverlord
             tileHeight = 1252 * Renderer.scale;
             tileWidth = 1065 * Renderer.scale;
 
-
             checkPress = new CheckButtonPress();
             checkPress.SetBounds((int)this.transform.Position.X, (int)this.transform.Position.Y, (int)tileHeight, (int)tileWidth);
         }
 
         void OnClick(int mouseX, int mouseY)
         {
+
         }
 
         public int getPosition(int x, int y)

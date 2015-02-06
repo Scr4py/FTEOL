@@ -115,3 +115,6 @@ C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Deb
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\OpenTK.dll
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Tao.Sdl.dll
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.csprojResolveAssemblyReference.cache
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\bow_unit.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\pig_unit.png
+C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\sword_unit.png

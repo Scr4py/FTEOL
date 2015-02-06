@@ -67,9 +67,9 @@ namespace FightTheEvilOverlord
             //this.exit = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             //this.exit.GetComponent<Transform>().Position = new Vector2(300, 450);
             spawner = new UnitSpawner(Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("sword_unit"), Content.Load<Texture2D>("bow_unit"));
-            this.pigPlayer = new Player(1, 2, spawner, this.map.tilesArray[1, map.mapHeight / 2], Content.Load<Texture2D>("pig_unit"));
-            this.archerPlayer = new Player(0, 2, spawner, this.map.tilesArray[1, 1], Content.Load<Texture2D>("bow_unit"));
-            this.swordPlayer = new Player(2, 2, spawner, this.map.tilesArray[1, map.mapHeight - 2], Content.Load<Texture2D>("sword_unit"));
+            this.pigPlayer = new Player(1, 2, spawner, this.map.tilesArray[1, map.mapHeight / 2], Content.Load<Texture2D>("pig_unit"), map);
+            this.archerPlayer = new Player(0, 2, spawner, this.map.tilesArray[1, 1], Content.Load<Texture2D>("bow_unit"), map);
+            this.swordPlayer = new Player(2, 2, spawner, this.map.tilesArray[1, map.mapHeight - 2], Content.Load<Texture2D>("sword_unit"), map);
             this.gameManager = new GameManager(pigPlayer, archerPlayer, swordPlayer, swordPlayer, map);
             graphics.IsFullScreen = true;
 
@@ -95,7 +95,7 @@ namespace FightTheEvilOverlord
        
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
             EventManager.InvokeRender(spriteBatch);

@@ -20,27 +20,39 @@ namespace FightTheEvilOverlord
             this.pigTex = pigTex;
         }
 
-        public static void addPigToTile(Tile tile, Player player, int unitNumber)
+        public void addPigToTile(Tile tile, Player player, int unitNumber)
         {
-            if (tile.pigs != null && player.playerNumber == tile.pigs.player.playerNumber)
+            if (tile.pigs != null)
             {
                 tile.pigs.number += unitNumber;
             }
-        }
-
-        public static void addSowrdsMen(Tile tile, Player player, int unitNumber)
-        {
-            if (tile.swords != null && player.playerNumber == tile.pigs.player.playerNumber)
+            else
             {
-                tile.swords.number += unitNumber;
+                tile.pigs = new FlyingPigs(tile, player.playerNumber, 0, unitNumber);
             }
         }
 
-        public static void addArcher(Tile tile, Player player, int unitNumber)
+        public void addSowrdsMen(Tile tile, Player player, int unitNumber)
         {
-            if(tile.archer != null && player.playerNumber == tile.archer.player.playerNumber)
+            if (tile.swords != null)
+            {
+                tile.swords.number += unitNumber;
+            }
+            else
+            {
+                tile.swords = new SwordsMen(tile, player.playerNumber, 0, unitNumber);
+            }
+        }
+
+        public void addArcher(Tile tile, Player player, int unitNumber)
+        {
+            if(tile.archer != null)
             {
                 tile.archer.number += unitNumber;
+            }
+            else
+            {
+                tile.archer = new Archer(tile, player.playerNumber, 0, unitNumber, archTex, player);
             }
         }
     }

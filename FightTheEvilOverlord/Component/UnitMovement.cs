@@ -24,7 +24,7 @@ namespace FightTheEvilOverlord
                     }
                     else
                     {
-                        destinationTile.archer = new Archer(destinationTile, player.playerNumber, 0, toMoveSoldiers);
+                        //destinationTile.archer = new Archer(destinationTile, player.playerNumber, 0, toMoveSoldiers, );
                     }
                 }
             }
