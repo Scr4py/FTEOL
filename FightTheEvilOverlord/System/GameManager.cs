@@ -25,10 +25,13 @@ namespace FightTheEvilOverlord
 
         UnitMovement uM;
 
+        MouseState mouseState;
+
         KeyboardState currentState;
         KeyboardState lastState;
         public GameManager(Player pig, Player archer, Player swords, Player overlord, Map map)
         {
+            mouseState = new MouseState();
             currentState = new KeyboardState();
             this.pig = pig;
             this.archer = archer;
@@ -43,10 +46,11 @@ namespace FightTheEvilOverlord
 
         private void OnUpdate(GameTime gameTime)
         {
+            mouseState = Mouse.GetState();
             lastState = currentState;
             currentState = Keyboard.GetState();
 
-            if (currentState.IsKeyDown(Keys.N) && !lastState.IsKeyDown(Keys.N))
+            if (currentState.IsKeyDown(Keys.N) && !lastState.IsKeyDown(Keys.N) && mouseState.LeftButton == ButtonState.Released)
             {
                 NextPlayer();
             }
@@ -84,30 +88,33 @@ namespace FightTheEvilOverlord
         {
             foreach (var tile in map.tilesArray)
             {
-                if (Utility.activePlayerNumber == 0 && tile.owner == 0 && tile.archer != null)
+                if (tile != null)
                 {
-                    tile.archer.activeSoldiers = tile.archer.totalSoldiers;
-                    tile.isActive = true;
-                }
+                    if (Utility.activePlayerNumber == 0 && tile.owner == 0 && tile.archer != null)
+                    {
+                        tile.archer.activeSoldiers = tile.archer.totalSoldiers;
+                        tile.isActive = true;
+                    }
 
-                else if (Utility.activePlayerNumber == 1 && tile.owner == 1 && tile.pigs != null)
-                {
-                    tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
-                    tile.isActive = true;
-                }
+                    else if (Utility.activePlayerNumber == 1 && tile.owner == 1 && tile.pigs != null)
+                    {
+                        tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
+                        tile.isActive = true;
+                    }
 
-                else if (Utility.activePlayerNumber == 2 && tile.owner == 2 && tile.swords != null)
-                {
-                    tile.swords.activeSoldiers = tile.swords.totalSoldiers;
-                    tile.isActive = true;
-                }
+                    else if (Utility.activePlayerNumber == 2 && tile.owner == 2 && tile.swords != null)
+                    {
+                        tile.swords.activeSoldiers = tile.swords.totalSoldiers;
+                        tile.isActive = true;
+                    }
 
-                else if (Utility.activePlayerNumber == 3 && tile.owner == 3)
-                {
-                    tile.archer.activeSoldiers = tile.archer.totalSoldiers;
-                    tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
-                    tile.swords.activeSoldiers = tile.swords.totalSoldiers;
-                    tile.isActive = true;
+                    else if (Utility.activePlayerNumber == 3 && tile.owner == 3)
+                    {
+                        tile.archer.activeSoldiers = tile.archer.totalSoldiers;
+                        tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
+                        tile.swords.activeSoldiers = tile.swords.totalSoldiers;
+                        tile.isActive = true;
+                    }
                 }
             }
         }

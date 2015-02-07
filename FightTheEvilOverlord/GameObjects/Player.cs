@@ -23,10 +23,11 @@ namespace FightTheEvilOverlord
         public Player(int playerNumber, int unitNumber, UnitSpawner unitSpawn, Tile tile, Texture2D image, Map map)
         {
             this.map = map;
-
+            
             this.playerNumber = playerNumber;
             this.unitNumber = unitNumber;
             this.startTile = tile;
+            this.startTile.owner = 10;
             this.unitSpawn = unitSpawn;
             
             getStartSoldier();

@@ -35,6 +35,8 @@ namespace FightTheEvilOverlord
 
         Map map;
 
+        SpriteFont Font;
+
         public Game1()
             : base()
         {
@@ -52,6 +54,8 @@ namespace FightTheEvilOverlord
     
         protected override void LoadContent()
         {
+            //Font = Content.Load<SpriteFont>("Courier New");
+            //Utility.Font = Font;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //this.background = new Background(Content.Load<Texture2D>("Background-Test"), new Rectangle(0,0,800,600));
             this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"));

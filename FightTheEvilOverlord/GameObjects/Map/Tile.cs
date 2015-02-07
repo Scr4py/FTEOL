@@ -16,6 +16,7 @@ namespace FightTheEvilOverlord
         public Archer archer;
 
         public List<Tile> nextTiles = new List<Tile>();
+        public List<Village> nextVillages = new List<Village>();
 
         public bool isActive;
 
