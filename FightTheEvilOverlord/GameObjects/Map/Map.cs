@@ -10,7 +10,7 @@ namespace FightTheEvilOverlord
     class Map : GameObject
     {
         public int mapHeight = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (1252 * Renderer.scale)) / 2.5);
-        public int mapWidth = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1065 * Renderer.scale)) / 2.5);
+        public int mapWidth = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1084 * Renderer.scale)) / 2.5);
 
         string Type;
 
