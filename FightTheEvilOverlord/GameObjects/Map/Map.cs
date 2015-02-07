@@ -9,8 +9,8 @@ namespace FightTheEvilOverlord
 {
     class Map : GameObject
     {
-        public int mapHeight = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (1252 * Renderer.scale))) - 1;
-        public int mapWidth = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1084 * Renderer.scale))) - 1;
+        public int mapHeight = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (1252 * Renderer.scale)) / 2.5);
+        public int mapWidth = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1084 * Renderer.scale)) / 2.5);
 
         string Type;
 
@@ -30,14 +30,14 @@ namespace FightTheEvilOverlord
             this.texPlaines = texPlaines;
             this.texVillage = texVillage;
             this.texField = texField;
-            this.miniField = miniField;
+            //this.miniField = miniField;
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
-            //generateVillages();
+            generateVillages();
             getNextTiles();
-            //getNextVillages();
-            RemoveHUDTiles();
+            getNextVillages();
+            //RemoveHUDTiles();
         }
 
         public void generateTiles()
@@ -47,7 +47,7 @@ namespace FightTheEvilOverlord
                 for (int x = 0; x < mapWidth; x++)
                 {
                     Tile tile = new Tile(getTileTexture(), x, y, Type);
-                    MiniMapTile miniTile = new MiniMapTile(tile, miniField);
+                    //MiniMapTile miniTile = new MiniMapTile(tile, miniField);
                     this.tilesArray[x, y] = tile;
                     System.Threading.Thread.Sleep(2);
                 }
