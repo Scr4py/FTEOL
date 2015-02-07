@@ -21,7 +21,7 @@ namespace FightTheEvilOverlord
             //TODO: replace int 10 with half of screen rest size
             this.transform.Position = new Vector2(x * 1065 * Renderer.scale, getPosition(x, y) * Renderer.scale);
             this.render.SetImage(image);
-            this.render.start();
+            this.render.Start();
         }
 
         public int getPosition(int x, int y)

@@ -14,7 +14,7 @@ namespace FightTheEvilOverlord
         Transform transform;
         Texture2D image;
         public Color drawColor = Color.White;
-        public void start()
+        public void Start()
         {
             this.transform = GameObject.GetComponent<Transform>();
             EventManager.OnRender += Render;

@@ -9,8 +9,8 @@ namespace FightTheEvilOverlord
 {
     class Map : GameObject
     {
-        public int mapHeight = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (1252 * Renderer.scale)) / 2.5) - 1;
-        public int mapWidth = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1084 * Renderer.scale)) / 2.5) - 1;
+        public int mapHeight = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (1252 * Renderer.scale))) - 1;
+        public int mapWidth = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1084 * Renderer.scale))) - 1;
 
         string Type;
 
@@ -19,22 +19,25 @@ namespace FightTheEvilOverlord
         public Texture2D texPlaines;
         public Texture2D texVillage;
         public Texture2D texField;
+        public Texture2D miniField;
 
         public Tile[,] tilesArray;
         public Village[,] villageArray;
-        public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines, Texture2D texVillage, Texture2D texField)
+        public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines, Texture2D texVillage, Texture2D texField, Texture2D miniField)
         {
             this.texForrest = texForrest;
             this.texMountain = texMountain;
             this.texPlaines = texPlaines;
             this.texVillage = texVillage;
             this.texField = texField;
+            this.miniField = miniField;
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
             generateVillages();
             getNextTiles();
             getNextVillages();
+            //RemoveHUDTiles();
         }
 
         public void generateTiles()
@@ -44,6 +47,7 @@ namespace FightTheEvilOverlord
                 for (int x = 0; x < mapWidth; x++)
                 {
                     Tile tile = new Tile(getTileTexture(), x, y, Type);
+                    MiniMapTile miniTile = new MiniMapTile(tile, miniField);
                     this.tilesArray[x, y] = tile;
                     System.Threading.Thread.Sleep(2);
                 }
@@ -97,10 +101,27 @@ namespace FightTheEvilOverlord
             villageArray[mapWidth - 6, mapHeight / 2 - 2] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 2);
         }
 
+        void RemoveHUDTiles()
+        {
+            foreach (Tile tile in tilesArray)
+            {
+                    if (tile.transform.Position.X > (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width/3) && tile.transform.Position.X < (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width * 2 / 3) && tile.transform.Position.Y < (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 3))
+                    {
+                        RemoveTile(tile);
+                    }
+            }
+        }
+
         void RemoveTile(int tileX,int tileY)
         {
             tilesArray[tileX, tileY].RemoveTile();
             tilesArray[tileX, tileY] = null;
+        }
+
+        void RemoveTile(Tile tile)
+        {
+            tile.RemoveTile();
+            tile = null;
         }
 
         void getNextTiles()

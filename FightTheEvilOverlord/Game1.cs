@@ -58,7 +58,7 @@ namespace FightTheEvilOverlord
             //Utility.Font = Font;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //this.background = new Background(Content.Load<Texture2D>("Background-Test"), new Rectangle(0,0,800,600));
-            this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"));
+            this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"), Content.Load<Texture2D>("MiniMapTexture"));
             //this.spawner = new UnitSpawner();
             //this.play = new Menue(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75));
             //this.play.GetComponent<Transform>().Position = new Vector2(300, 150);
