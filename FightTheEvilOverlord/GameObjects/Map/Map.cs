@@ -34,10 +34,10 @@ namespace FightTheEvilOverlord
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
-            generateVillages();
+            //generateVillages();
             getNextTiles();
-            getNextVillages();
-            //RemoveHUDTiles();
+            //getNextVillages();
+            RemoveHUDTiles();
         }
 
         public void generateTiles()
@@ -103,12 +103,12 @@ namespace FightTheEvilOverlord
 
         void RemoveHUDTiles()
         {
-            foreach (Tile tile in tilesArray)
+            foreach (var tile in tilesArray)
             {
-                    if (tile.transform.Position.X > (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width/3) && tile.transform.Position.X < (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width * 2 / 3) && tile.transform.Position.Y < (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 3))
-                    {
-                        RemoveTile(tile);
-                    }
+                if (tile.transform.Position.X - tile.tileWidth > ((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 3) - 2 * tile.tileWidth) && tile.transform.Position.X < (2 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 3) && tile.transform.Position.Y < ((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 3) - tile.tileHeight / 2))
+                {
+                    RemoveTile(tile);
+                }
             }
         }
 
