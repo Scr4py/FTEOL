@@ -15,8 +15,6 @@ namespace FightTheEvilOverlord
         public delegate void UpdateEventhandler(GameTime gameTime);
         public static event UpdateEventhandler OnUpdate = delegate { };
 
-        //public delegate void ClickEventHandler(int mouseX, int mouseY);
-        //public static event ClickEventHandler OnClick = delegate { };
 
         public static void InvokeRender(SpriteBatch spriteBatch)
         {
@@ -27,12 +25,6 @@ namespace FightTheEvilOverlord
         {
             OnUpdate(gameTime);
         }
-
-        //public static void InVokeClick(int mouseX, int mouseY)
-        //{
-        //    OnClick(mouseX, mouseY);
-        //}
-
 
     }
 }

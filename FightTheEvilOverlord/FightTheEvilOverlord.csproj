@@ -38,6 +38,7 @@
     <Compile Include="Component\CheckButtonPress.cs" />
     <Compile Include="Component\UnitMovement.cs" />
     <Compile Include="GameObjects\Map\MiniMapTile.cs" />
+    <Compile Include="Component\MouseMenueInteractive.cs" />
     <Compile Include="System\Utility.cs" />
     <Compile Include="System\GameManager.cs" />
     <Compile Include="GameObjects\Background.cs" />
