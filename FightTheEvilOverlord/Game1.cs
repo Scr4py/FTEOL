@@ -54,7 +54,8 @@ namespace FightTheEvilOverlord
     
         protected override void LoadContent()
         {
-            //Font = Content.Load<SpriteFont>("Courier New");
+            Font = Content.Load<SpriteFont>("Font");
+            Utility.Font = Font;
             //Utility.Font = Font;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //this.background = new Background(Content.Load<Texture2D>("Background-Test"), new Rectangle(0,0,800,600));

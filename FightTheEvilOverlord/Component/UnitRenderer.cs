@@ -12,15 +12,15 @@ namespace FightTheEvilOverlord
         public const float scale = 0.15f;
         Transform transform;
         Texture2D image;
-        SpriteFont Font;
         int intToDisplay;
-
+        int secIntToDisplay;
+        Color intColor = Color.White;
         public void start()
         {
-            Font = Utility.Font;
             this.transform = GameObject.GetComponent<Transform>();
             EventManager.OnRender += Render;
             EventManager.OnRender += RenderInteger;
+            EventManager.OnRender += RenderSecInteger;
         }
 
         private void Render(SpriteBatch spriteBatch)
@@ -30,9 +30,16 @@ namespace FightTheEvilOverlord
 
         private void RenderInteger(SpriteBatch spriteBatch)
         {
-            if (this.Font != null)
+            if (Utility.Font != null)
             {
-                spriteBatch.DrawString(Font, intToDisplay.ToString(), this.transform.Position, Color.White);
+                spriteBatch.DrawString(Utility.Font, intToDisplay.ToString(), this.transform.Position, Color.Red);
+            }
+        }
+        private void RenderSecInteger(SpriteBatch spriteBatch)
+        {
+            if (Utility.Font != null)
+            {
+                spriteBatch.DrawString(Utility.Font, intToDisplay.ToString(), new Vector2(this.transform.Position.X + 20, this.transform.Position.Y), Color.Green);
             }
         }
 
@@ -40,9 +47,15 @@ namespace FightTheEvilOverlord
         {
             this.image = image;
         }
+
         public void SetInteger(int integer)
         {
             this.intToDisplay = integer;
+        }
+
+        public void SetSecInteger(int integer)
+        {
+            this.secIntToDisplay = integer;
         }
 
         public override void Destroy()

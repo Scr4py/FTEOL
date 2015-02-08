@@ -46,6 +46,8 @@ namespace FightTheEvilOverlord
 
         private void Draw(GameTime gameTime)
         {
+            render.SetInteger(totalSoldiers);
+            render.SetSecInteger(activeSoldiers);
             lastState = currentState;
             currentState = Mouse.GetState();
 
@@ -154,7 +156,7 @@ namespace FightTheEvilOverlord
 
         public void removeLastArcher(Archer archer)
         {
-            if (archer !=null)
+            if (archer != null)
             {
                 archer.render.Destroy();
                 archer = null;

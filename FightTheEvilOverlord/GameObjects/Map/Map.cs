@@ -147,7 +147,7 @@ namespace FightTheEvilOverlord
             {
                 for (int x = 0; x < mapWidth; x++)
                 {
-                    if (tilesArray[x,y] != null)
+                    if (tilesArray[x, y] != null)
                     {
                         if (x % 2 == 0)
                         {
@@ -223,7 +223,7 @@ namespace FightTheEvilOverlord
                                     tilesArray[x, y].nextTiles.Add(tilesArray[x, y + 1]);
                                 }
                             }
-                            else if (y == mapHeight - 1 && x != 0 && x < 16 )
+                            else if (y == mapHeight - 1 && x != 0 && x < 16)
                             {
                                 if (tilesArray[x + 1, y] != null)
                                 {
