@@ -91,7 +91,6 @@ C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\wheat_tile.png
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.exe
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.pdb
-C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\SDL.dll
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Background-Test.png
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\bow_unit.png
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Button.png

@@ -36,7 +36,7 @@ namespace FightTheEvilOverlord
             this.archerTex = archerTex;
             this.pigTex = pigTex;
             this.swordTex = swordTex;
-            //this.miniField = miniField;
+            this.miniField = miniField;
             this.miniField = miniField;
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
@@ -44,8 +44,7 @@ namespace FightTheEvilOverlord
             generateVillages();
             getNextTiles();
             getNextVillages();
-            getNextVillageTiles();
-            //RemoveHUDTiles();
+            //getNextVillageTiles();
             RemoveHUDTiles();
         }
 

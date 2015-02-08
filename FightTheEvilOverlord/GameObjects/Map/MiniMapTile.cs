@@ -26,15 +26,10 @@ namespace FightTheEvilOverlord
 
         void getPosition()
         {
-            int f = 0;
 
-            if (tile.transform.Position.Y % (int)tile.tileHeight != 0)
-            {
-                f = 12;
-            }
-            int x = (int)(tile.transform.Position.X/ tile.tileWidth * 30) + f;
-            int y = (int)(tile.transform.Position.Y / tile.tileHeight * 30) - f;
-            this.transform.Position = new Vector2(x + 650, y + 50);
+            int x = (int)(tile.transform.Position.X/ tile.tileWidth * 20);
+            int y = (int)(tile.transform.Position.Y / tile.tileHeight * 20);
+            this.transform.Position = new Vector2(x + 850, y + 50);
         }
         
         void getDrawColor()
