@@ -24,7 +24,7 @@ namespace FightTheEvilOverlord
         Texture2D image;
 
         Transform transform;
-        UnitRenderer render;
+        public UnitRenderer render;
 
         public Archer(Tile Spawntile, int PlayerNumber, int ActiveSoldiers, int SoldiersNumber, Texture2D image, Player player, Archer lastArcher)
         {
@@ -51,10 +51,10 @@ namespace FightTheEvilOverlord
 
             render.SetInteger(totalSoldiers);
 
-            checkInput();
+            checkIfToMoveOnTile();
         }
 
-        private void checkInput()
+        private void checkIfToMoveOnTile()
         {
             if (currentState.LeftButton == ButtonState.Pressed &&
                 Utility.isColliding(this.transform, currentState, image) &&
@@ -99,39 +99,59 @@ namespace FightTheEvilOverlord
                 Utility.activePlayerNumber == owner.playerNumber &&
                 Utility.isColliding(this.transform, currentState, image))
             {
-                foreach (var nextVillage in tile.nextVillages)
+                if (!checkIfToMoveOnVillage())
                 {
-                    nextVillage.render.drawColor = Color.White;
-                }
-                foreach (var nextTile in tile.nextTiles)
-                {
-                    nextTile.render.drawColor = Color.White;
+                    foreach (var nextTile in tile.nextTiles)
+                    {
+                        nextTile.render.drawColor = Color.White;
 
-                    if (Utility.isColliding(nextTile, currentState) &&
-                        activeSoldiers != 0 && nextTile.owner == 4)
-                    {
-                        activeSoldiers = 0;
-                        this.lastTile = tile;
-                        this.tile.owner = 4;
-                        this.tile = nextTile;
-                        this.tile.owner = 0;
-                        nextTile.archer = new Archer(nextTile, 0, 0, totalSoldiers, image, owner, this);
-                    }
-                    else if (Utility.isColliding(nextTile, currentState) &&
-                        activeSoldiers != 0 && nextTile.owner == 0)
-                    {
-                        activeSoldiers = 0;
-                        this.tile.owner = 4;
-                        nextTile.archer.totalSoldiers += totalSoldiers;
-                        nextTile.archer.removeLastArcher(this);
-                    }
-                    else
-                    {
-                        this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
+                        if (Utility.isColliding(nextTile, currentState) &&
+                            activeSoldiers != 0 && nextTile.owner == 4)
+                        {
+                            activeSoldiers = 0;
+                            this.lastTile = tile;
+                            this.tile.owner = 4;
+                            this.tile = nextTile;
+                            this.tile.owner = 0;
+                            nextTile.archer = new Archer(nextTile, 0, 0, totalSoldiers, image, owner, this);
+                        }
+                        else if (Utility.isColliding(nextTile, currentState) &&
+                            activeSoldiers != 0 && nextTile.owner == 0)
+                        {
+                            activeSoldiers = 0;
+                            this.tile.owner = 4;
+                            nextTile.archer.totalSoldiers += totalSoldiers;
+                            nextTile.archer.removeLastArcher(this);
+                        }
+                        else
+                        {
+                            this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
+                        }
                     }
                 }
             }
         }
+
+        private bool checkIfToMoveOnVillage()
+        {
+            foreach (var nextTile in tile.nextTiles)
+            {
+                nextTile.render.drawColor = Color.White;
+            }
+            foreach (var nextVillage in tile.nextVillages)
+            {
+                if (nextVillage.render.drawColor == Color.OrangeRed)
+                {
+                    nextVillage.owner = 0;
+                    this.activeSoldiers = 0;
+                    nextVillage.render.drawColor = Color.White;
+                    this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void removeLastArcher(Archer archer)
         {
             if (archer !=null)

@@ -20,16 +20,22 @@ namespace FightTheEvilOverlord
         public Texture2D texVillage;
         public Texture2D texField;
         public Texture2D miniField;
+        Texture2D pigTex;
+        Texture2D archerTex;
+        Texture2D swordTex;
 
         public Tile[,] tilesArray;
         public Village[,] villageArray;
-        public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines, Texture2D texVillage, Texture2D texField, Texture2D miniField)
+        public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines, Texture2D texVillage, Texture2D texField, Texture2D miniField, Texture2D pigTex, Texture2D archerTex, Texture2D swordTex)
         {
             this.texForrest = texForrest;
             this.texMountain = texMountain;
             this.texPlaines = texPlaines;
             this.texVillage = texVillage;
             this.texField = texField;
+            this.archerTex = archerTex;
+            this.pigTex = pigTex;
+            this.swordTex = swordTex;
             //this.miniField = miniField;
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
@@ -37,6 +43,7 @@ namespace FightTheEvilOverlord
             generateVillages();
             getNextTiles();
             getNextVillages();
+            getNextVillageTiles();
             //RemoveHUDTiles();
         }
 
@@ -83,22 +90,22 @@ namespace FightTheEvilOverlord
         public void generateVillages()
         {
             RemoveTile(mapWidth / 5, mapHeight / 5);
-            villageArray[mapWidth / 5, mapHeight / 5] = new Village(texVillage, mapWidth / 5, mapHeight / 5);
+            villageArray[mapWidth / 5, mapHeight / 5] = new Village(texVillage, mapWidth / 5, mapHeight / 5, pigTex, archerTex, swordTex);
 
             RemoveTile(mapWidth / 2, mapHeight / 2);
-            villageArray[mapWidth / 2, mapHeight / 2] = new Village(texVillage, mapWidth / 2, mapHeight / 2);
+            villageArray[mapWidth / 2, mapHeight / 2] = new Village(texVillage, mapWidth / 2, mapHeight / 2, pigTex, archerTex, swordTex);
 
             RemoveTile(mapWidth / 3 + 3, mapHeight / 4);
-            villageArray[mapWidth / 3 + 3, mapHeight / 4] = new Village(texVillage, mapWidth / 3 + 3, mapHeight / 4);
+            villageArray[mapWidth / 3 + 3, mapHeight / 4] = new Village(texVillage, mapWidth / 3 + 3, mapHeight / 4, pigTex, archerTex, swordTex);
 
             RemoveTile(mapWidth - 5, mapHeight - 4);
-            villageArray[mapWidth - 5, mapHeight - 4] = new Village(texVillage, mapWidth - 5, mapHeight - 4);
+            villageArray[mapWidth - 5, mapHeight - 4] = new Village(texVillage, mapWidth - 5, mapHeight - 4, pigTex, archerTex, swordTex);
 
             RemoveTile(mapWidth / 5, mapHeight - 4);
-            villageArray[mapWidth / 5, mapHeight - 4] = new Village(texVillage, mapWidth / 5, mapHeight - 4);
+            villageArray[mapWidth / 5, mapHeight - 4] = new Village(texVillage, mapWidth / 5, mapHeight - 4, pigTex, archerTex, swordTex);
 
             RemoveTile(mapWidth - 6, mapHeight / 2 - 2);
-            villageArray[mapWidth - 6, mapHeight / 2 - 2] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 2);
+            villageArray[mapWidth - 6, mapHeight / 2 - 2] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 2, pigTex, archerTex, swordTex);
         }
 
         void RemoveHUDTiles()
@@ -418,6 +425,34 @@ namespace FightTheEvilOverlord
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        void getNextVillageTiles()
+        {
+            foreach (var village in villageArray)
+            {
+                if (village != null)
+                {
+                    if ((int)village.transform.Position.X % 2 == 0)
+                    {
+                        village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX, (int)village.mapY + 1]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX, (int)village.mapY - 1]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY + 1]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY + 1]);
+                    }
+                    else
+                    {
+                        village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX, (int)village.mapY + 1]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX, (int)village.mapY - 1]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY - 1]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY - 1]);
                     }
                 }
             }

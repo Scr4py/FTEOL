@@ -24,7 +24,7 @@ namespace FightTheEvilOverlord
         Texture2D image;
 
         Transform transform;
-        UnitRenderer render;
+        public UnitRenderer render;
 
         public FlyingPigs(Tile Spawntile, int PlayerNumber, int ActiveSoldiers, int SoldiersNumber, Texture2D image, Player player, FlyingPigs lastPig)
         {
@@ -54,44 +54,45 @@ namespace FightTheEvilOverlord
 
         private void checkInput()
         {
+            // if mouse is on a unit the player owns and is pressed
             if (currentState.LeftButton == ButtonState.Pressed &&
                 Utility.isColliding(this.transform, currentState, image) &&
                 Utility.activePlayerNumber == owner.playerNumber &&
                 activeSoldiers != 0)
             {
-                if (Utility.activePlayerNumber == owner.playerNumber)
+                foreach (var nextTile in tile.nextTiles)
                 {
-                    foreach (var nextTile in tile.nextTiles)
+                    if (nextTile.owner == 4 || nextTile.owner == 1)
+                    {
+                        nextTile.render.drawColor = Color.DodgerBlue;
+                    }
+                    if (Utility.isColliding(nextTile, currentState))
                     {
                         if (nextTile.owner == 4 || nextTile.owner == 1)
                         {
-                            nextTile.render.drawColor = Color.DodgerBlue;
-                        }
-                        if (Utility.isColliding(nextTile, currentState))
-                        {
-                            if (nextTile.owner == 4 || nextTile.owner == 1)
-                            {
-                                nextTile.render.drawColor = Color.Green;
-                            }
+                            nextTile.render.drawColor = Color.Green;
                         }
                     }
-                    foreach (var nextVillage in tile.nextVillages)
+                }
+                foreach (var nextVillage in tile.nextVillages)
+                {
+                    if (nextVillage.owner == 4 || nextVillage.owner == 1)
+                    {
+                        nextVillage.render.drawColor = Color.DodgerBlue;
+                    }
+                    if (Utility.isColliding(nextVillage, currentState))
                     {
                         if (nextVillage.owner == 4 || nextVillage.owner == 1)
                         {
-                            nextVillage.render.drawColor = Color.DodgerBlue;
-                        }
-                        if (Utility.isColliding(nextVillage, currentState))
-                        {
-                            if (nextVillage.owner == 4 || nextVillage.owner == 1)
-                            {
-                                nextVillage.render.drawColor = Color.OrangeRed;
-                            }
+                            nextVillage.render.drawColor = Color.OrangeRed;
                         }
                     }
-                    this.transform.Position = new Vector2(currentState.Position.X - ((image.Width / 2) * UnitRenderer.scale), currentState.Position.Y - (image.Height / 2) * UnitRenderer.scale);
                 }
+                this.transform.Position = new Vector2(currentState.Position.X - ((image.Width / 2) * UnitRenderer.scale), currentState.Position.Y - (image.Height / 2) * UnitRenderer.scale);
+                
             }
+
+            //Player released leftMouse button
             else if (currentState.LeftButton == ButtonState.Released &&
                 lastState.LeftButton == ButtonState.Pressed &&
                 Utility.activePlayerNumber == owner.playerNumber &&

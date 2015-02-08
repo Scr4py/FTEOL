@@ -63,24 +63,28 @@ namespace FightTheEvilOverlord
                 activeplayer = this.pig;
                 Utility.activePlayerNumber++;
                 setSoldiersToActive();
+                setVillagesToActive();
             }
             else if (Utility.activePlayerNumber == 1)
             {
                 activeplayer = this.swords;
                 Utility.activePlayerNumber++;
                 setSoldiersToActive();
+                setVillagesToActive();
             }
             else if (Utility.activePlayerNumber == 2)
             {
                 activeplayer = this.overlord;
                 Utility.activePlayerNumber++;
                 setSoldiersToActive();
+                setVillagesToActive();
             }
             else if (Utility.activePlayerNumber == 3)
             {
                 activeplayer = this.archer;
                 Utility.activePlayerNumber = 0;
                 setSoldiersToActive();
+                setVillagesToActive();
             }
         }
 
@@ -114,6 +118,20 @@ namespace FightTheEvilOverlord
                         tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
                         tile.swords.activeSoldiers = tile.swords.totalSoldiers;
                         tile.isActive = true;
+                    }
+                }
+            }
+        }
+
+        public void setVillagesToActive()
+        {
+            foreach (var village in map.villageArray)
+            {
+                if (village != null)
+                {
+                    if (village.owner != 4)
+                    {
+                        village.isActive = true;
                     }
                 }
             }

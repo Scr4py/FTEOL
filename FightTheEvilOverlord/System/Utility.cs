@@ -12,6 +12,9 @@ namespace FightTheEvilOverlord
     {
         public static int activePlayerNumber = 0;
         public static SpriteFont Font;
+        public static Player archPlayer;
+        public static Player pigPlayer;
+        public static Player swordPlayer;
 
         public static bool isColliding(Tile toCheckTile, MouseState currentState)
         {
