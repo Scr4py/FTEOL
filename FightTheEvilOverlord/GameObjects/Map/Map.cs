@@ -33,18 +33,26 @@ namespace FightTheEvilOverlord
             this.texPlaines = texPlaines;
             this.texVillage = texVillage;
             this.texField = texField;
+<<<<<<< HEAD
             this.archerTex = archerTex;
             this.pigTex = pigTex;
             this.swordTex = swordTex;
             //this.miniField = miniField;
+=======
+            this.miniField = miniField;
+>>>>>>> 06470ac848d290c231e67f53eb2241bd45913694
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
             generateVillages();
             getNextTiles();
             getNextVillages();
+<<<<<<< HEAD
             getNextVillageTiles();
             //RemoveHUDTiles();
+=======
+            RemoveHUDTiles();
+>>>>>>> 06470ac848d290c231e67f53eb2241bd45913694
         }
 
         public void generateTiles()
@@ -54,7 +62,7 @@ namespace FightTheEvilOverlord
                 for (int x = 0; x < mapWidth; x++)
                 {
                     Tile tile = new Tile(getTileTexture(), x, y, Type);
-                    //MiniMapTile miniTile = new MiniMapTile(tile, miniField);
+                    MiniMapTile miniTile = new MiniMapTile(tile, miniField);
                     this.tilesArray[x, y] = tile;
                     System.Threading.Thread.Sleep(2);
                 }
@@ -112,23 +120,32 @@ namespace FightTheEvilOverlord
         {
             foreach (var tile in tilesArray)
             {
-                if (tile.transform.Position.X - tile.tileWidth > ((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 3) - 2 * tile.tileWidth) && tile.transform.Position.X < (2 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 3) && tile.transform.Position.Y < ((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 3) - tile.tileHeight / 2))
+                if (tile != null)
                 {
-                    RemoveTile(tile);
+                    if (tile.transform.Position.X - tile.tileWidth > ((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 3) - 2 * tile.tileWidth) && tile.transform.Position.X < (2 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 3) && tile.transform.Position.Y < ((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 3) - tile.tileHeight / 2))
+                    {
+                        RemoveTile(tile);
+                    }
                 }
             }
         }
 
         void RemoveTile(int tileX,int tileY)
         {
-            tilesArray[tileX, tileY].RemoveTile();
-            tilesArray[tileX, tileY] = null;
+            if (tilesArray[tileX, tileY] != null)
+            {
+                tilesArray[tileX, tileY].RemoveTile();
+                tilesArray[tileX, tileY] = null;
+            }
         }
 
         void RemoveTile(Tile tile)
         {
-            tile.RemoveTile();
-            tile = null;
+            if (tile != null)
+            {
+                tile.RemoveTile();
+                tile = null;
+            }
         }
 
         void getNextTiles()
