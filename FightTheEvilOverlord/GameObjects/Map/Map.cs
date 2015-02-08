@@ -33,26 +33,20 @@ namespace FightTheEvilOverlord
             this.texPlaines = texPlaines;
             this.texVillage = texVillage;
             this.texField = texField;
-<<<<<<< HEAD
             this.archerTex = archerTex;
             this.pigTex = pigTex;
             this.swordTex = swordTex;
             //this.miniField = miniField;
-=======
             this.miniField = miniField;
->>>>>>> 06470ac848d290c231e67f53eb2241bd45913694
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
             generateVillages();
             getNextTiles();
             getNextVillages();
-<<<<<<< HEAD
             getNextVillageTiles();
             //RemoveHUDTiles();
-=======
             RemoveHUDTiles();
->>>>>>> 06470ac848d290c231e67f53eb2241bd45913694
         }
 
         public void generateTiles()
