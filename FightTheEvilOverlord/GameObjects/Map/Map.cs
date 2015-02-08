@@ -36,16 +36,15 @@ namespace FightTheEvilOverlord
             this.archerTex = archerTex;
             this.pigTex = pigTex;
             this.swordTex = swordTex;
-            this.miniField = miniField;
-            this.miniField = miniField;
+            //this.miniField = miniField;
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
             generateVillages();
             getNextTiles();
             getNextVillages();
-            //getNextVillageTiles();
-            RemoveHUDTiles();
+            getNextVillageTiles();
+            //RemoveHUDTiles();
         }
 
         public void generateTiles()
@@ -178,7 +177,7 @@ namespace FightTheEvilOverlord
                                     tilesArray[x, y].nextTiles.Add(tilesArray[x - 1, y]);
                                 }
                             }
-                            else if (y == 0 && x != 0 && x < 16)
+                            else if (y == 0 && x != 0 && x < mapWidth - 1)
                             {
                                 if (tilesArray[x + 1, y] != null)
                                 {
@@ -223,7 +222,7 @@ namespace FightTheEvilOverlord
                                     tilesArray[x, y].nextTiles.Add(tilesArray[x, y + 1]);
                                 }
                             }
-                            else if (y == mapHeight - 1 && x != 0 && x < 16)
+                            else if (y == mapHeight - 1 && x != 0 && x < mapWidth - 1)
                             {
                                 if (tilesArray[x + 1, y] != null)
                                 {
@@ -246,7 +245,7 @@ namespace FightTheEvilOverlord
                                     tilesArray[x, y].nextTiles.Add(tilesArray[x, y - 1]);
                                 }
                             }
-                            else if (x == mapWidth - 1 && y != 0 && y < 7)
+                            else if (x == mapWidth - 1 && y != 0 && y < mapHeight - 1)
                             {
                                 if (tilesArray[x, y + 1] != null)
                                 {
@@ -457,12 +456,12 @@ namespace FightTheEvilOverlord
                     }
                     else
                     {
+                        village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY + 1]);
                         village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY]);
                         village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY]);
                         village.nextTiles.Add(tilesArray[(int)village.mapX, (int)village.mapY + 1]);
                         village.nextTiles.Add(tilesArray[(int)village.mapX, (int)village.mapY - 1]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY - 1]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY - 1]);
+                        village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY + 1]);
                     }
                 }
             }
@@ -522,7 +521,7 @@ namespace FightTheEvilOverlord
                                 tilesArray[x, y].nextVillages.Add(villageArray[x, y + 1]);
                             }
                         }
-                        else if (x == 0 && y != 0 && y < 7)
+                        else if (x == 0 && y != 0 && y < mapHeight - 1)
                         {
                             if (villageArray[x, y + 1] != null)
                             {

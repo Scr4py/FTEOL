@@ -48,10 +48,9 @@ namespace FightTheEvilOverlord
         {
             render.SetInteger(totalSoldiers);
             render.SetSecInteger(activeSoldiers);
+
             lastState = currentState;
             currentState = Mouse.GetState();
-
-            render.SetInteger(totalSoldiers);
 
             checkIfToMoveOnTile();
         }

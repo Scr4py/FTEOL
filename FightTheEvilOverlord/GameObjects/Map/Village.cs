@@ -51,7 +51,7 @@ namespace FightTheEvilOverlord
             if (isActive && owner != 4)
             {
                 int random = rnd.Next(0, 5);
-                if (owner == 0)
+                if (owner == 0 && Utility.activePlayerNumber == 0)
                 {
                     if (nextTiles[random].archer != null)
                     {
