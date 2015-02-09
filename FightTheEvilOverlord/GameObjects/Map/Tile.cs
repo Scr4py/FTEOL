@@ -9,7 +9,7 @@ namespace FightTheEvilOverlord
 {
     class Tile : GameObject
     {
-        string Type;
+        public string Type;
 
         public FlyingPigs pigs;
         public SwordsMen swords;

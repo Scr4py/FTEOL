@@ -24,6 +24,7 @@ namespace FightTheEvilOverlord
         Texture2D image;
 
         Transform transform;
+        FightManager fightManager;
         public UnitRenderer render;
 
         public Archer(Tile Spawntile, int PlayerNumber, int ActiveSoldiers, int SoldiersNumber, Texture2D image, Player player, Archer lastArcher)
@@ -42,6 +43,7 @@ namespace FightTheEvilOverlord
             this.transform.Position = this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
             this.render.SetImage(image);
             this.render.start();
+            this.fightManager = this.AddComponent<FightManager>();
         }
 
         private void Draw(GameTime gameTime)
@@ -75,13 +77,13 @@ namespace FightTheEvilOverlord
                 {
                     foreach (var nextTile in tile.nextTiles)
                     {
-                        if (nextTile.owner == 4 || nextTile.owner == 0)
+                        if (nextTile.owner == 4 || nextTile.owner == playerNumber)
                         {
                             nextTile.render.drawColor = Color.DodgerBlue;
                         }
                         if (Utility.isColliding(nextTile, currentState))
                         {
-                            if (nextTile.owner == 4 || nextTile.owner == 0)
+                            if (nextTile.owner == 4 || nextTile.owner == playerNumber)
                             {
                                 nextTile.render.drawColor = Color.Green;
                             }
@@ -89,13 +91,13 @@ namespace FightTheEvilOverlord
                     }
                     foreach (var nextVillage in tile.nextVillages)
                     {
-                        if (nextVillage.owner == 4 || nextVillage.owner == 0)
+                        if (nextVillage.owner == 4 || nextVillage.owner == playerNumber)
                         {
                             nextVillage.render.drawColor = Color.DodgerBlue;
                         }
                         if (Utility.isColliding(nextVillage, currentState))
                         {
-                            if (nextVillage.owner == 4 || nextVillage.owner == 0)
+                            if (nextVillage.owner == 4 || nextVillage.owner == playerNumber)
                             {
                                 nextVillage.render.drawColor = Color.OrangeRed;
                             }
@@ -119,20 +121,31 @@ namespace FightTheEvilOverlord
                             activeSoldiers != 0 && nextTile.owner == 4)
                         {
                             activeSoldiers = 0;
-                            this.lastTile = tile;
+                            //this.lastTile = tile;
                             this.tile.owner = 4;
                             this.tile = nextTile;
-                            this.tile.owner = 0;
-                            nextTile.archer = new Archer(nextTile, 0, 0, totalSoldiers, image, owner, this);
+                            this.tile.owner = playerNumber;
+                            nextTile.archer = new Archer(nextTile, playerNumber, 0, totalSoldiers, image, owner, this);
+                            this.tile.archer.removeLastArcher(this);
                         }
                         else if (Utility.isColliding(nextTile, currentState) &&
-                            activeSoldiers != 0 && nextTile.owner == 0)
+                            activeSoldiers != 0 && nextTile.owner == this.playerNumber)
                         {
                             activeSoldiers = 0;
                             this.tile.owner = 4;
                             nextTile.archer.totalSoldiers += totalSoldiers;
                             nextTile.archer.removeLastArcher(this);
                         }
+
+                        else if (Utility.isColliding(nextTile, currentState) &&
+                            activeSoldiers != 0 &&
+                            (((tile.owner == 0 || tile.owner == 1 || tile.owner == 2) && nextTile.owner == 3) ||
+                            (nextTile.owner == 0 || nextTile.owner == 1 || nextTile.owner == 2) && tile.owner == 3))
+                        {
+                            //INSERT FIGHT-REFERENCE HERE!!!!!
+                            fightManager.Attack(this.tile, nextTile);
+                        }
+
                         else
                         {
                             this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
