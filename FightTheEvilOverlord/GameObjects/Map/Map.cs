@@ -43,7 +43,7 @@ namespace FightTheEvilOverlord
             generateVillages();
             getNextTiles();
             getNextVillages();
-            //getNextVillageTiles();
+            getNextVillageTiles();
             //RemoveHUDTiles();
         }
 

@@ -61,24 +61,24 @@ namespace FightTheEvilOverlord
             this.background = new Background(Content.Load<Texture2D>("Background-Test"), new Rectangle(0, 0, 800, 600));
             //this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"), Content.Load<Texture2D>("MiniMapTexture"), Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("bow_unit"), Content.Load<Texture2D>("sword_unit"));
             //this.spawner = new UnitSpawner();
-            this.play = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75),GameState.GameStart);
-            this.play.GetComponent<Transform>().Position = new Vector2(300, 150);
-            this.option = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75),GameState.Options);
-            this.option.GetComponent<Transform>().Position = new Vector2(300, 250);
-            this.credits = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75),GameState.Credits);
-            this.credits.GetComponent<Transform>().Position = new Vector2(300, 350);
-            this.exit = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75),GameState.Exit);
-            this.exit.GetComponent<Transform>().Position = new Vector2(300, 450);
+            //this.play = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75),GameState.GameStart);
+            //this.play.GetComponent<Transform>().Position = new Vector2(300, 150);
+            //this.option = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75),GameState.Options);
+            //this.option.GetComponent<Transform>().Position = new Vector2(300, 250);
+            //this.credits = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75),GameState.Credits);
+            //this.credits.GetComponent<Transform>().Position = new Vector2(300, 350);
+            //this.exit = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75),GameState.Exit);
+            //this.exit.GetComponent<Transform>().Position = new Vector2(300, 450);
 
-            //this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"), Content.Load<Texture2D>("MiniMapTexture"), Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("bow_unit"), Content.Load<Texture2D>("sword_unit"));
-            //spawner = new UnitSpawner(Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("sword_unit"), Content.Load<Texture2D>("bow_unit"));
-            //this.pigPlayer = new Player(1, 2, spawner, this.map.tilesArray[1, map.mapHeight / 2], Content.Load<Texture2D>("pig_unit"), map);
-            //this.archerPlayer = new Player(0, 2, spawner, this.map.tilesArray[1, 1], Content.Load<Texture2D>("bow_unit"), map);
-            //this.swordPlayer = new Player(2, 2, spawner, this.map.tilesArray[1, map.mapHeight - 2], Content.Load<Texture2D>("sword_unit"), map);
-            //this.gameManager = new GameManager(pigPlayer, archerPlayer, swordPlayer, swordPlayer, map);
-            //Utility.archPlayer = this.archerPlayer;
-            //Utility.pigPlayer = this.pigPlayer;
-            //Utility.swordPlayer = this.swordPlayer;
+            this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"), Content.Load<Texture2D>("MiniMapTexture"), Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("bow_unit"), Content.Load<Texture2D>("sword_unit"));
+            spawner = new UnitSpawner(Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("sword_unit"), Content.Load<Texture2D>("bow_unit"));
+            this.pigPlayer = new Player(1, 2, spawner, this.map.tilesArray[1, map.mapHeight / 2], Content.Load<Texture2D>("pig_unit"), map);
+            this.archerPlayer = new Player(0, 2, spawner, this.map.tilesArray[1, 1], Content.Load<Texture2D>("bow_unit"), map);
+            this.swordPlayer = new Player(2, 2, spawner, this.map.tilesArray[1, map.mapHeight - 2], Content.Load<Texture2D>("sword_unit"), map);
+            this.gameManager = new GameManager(pigPlayer, archerPlayer, swordPlayer, swordPlayer, map);
+            Utility.archPlayer = this.archerPlayer;
+            Utility.pigPlayer = this.pigPlayer;
+            Utility.swordPlayer = this.swordPlayer;
             graphics.IsFullScreen = true;
 
         }

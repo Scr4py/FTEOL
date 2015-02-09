@@ -46,8 +46,15 @@ namespace FightTheEvilOverlord
 
         private void Draw(GameTime gameTime)
         {
-            render.SetInteger(totalSoldiers);
-            render.SetSecInteger(activeSoldiers);
+            if (Utility.activePlayerNumber == 2)
+            {
+                render.SetInteger(totalSoldiers);
+                render.SetSecInteger(activeSoldiers);
+            }
+            else
+            {
+                render.SetSecInteger(0);
+            }
 
             lastState = currentState;
             currentState = Mouse.GetState();
