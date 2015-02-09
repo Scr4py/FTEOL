@@ -20,39 +20,39 @@ namespace FightTheEvilOverlord
             this.pigTex = pigTex;
         }
 
-        public void addPigToTile(Tile tile, Player player, int unitNumber)
+        public void addPig(Tile spawnTile, Player player, int unitNumber)
         {
-            if (tile.pigs != null)
+            if (spawnTile.pigs != null)
             {
-                tile.pigs.number += unitNumber;
+                spawnTile.pigs.number += unitNumber;
             }
             else
             {
-                tile.pigs = new FlyingPigs(tile, player.playerNumber, 0, unitNumber, pigTex, player, null);
+                spawnTile.pigs = new FlyingPigs(spawnTile, player.playerNumber, 0, unitNumber, pigTex, player, null);
             }
         }
 
-        public void addSowrdsMen(Tile tile, Player player, int unitNumber)
+        public void addSowrdsMen(Tile spawnTile, Player player, int unitNumber)
         {
-            if (tile.swords != null)
+            if (spawnTile.swords != null)
             {
-                tile.swords.number += unitNumber;
+                spawnTile.swords.number += unitNumber;
             }
             else
             {
-                tile.swords = new SwordsMen(tile, player.playerNumber, 0, unitNumber, swordTex, player, null);
+                spawnTile.swords = new SwordsMen(spawnTile, player.playerNumber, 0, unitNumber, swordTex, player, null);
             }
         }
 
-        public void addArcher(Tile tile, Player player, int unitNumber)
+        public void addArcher(Tile spawnTile, Player player, int unitNumber)
         {
-            if(tile.archer != null)
+            if(spawnTile.archer != null)
             {
-                tile.archer.number += unitNumber;
+                spawnTile.archer.number += unitNumber;
             }
             else
             {
-                tile.archer = new Archer(tile, player.playerNumber, 0, unitNumber, archTex, player, null);
+                spawnTile.archer = new Archer(spawnTile, player.playerNumber, 0, unitNumber, archTex, player, null);
             }
         }
     }

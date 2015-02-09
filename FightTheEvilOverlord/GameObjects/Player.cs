@@ -20,6 +20,7 @@ namespace FightTheEvilOverlord
         UnitSpawner unitSpawn;
 
         Map map;
+
         public Player(int playerNumber, int unitNumber, UnitSpawner unitSpawn, Tile tile, Texture2D image, Map map)
         {
             this.map = map;
@@ -55,7 +56,7 @@ namespace FightTheEvilOverlord
             {
                 for (int i = 0; i < unitNumber; i++)
                 {
-                    unitSpawn.addPigToTile(map.tilesArray[startTile.mapX + 1, startTile.mapY], this, unitNumber);
+                    unitSpawn.addPig(map.tilesArray[startTile.mapX + 1, startTile.mapY], this, unitNumber);
                     map.tilesArray[startTile.mapX + 1, startTile.mapY].owner = 1;
                 }
             }
@@ -66,6 +67,16 @@ namespace FightTheEvilOverlord
                     unitSpawn.addSowrdsMen(map.tilesArray[startTile.mapX + 1, startTile.mapY], this, unitNumber);
                     map.tilesArray[startTile.mapX + 1, startTile.mapY].owner = 2;
                 }
+            }
+            else if (playerNumber == 3)
+            {
+                for (int i = 0; i < unitNumber; i++)
+                    unitSpawn.addArcher(map.tilesArray[startTile.mapX - 1, startTile.mapY], this, unitNumber);
+                    map.tilesArray[startTile.mapX - 1, startTile.mapY].owner = 3;
+                    unitSpawn.addPig(map.tilesArray[startTile.mapX - 1, startTile.mapY + 1], this, unitNumber);
+                    map.tilesArray[startTile.mapX - 1, startTile.mapY + 1].owner = 3;
+                    unitSpawn.addSowrdsMen(map.tilesArray[startTile.mapX - 1, startTile.mapY - 1], this, unitNumber);
+                    map.tilesArray[startTile.mapX - 1, startTile.mapY - 1].owner = 3;
             }
         }
 

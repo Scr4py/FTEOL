@@ -114,9 +114,18 @@ namespace FightTheEvilOverlord
 
                     else if (Utility.activePlayerNumber == 3 && tile.owner == 3)
                     {
-                        tile.archer.activeSoldiers = tile.archer.totalSoldiers;
-                        tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
-                        tile.swords.activeSoldiers = tile.swords.totalSoldiers;
+                        if (tile.archer != null)
+                        {
+                            tile.archer.activeSoldiers = tile.archer.totalSoldiers;
+                        }
+                        if (tile.pigs != null)
+                        {
+                            tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
+                        }
+                        if (tile.swords != null)
+                        {
+                            tile.swords.activeSoldiers = tile.swords.totalSoldiers;
+                        }
                         tile.isActive = true;
                     }
                 }

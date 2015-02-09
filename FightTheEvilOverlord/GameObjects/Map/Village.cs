@@ -25,7 +25,7 @@ namespace FightTheEvilOverlord
 
         Random rnd;
 
-        public Tile lastTile;
+        public Tile lastTile; 
 
         public List<Tile> nextTiles = new List<Tile>();
         public Village(Texture2D image, int x, int y, Texture2D pig, Texture2D archer, Texture2D sword)

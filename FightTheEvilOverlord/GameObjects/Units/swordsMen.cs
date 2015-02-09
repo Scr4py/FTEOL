@@ -48,11 +48,13 @@ namespace FightTheEvilOverlord
         {
             if (Utility.activePlayerNumber == 2)
             {
+                render.PicColor = Color.MediumSlateBlue;
                 render.SetInteger(totalSoldiers);
                 render.SetSecInteger(activeSoldiers);
             }
             else
             {
+                render.PicColor = Color.LightBlue;
                 render.SetSecInteger(0);
             }
 

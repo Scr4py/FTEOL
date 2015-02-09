@@ -76,7 +76,7 @@ namespace FightTheEvilOverlord
 
         public void RemoveTile()
         {
-            render.SetImage(null);
+            render.Destroy();
         }
     }
 }
