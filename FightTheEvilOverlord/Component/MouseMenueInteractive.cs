@@ -12,11 +12,13 @@ namespace FightTheEvilOverlord
         public event MouseEventHandler OnClick = delegate{ };
         Rectangle mouseRectangle;
         MouseState prevMouseState;
+        MouseState MouseState;
         
 
         public void start()
         {
             EventManager.OnUpdate += Update;
+            MouseState = new MouseState();
         }
 
         private void Update(GameTime gameTime)
@@ -25,17 +27,17 @@ namespace FightTheEvilOverlord
         }
         public void ButtonClick()
         {
-            MouseState mouseState = Mouse.GetState();
-            if (mouseState.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
+            prevMouseState = MouseState;
+            MouseState = Mouse.GetState();
+            if (MouseState.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
             {
-                Point mousePos = mouseState.Position;
+                Point mousePos = MouseState.Position;
                 
                 if (this.mouseRectangle.Contains(mousePos))
                 {
                     OnClick();
                 }
             }
-            prevMouseState = mouseState;
         }
     }
 }
