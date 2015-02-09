@@ -7,18 +7,24 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FightTheEvilOverlord
 {
-    class Button :  GameObject
+    enum GameState
+    {
+        GameStart,
+        Options,
+        Cancel,
+        Exit,
+        Credits,
+        NextPlayer
+    }
+
+    class Button : GameObject
     {
         private CompoundRenderer render;
         private Transform transform;
         private MouseMenueInteractive mouse;
-        public bool isPlayed = false;
-        Rectangle source;
 
-        public Button(Texture2D image, Rectangle source)
+        public Button(Texture2D image, Rectangle source, GameState gameState)
         {
-            this.source = source;
-            EventManager.OnUpdate += Update;
             this.transform = this.AddComponent<Transform>();
             this.mouse = this.AddComponent<MouseMenueInteractive>();
             this.render = this.AddComponent<CompoundRenderer>();
@@ -28,11 +34,6 @@ namespace FightTheEvilOverlord
             this.mouse.OnClick += OnClick;
             this.mouse.ButtonClick();
             
-        }
-
-        private void Update(GameTime gameTime)
-        {
-            this.mouse.ButtonClick();
         }
 
         private void OnClick()

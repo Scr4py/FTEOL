@@ -7,5 +7,6 @@ namespace FightTheEvilOverlord
 {
     class Menue
     {
+
     }
 }

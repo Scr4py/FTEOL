@@ -39,7 +39,7 @@
     <Compile Include="Component\UnitMovement.cs" />
     <Compile Include="GameObjects\Map\MiniMapTile.cs" />
     <Compile Include="Component\MouseMenueInteractive.cs" />
-    <Compile Include="Menue.cs" />
+    <Compile Include="GameObjects\Menue\Menue.cs" />
     <Compile Include="System\Utility.cs" />
     <Compile Include="System\GameManager.cs" />
     <Compile Include="GameObjects\Background.cs" />
@@ -49,7 +49,7 @@
     <Compile Include="GameObjects\Map\Map.cs" />
     <Compile Include="GameObjects\Map\Tile.cs" />
     <Compile Include="GameObjects\Map\Village.cs" />
-    <Compile Include="GameObjects\Menue.cs" />
+    <Compile Include="GameObjects\Menue\Button.cs" />
     <Compile Include="GameObjects\Player.cs" />
     <Compile Include="GameObjects\Units\Archer.cs" />
     <Compile Include="GameObjects\Units\SwordsMen.cs" />
