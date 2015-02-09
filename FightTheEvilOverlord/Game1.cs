@@ -18,11 +18,11 @@ namespace FightTheEvilOverlord
 
         Background background;
 
-        Menue play;
-        Menue startImage;
-        Menue option;
-        Menue credits;
-        Menue exit;
+        Button play;
+        Button startImage;
+        Button option;
+        Button credits;
+        Button exit;
 
         UnitSpawner spawner;
 

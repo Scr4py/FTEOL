@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FightTheEvilOverlord
 {
-    class Menue :  GameObject
+    class Button :  GameObject
     {
         private CompoundRenderer render;
         private Transform transform;
@@ -15,7 +15,7 @@ namespace FightTheEvilOverlord
         public bool isPlayed = false;
         Rectangle source;
 
-        public Menue(Texture2D image, Rectangle source)
+        public Button(Texture2D image, Rectangle source)
         {
             this.source = source;
             EventManager.OnUpdate += Update;
@@ -24,14 +24,15 @@ namespace FightTheEvilOverlord
             this.render = this.AddComponent<CompoundRenderer>();
             this.render.AddInLists(image, source);
             this.render.start();
+            this.mouse.start();
             this.mouse.OnClick += OnClick;
-            this.mouse.ButtonClick(source);
+            this.mouse.ButtonClick();
             
         }
 
         private void Update(GameTime gameTime)
         {
-            this.mouse.ButtonClick(source);
+            this.mouse.ButtonClick();
         }
 
         private void OnClick()
