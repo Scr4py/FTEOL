@@ -254,7 +254,7 @@ namespace FightTheEvilOverlord
             {
                 if (nextVillage.render.drawColor == Color.OrangeRed)
                 {
-                    nextVillage.owner = 0;
+                    nextVillage.owner = playerNumber;
                     this.activeSoldiers = 0;
                     nextVillage.render.drawColor = Color.White;
                     this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));

@@ -53,20 +53,22 @@ namespace FightTheEvilOverlord
                 int random = rnd.Next(0, 5);
                 if (owner == 0 && Utility.activePlayerNumber == 0)
                 {
-                    if (nextTiles[random].archer != null)
                     {
-                        nextTiles[random].archer.activeSoldiers++;
-                        nextTiles[random].archer.totalSoldiers++;
-                        isActive = false;
-                    }
-                    else
-                    {
-                        nextTiles[random].archer = new Archer(nextTiles[random], 0, 1, 1, archer, Utility.archPlayer, null);
-                        isActive = false;
+                        if (nextTiles[random].archer != null)
+                        {
+                            nextTiles[random].archer.activeSoldiers++;
+                            nextTiles[random].archer.totalSoldiers++;
+                            isActive = false;
+                        }
+                        else
+                        {
+                            nextTiles[random].archer = new Archer(nextTiles[random], 0, 1, 1, archer, Utility.archPlayer, null);
+                            isActive = false;
+                        }
                     }
                 }
-                else if (owner == 1)
-                {
+                else if (owner == 1 && Utility.activePlayerNumber == 1)
+                { 
                     if (nextTiles[random].pigs != null)
                     {
                         nextTiles[random].pigs.activeSoldiers++;
@@ -79,7 +81,7 @@ namespace FightTheEvilOverlord
                         isActive = false;
                     }
                 }
-                else if (owner == 2)
+                else if (owner == 2 && Utility.activePlayerNumber == 2)
                 {
                     if (nextTiles[random].swords != null)
                     {
@@ -90,6 +92,20 @@ namespace FightTheEvilOverlord
                     else
                     {
                         nextTiles[random].swords = new SwordsMen(nextTiles[random], 0, 1, 1, sword, Utility.swordPlayer, null);
+                        isActive = false;
+                    }
+                }
+                else if (owner == 3 && Utility.activePlayerNumber == 3)
+                {
+                    if (nextTiles[random].archer != null)
+                    {
+                        nextTiles[random].archer.activeSoldiers++;
+                        nextTiles[random].archer.totalSoldiers++;
+                        isActive = false;
+                    }
+                    else
+                    {
+                        nextTiles[random].archer = new Archer(nextTiles[random], 0, 1, 1, archer, Utility.archPlayer, null);
                         isActive = false;
                     }
                 }
