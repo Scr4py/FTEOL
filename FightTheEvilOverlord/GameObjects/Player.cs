@@ -10,6 +10,7 @@ namespace FightTheEvilOverlord
     class Player : GameObject
     {
         public int playerNumber;
+        int privatePlayerNumber;
         int unitNumber;
         //Archer[] archerArray;
         //FlyingPigs[] pigArray;
@@ -30,6 +31,7 @@ namespace FightTheEvilOverlord
             this.startTile = tile;
             this.startTile.owner = 10;
             this.unitSpawn = unitSpawn;
+            this.privatePlayerNumber = playerNumber;
             
             getStartSoldier();
 
@@ -38,6 +40,17 @@ namespace FightTheEvilOverlord
             this.transform.Position = new Vector2((tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
             this.unitRender.SetImage(image);
             this.unitRender.start();
+            EventManager.OnUpdate += OnUpdate;
+        }
+
+        void OnUpdate(GameTime gameTime)
+        {
+            resetPlayerNumber();
+        }
+
+        void resetPlayerNumber()
+        {
+            playerNumber = privatePlayerNumber;
         }
 
         void getStartSoldier()

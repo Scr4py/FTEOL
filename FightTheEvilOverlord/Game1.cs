@@ -78,6 +78,7 @@ namespace FightTheEvilOverlord
             Utility.ArchPlayer = this.archerPlayer;
             Utility.PigPlayer = this.pigPlayer;
             Utility.SwordPlayer = this.swordPlayer;
+            Utility.EvilOverLord = this.evilOverLord;
             graphics.IsFullScreen = true;
 
         }
