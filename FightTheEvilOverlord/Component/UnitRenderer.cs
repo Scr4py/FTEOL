@@ -40,7 +40,7 @@ namespace FightTheEvilOverlord
         {
             if (Utility.Font != null)
             {
-                spriteBatch.DrawString(Utility.Font, secIntToDisplay.ToString(), new Vector2(this.transform.Position.X + 20, this.transform.Position.Y), Color.LightGreen);
+                spriteBatch.DrawString(Utility.Font, secIntToDisplay.ToString(), new Vector2(this.transform.Position.X, this.transform.Position.Y + 20), Color.DarkGreen);
             }
         }
 

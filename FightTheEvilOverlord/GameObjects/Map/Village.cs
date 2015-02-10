@@ -78,7 +78,7 @@ namespace FightTheEvilOverlord
                     }
                     else
                     {
-                        nextTiles[random].pigs = new FlyingPigs(nextTiles[random], 0, 1, 1, pig, Utility.PigPlayer, null);
+                        nextTiles[random].pigs = new FlyingPigs(nextTiles[random], 1, 1, 1, pig, Utility.PigPlayer, null);
                         isActive = false;
                     }
                 }
@@ -92,7 +92,7 @@ namespace FightTheEvilOverlord
                     }
                     else
                     {
-                        nextTiles[random].swords = new SwordsMen(nextTiles[random], 0, 1, 1, sword, Utility.SwordPlayer, null);
+                        nextTiles[random].swords = new SwordsMen(nextTiles[random], 2, 1, 1, sword, Utility.SwordPlayer, null);
                         isActive = false;
                     }
                 }
@@ -108,7 +108,7 @@ namespace FightTheEvilOverlord
                         }
                         else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
                         {
-                            nextTiles[random].archer = new Archer(nextTiles[random], 0, 1, 1, archer, Utility.EvilOverLord, null);
+                            nextTiles[random].archer = new Archer(nextTiles[random], 3, 1, 1, archer, Utility.EvilOverLord, null);
                             isActive = false;
                         }
                     }
@@ -122,7 +122,7 @@ namespace FightTheEvilOverlord
                         }
                         else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
                         {
-                            nextTiles[random].pigs = new FlyingPigs(nextTiles[random], 0, 1, 1, pig, Utility.EvilOverLord, null);
+                            nextTiles[random].pigs = new FlyingPigs(nextTiles[random], 3, 1, 1, pig, Utility.EvilOverLord, null);
                             isActive = false;
                         }
                     }
@@ -136,7 +136,7 @@ namespace FightTheEvilOverlord
                         }
                         else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
                         {
-                            nextTiles[random].swords = new SwordsMen(nextTiles[random], 0, 1, 1, sword, Utility.EvilOverLord, null);
+                            nextTiles[random].swords = new SwordsMen(nextTiles[random], 3, 1, 1, sword, Utility.EvilOverLord, null);
                             isActive = false;
                         }
                     }

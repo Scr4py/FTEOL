@@ -34,6 +34,7 @@ namespace FightTheEvilOverlord
             this.image = image;
             currentState = new MouseState();
             this.tile = Spawntile;
+            this.tile.owner = PlayerNumber;
             this.playerNumber = PlayerNumber;
             this.activeSoldiers = ActiveSoldiers;
             this.totalSoldiers = SoldiersNumber;
@@ -129,6 +130,7 @@ namespace FightTheEvilOverlord
                             activeSoldiers = 0;
                             //this.lastTile = tile;
                             this.tile.owner = 4;
+                            this.tile.archer = null;
                             this.tile = nextTile;
                             this.tile.owner = playerNumber;
                             nextTile.archer = new Archer(nextTile, playerNumber, 0, totalSoldiers, image, owner, this);
@@ -203,6 +205,8 @@ namespace FightTheEvilOverlord
                 archer.render.Destroy();
                 archer.transform.Destroy();
                 archer.fightManager.Destroy();
+                //archer.tile.owner = 4;
+                //archer.tile.archer = null;
                 archer = null;
             }
         }
