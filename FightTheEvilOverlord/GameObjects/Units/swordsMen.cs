@@ -48,9 +48,15 @@ namespace FightTheEvilOverlord
 
         private void Draw(GameTime gameTime)
         {
-            if (Utility.ActivePlayerNumber == 2)
+            if (Utility.ActivePlayerNumber == 2 && Utility.ActivePlayerNumber == this.tile.owner)
             {
                 render.PicColor = Color.MediumSlateBlue;
+                render.SetInteger(totalSoldiers);
+                render.SetSecInteger(activeSoldiers);
+            }
+            else if (Utility.ActivePlayerNumber == 3 && Utility.ActivePlayerNumber == this.tile.owner)
+            {
+                render.PicColor = Color.Red;
                 render.SetInteger(totalSoldiers);
                 render.SetSecInteger(activeSoldiers);
             }

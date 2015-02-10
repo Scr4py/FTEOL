@@ -48,9 +48,15 @@ namespace FightTheEvilOverlord
 
         private void Draw(GameTime gameTime)
         {
-            if (Utility.ActivePlayerNumber == 0)
+            if (Utility.ActivePlayerNumber == 0 && Utility.ActivePlayerNumber == this.tile.owner)
             {
                 render.PicColor = Color.Green;
+                render.SetInteger(totalSoldiers);   
+                render.SetSecInteger(activeSoldiers);
+            }
+            else if (Utility.ActivePlayerNumber == 3 && Utility.ActivePlayerNumber == this.tile.owner)
+            {
+                render.PicColor = Color.Red;
                 render.SetInteger(totalSoldiers);
                 render.SetSecInteger(activeSoldiers);
             }
@@ -134,7 +140,7 @@ namespace FightTheEvilOverlord
                             activeSoldiers = 0;
                             this.tile.owner = 4;
                             nextTile.archer.totalSoldiers += totalSoldiers;
-                            nextTile.archer.removeLastArcher(this);
+                            this.tile.archer.removeLastArcher(this);
                         }
 
                         else if (Utility.isColliding(nextTile, currentState) &&
