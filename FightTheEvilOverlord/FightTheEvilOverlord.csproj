@@ -42,6 +42,7 @@
     <Compile Include="Component\MouseMenueInteractive.cs" />
     <Compile Include="GameObjects\Menue\Menue.cs" />
     <Compile Include="Component\SpriteFontRenderer.cs" />
+    <Compile Include="GameObjects\Hud.cs" />
     <Compile Include="System\Utility.cs" />
     <Compile Include="System\GameManager.cs" />
     <Compile Include="GameObjects\Background.cs" />
@@ -96,7 +97,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\hudTex.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\MiniMapTexture.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

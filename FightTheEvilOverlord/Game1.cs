@@ -34,7 +34,7 @@ namespace FightTheEvilOverlord
         GameManager gameManager;
 
         Map map;
-
+        Hud hud;
         SpriteFont Font;
 
         public Game1()
@@ -68,7 +68,8 @@ namespace FightTheEvilOverlord
             //this.exit = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75),GameState.Exit);
             //this.exit.GetComponent<Transform>().Position = new Vector2(300, 450);
 
-            this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"), Content.Load<Texture2D>("MiniMapTexture"), Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("bow_unit"), Content.Load<Texture2D>("sword_unit"),Content.Load<Texture2D>("hudTex"),Content.Load<SpriteFont>("Arial"));
+            this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"), Content.Load<Texture2D>("MiniMapTexture"), Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("bow_unit"), Content.Load<Texture2D>("sword_unit"));
+            this.hud = new Hud(Content.Load<Texture2D>("hudTex"), Content.Load<SpriteFont>("Arial"), new Vector2(1920, 200));
             spawner = new UnitSpawner(Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("sword_unit"), Content.Load<Texture2D>("bow_unit"));
             this.pigPlayer = new Player(1, 2, spawner, this.map.tilesArray[1, map.mapHeight / 2], Content.Load<Texture2D>("pig_unit"), map);
             this.archerPlayer = new Player(0, 2, spawner, this.map.tilesArray[1, 1], Content.Load<Texture2D>("bow_unit"), map);

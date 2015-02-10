@@ -26,17 +26,16 @@ namespace FightTheEvilOverlord
         Texture2D pigTex;
         Texture2D archerTex;
         Texture2D swordTex;
-        SpriteFontRenderer font;
-        Transform transform;
+
 
         public Tile[,] tilesArray;
         public Village[,] villageArray;
-        public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines, Texture2D texVillage, Texture2D texField, Texture2D miniField, Texture2D pigTex, Texture2D archerTex, Texture2D swordTex, Texture2D hudTex, SpriteFont font)
+        public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines, Texture2D texVillage, Texture2D texField, Texture2D miniField, Texture2D pigTex, Texture2D archerTex, Texture2D swordTex)
         {
             this.moveX = (int)(((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width) - mapWidth * (1084 * Renderer.scale)) / 2);
             this.moveY = (int)(((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height) - mapHeight * (1252 * Renderer.scale)) / 2);
             this.texForrest = texForrest;
-            this.hudTex = hudTex;
+            //this.hudTex = hudTex;
             this.texMountain = texMountain;
             this.texPlaines = texPlaines;
             this.texVillage = texVillage;
@@ -45,11 +44,11 @@ namespace FightTheEvilOverlord
             this.pigTex = pigTex;
             this.swordTex = swordTex;
             //this.miniField = miniField;
-            EventManager.OnRender += renderHud;
-            this.transform = this.AddComponent<Transform>();
-            this.font = AddComponent<SpriteFontRenderer>();
-            this.font.SetFont(font);
-            this.font.start();
+            //EventManager.OnRender += renderHud;
+            //this.transform = this.AddComponent<Transform>();
+            //this.font = AddComponent<SpriteFontRenderer>();
+            //this.font.SetFont(font);
+            //this.font.start();
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
@@ -610,11 +609,11 @@ namespace FightTheEvilOverlord
             }
         }
 
-        void renderHud(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(hudTex, new Vector2(0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - moveY), Color.White);
-            this.font.SetText("Yolo");
-            this.font.SetVector(new Vector2(40, 1038));
-        }
+        //void renderHud(SpriteBatch spriteBatch)
+        //{
+        //    spriteBatch.Draw(hudTex, new Vector2(0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - moveY), Color.White);
+        //    this.font.SetText("Yolo");
+        //    this.font.SetVector(new Vector2(40, 1038));
+        //}
     }
 }
