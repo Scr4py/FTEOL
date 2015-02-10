@@ -39,5 +39,11 @@ namespace FightTheEvilOverlord
                 }
             }
         }
+
+        public override void Destroy()
+        {
+            EventManager.OnUpdate -= Update;
+            base.Destroy();
+        }
     }
 }

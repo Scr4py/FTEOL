@@ -86,6 +86,7 @@ namespace FightTheEvilOverlord
         {
             EventManager.OnRender -= Render;
             EventManager.OnUpdate -= Update;
+            base.Destroy();
         }
 
     }

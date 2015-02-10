@@ -218,5 +218,10 @@ namespace FightTheEvilOverlord
                 }
             }
         }
+
+        public override void Destroy()
+        {
+            base.Destroy();
+        }
     }
 }

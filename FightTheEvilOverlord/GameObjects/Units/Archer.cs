@@ -195,6 +195,8 @@ namespace FightTheEvilOverlord
             if (archer != null)
             {
                 archer.render.Destroy();
+                archer.transform.Destroy();
+                archer.fightManager.Destroy();
                 archer = null;
             }
         }

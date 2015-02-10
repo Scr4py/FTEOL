@@ -282,6 +282,8 @@ namespace FightTheEvilOverlord
         {
             if (swordsMen != null)
             {
+                swordsMen.transform.Destroy();
+                swordsMen.fightManager.Destroy();
                 swordsMen.render.Destroy();
                 swordsMen = null;
             }

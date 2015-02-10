@@ -283,6 +283,8 @@ namespace FightTheEvilOverlord
         {
             if (pig != null)
             {
+                pig.transform.Destroy();
+                pig.fightManager.Destroy();
                 pig.render.Destroy();
                 pig = null;
             }
