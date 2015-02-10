@@ -9,8 +9,10 @@ namespace FightTheEvilOverlord
 {
     class Map : GameObject
     {
-        public int mapHeight = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (1252 * Renderer.scale)));
+        public int mapHeight = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height  / (1252 * Renderer.scale))-1);
         public int mapWidth = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1084 * Renderer.scale)));
+        public int moveX;
+        public int moveY;
 
         string Type;
 
@@ -20,15 +22,21 @@ namespace FightTheEvilOverlord
         public Texture2D texVillage;
         public Texture2D texField;
         public Texture2D miniField;
+        public Texture2D hudTex;
         Texture2D pigTex;
         Texture2D archerTex;
         Texture2D swordTex;
+        SpriteFontRenderer font;
+        Transform transform;
 
         public Tile[,] tilesArray;
         public Village[,] villageArray;
-        public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines, Texture2D texVillage, Texture2D texField, Texture2D miniField, Texture2D pigTex, Texture2D archerTex, Texture2D swordTex)
+        public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines, Texture2D texVillage, Texture2D texField, Texture2D miniField, Texture2D pigTex, Texture2D archerTex, Texture2D swordTex, Texture2D hudTex, SpriteFont font)
         {
+            this.moveX = (int)(((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width) - mapWidth * (1084 * Renderer.scale)) / 2);
+            this.moveY = (int)(((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height) - mapHeight * (1252 * Renderer.scale)) / 2);
             this.texForrest = texForrest;
+            this.hudTex = hudTex;
             this.texMountain = texMountain;
             this.texPlaines = texPlaines;
             this.texVillage = texVillage;
@@ -37,6 +45,11 @@ namespace FightTheEvilOverlord
             this.pigTex = pigTex;
             this.swordTex = swordTex;
             //this.miniField = miniField;
+            EventManager.OnRender += renderHud;
+            this.transform = this.AddComponent<Transform>();
+            this.font = AddComponent<SpriteFontRenderer>();
+            this.font.SetFont(font);
+            this.font.start();
             tilesArray = new Tile[mapWidth, mapHeight];
             villageArray = new Village[mapWidth, mapHeight];
             generateTiles();
@@ -44,8 +57,9 @@ namespace FightTheEvilOverlord
             getNextTiles();
             getNextVillages();
             getNextVillageTiles();
-            //RemoveHUDTiles();
         }
+
+
 
         public void generateTiles()
         {
@@ -53,7 +67,7 @@ namespace FightTheEvilOverlord
             {
                 for (int x = 0; x < mapWidth; x++)
                 {
-                    Tile tile = new Tile(getTileTexture(), x, y, Type);
+                    Tile tile = new Tile(getTileTexture(), x, y, Type, moveX);
                     MiniMapTile miniTile = new MiniMapTile(tile, miniField);
                     this.tilesArray[x, y] = tile;
                     System.Threading.Thread.Sleep(2);
@@ -90,36 +104,22 @@ namespace FightTheEvilOverlord
         public void generateVillages()
         {
             RemoveTile(mapWidth / 5, mapHeight / 5);
-            villageArray[mapWidth / 5, mapHeight / 5] = new Village(texVillage, mapWidth / 5, mapHeight / 5, pigTex, archerTex, swordTex);
+            villageArray[mapWidth / 5, mapHeight / 5] = new Village(texVillage, mapWidth / 5, mapHeight / 5, pigTex, archerTex, swordTex, moveX);
 
             RemoveTile(mapWidth / 2, mapHeight / 2);
-            villageArray[mapWidth / 2, mapHeight / 2] = new Village(texVillage, mapWidth / 2, mapHeight / 2, pigTex, archerTex, swordTex);
+            villageArray[mapWidth / 2, mapHeight / 2] = new Village(texVillage, mapWidth / 2, mapHeight / 2, pigTex, archerTex, swordTex, moveX);
 
             RemoveTile(mapWidth / 3 + 3, mapHeight / 4);
-            villageArray[mapWidth / 3 + 3, mapHeight / 4] = new Village(texVillage, mapWidth / 3 + 3, mapHeight / 4, pigTex, archerTex, swordTex);
+            villageArray[mapWidth / 3 + 3, mapHeight / 4] = new Village(texVillage, mapWidth / 3 + 3, mapHeight / 4, pigTex, archerTex, swordTex, moveX);
 
             RemoveTile(mapWidth - 5, mapHeight - 4);
-            villageArray[mapWidth - 5, mapHeight - 4] = new Village(texVillage, mapWidth - 5, mapHeight - 4, pigTex, archerTex, swordTex);
+            villageArray[mapWidth - 5, mapHeight - 4] = new Village(texVillage, mapWidth - 5, mapHeight - 4, pigTex, archerTex, swordTex, moveX);
 
             RemoveTile(mapWidth / 5, mapHeight - 4);
-            villageArray[mapWidth / 5, mapHeight - 4] = new Village(texVillage, mapWidth / 5, mapHeight - 4, pigTex, archerTex, swordTex);
+            villageArray[mapWidth / 5, mapHeight - 4] = new Village(texVillage, mapWidth / 5, mapHeight - 4, pigTex, archerTex, swordTex, moveX);
 
             RemoveTile(mapWidth - 6, mapHeight / 2 - 2);
-            villageArray[mapWidth - 6, mapHeight / 2 - 2] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 2, pigTex, archerTex, swordTex);
-        }
-
-        void RemoveHUDTiles()
-        {
-            foreach (var tile in tilesArray)
-            {
-                if (tile != null)
-                {
-                    if (tile.transform.Position.X - tile.tileWidth > ((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 3) - 2 * tile.tileWidth) && tile.transform.Position.X < (2 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 3) && tile.transform.Position.Y < ((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 3) - tile.tileHeight / 2))
-                    {
-                        RemoveTile(tile);
-                    }
-                }
-            }
+            villageArray[mapWidth - 6, mapHeight / 2 - 2] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 2, pigTex, archerTex, swordTex, moveX);
         }
 
         void RemoveTile(int tileX,int tileY)
@@ -608,6 +608,13 @@ namespace FightTheEvilOverlord
                     }
                 }
             }
+        }
+
+        void renderHud(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(hudTex, new Vector2(0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - moveY), Color.White);
+            this.font.SetText("Yolo");
+            this.font.SetVector(new Vector2(40, 1038));
         }
     }
 }

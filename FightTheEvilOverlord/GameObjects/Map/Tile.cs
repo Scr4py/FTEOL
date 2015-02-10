@@ -32,10 +32,13 @@ namespace FightTheEvilOverlord
         public int mapX;
         public int mapY;
 
+        int moveX;
+
         public Renderer render;
         public Transform transform;
-        public Tile(Texture2D image, int x, int y, string Type)
+        public Tile(Texture2D image, int x, int y, string Type, int moveX)
         {
+            this.moveX = moveX;
             this.mapX = x;
             this.mapY = y;
             this.image = image;
@@ -43,7 +46,7 @@ namespace FightTheEvilOverlord
             this.render = this.AddComponent<Renderer>();
 
             //TODO: replace int 10 with half of screen rest size
-            this.transform.Position = new Vector2(x * 1065 * Renderer.scale, getPosition(x, y) * Renderer.scale);
+            this.transform.Position = new Vector2(x * 1065 * Renderer.scale + moveX, getPosition(x, y) * Renderer.scale);
             this.render.SetImage(image);
             this.render.Start();
 

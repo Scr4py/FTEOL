@@ -130,3 +130,5 @@ C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Courier New.spritefont
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Font.xnb
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Font.xnb
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\hudTex.png
+C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Arial.xnb

@@ -41,6 +41,7 @@
     <Compile Include="GameObjects\Map\MiniMapTile.cs" />
     <Compile Include="Component\MouseMenueInteractive.cs" />
     <Compile Include="GameObjects\Menue\Menue.cs" />
+    <Compile Include="Component\SpriteFontRenderer.cs" />
     <Compile Include="System\Utility.cs" />
     <Compile Include="System\GameManager.cs" />
     <Compile Include="GameObjects\Background.cs" />
@@ -94,6 +95,9 @@
     <Content Include="Content\forest_tile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\hudTex.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\MiniMapTexture.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -124,6 +128,9 @@
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\Arial.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Courier New.spritefont">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -44,6 +44,7 @@ namespace FightTheEvilOverlord
             }
         }
 
+
         public void SetImage(Texture2D image)
         {
             this.image = image;

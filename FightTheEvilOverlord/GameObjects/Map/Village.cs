@@ -26,11 +26,14 @@ namespace FightTheEvilOverlord
 
         Random rnd;
 
-        public Tile lastTile; 
+        public Tile lastTile;
+
+        int moveX;
 
         public List<Tile> nextTiles = new List<Tile>();
-        public Village(Texture2D image, int x, int y, Texture2D pig, Texture2D archer, Texture2D sword)
+        public Village(Texture2D image, int x, int y, Texture2D pig, Texture2D archer, Texture2D sword, int moveX)
         {
+            this.moveX = moveX;
             rnd = new Random();
             this.mapX = x;
             this.mapY = y;
@@ -40,8 +43,7 @@ namespace FightTheEvilOverlord
             this.sword = sword;
             this.transform = this.AddComponent<Transform>();
             this.render = this.AddComponent<Renderer>();
-            //TODO: replace int 10 with half of screen rest size
-            this.transform.Position = new Vector2(x * 1065 * Renderer.scale, getPosition(x, y) * Renderer.scale);
+            this.transform.Position = new Vector2(x * 1065 * Renderer.scale + moveX, getPosition(x, y) * Renderer.scale);
             this.render.SetImage(image);
             this.render.Start();
             EventManager.OnUpdate += Update;
@@ -49,6 +51,27 @@ namespace FightTheEvilOverlord
 
         public void Update(GameTime gameTime)
         {
+            //if (owner == 4)
+            //{
+            //    render.drawColor = Color.White;
+            //}
+            //else if (owner == 0)
+            //{
+            //    render.drawColor = Color.DarkGreen;
+            //}
+            //else if (owner == 1)
+            //{
+            //    render.drawColor = Color.Pink;
+            //}
+            //else if (owner == 2)
+            //{
+            //    render.drawColor = Color.DarkGray;
+            //}
+            //else if (owner == 3)
+            //{
+            //    render.drawColor = Color.Red;
+            //}
+
             if (isActive && owner != 4)
             {
                 int random = rnd.Next(0, 5);

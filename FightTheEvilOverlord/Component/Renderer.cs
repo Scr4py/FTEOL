@@ -10,7 +10,7 @@ namespace FightTheEvilOverlord
 {
     class Renderer : Component
     {
-        public const float scale = 0.08f;
+        public const float scale = 0.085f;
         Transform transform;
         Texture2D image;
         public Color drawColor = Color.White;
