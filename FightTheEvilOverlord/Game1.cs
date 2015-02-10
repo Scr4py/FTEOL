@@ -75,9 +75,9 @@ namespace FightTheEvilOverlord
             this.swordPlayer = new Player(2, 2, spawner, this.map.tilesArray[1, map.mapHeight - 2], Content.Load<Texture2D>("sword_unit"), map);
             this.evilOverLord = new Player(3, 3, spawner, this.map.tilesArray[ map.mapWidth - 2, map.mapHeight / 2], Content.Load<Texture2D>("sword_unit"), map);
             this.gameManager = new GameManager(pigPlayer, archerPlayer, swordPlayer, swordPlayer, map);
-            Utility.archPlayer = this.archerPlayer;
-            Utility.pigPlayer = this.pigPlayer;
-            Utility.swordPlayer = this.swordPlayer;
+            Utility.ArchPlayer = this.archerPlayer;
+            Utility.PigPlayer = this.pigPlayer;
+            Utility.SwordPlayer = this.swordPlayer;
             graphics.IsFullScreen = true;
 
         }

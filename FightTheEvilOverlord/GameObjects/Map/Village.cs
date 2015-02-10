@@ -13,6 +13,7 @@ namespace FightTheEvilOverlord
         public Renderer render;
         public Transform transform;
         public int owner = 4;
+        public int conquerUnit;
         public Texture2D image;
         Texture2D pig;
         Texture2D archer;
@@ -51,7 +52,7 @@ namespace FightTheEvilOverlord
             if (isActive && owner != 4)
             {
                 int random = rnd.Next(0, 5);
-                if (owner == 0 && Utility.activePlayerNumber == 0)
+                if (owner == 0 && Utility.ActivePlayerNumber == 0)
                 {
                     {
                         if (nextTiles[random].archer != null)
@@ -62,12 +63,12 @@ namespace FightTheEvilOverlord
                         }
                         else
                         {
-                            nextTiles[random].archer = new Archer(nextTiles[random], 0, 1, 1, archer, Utility.archPlayer, null);
+                            nextTiles[random].archer = new Archer(nextTiles[random], 0, 1, 1, archer, Utility.ArchPlayer, null);
                             isActive = false;
                         }
                     }
                 }
-                else if (owner == 1 && Utility.activePlayerNumber == 1)
+                else if (owner == 1 && Utility.ActivePlayerNumber == 1)
                 { 
                     if (nextTiles[random].pigs != null)
                     {
@@ -77,11 +78,11 @@ namespace FightTheEvilOverlord
                     }
                     else
                     {
-                        nextTiles[random].pigs = new FlyingPigs(nextTiles[random], 0, 1, 1, pig, Utility.pigPlayer, null);
+                        nextTiles[random].pigs = new FlyingPigs(nextTiles[random], 0, 1, 1, pig, Utility.PigPlayer, null);
                         isActive = false;
                     }
                 }
-                else if (owner == 2 && Utility.activePlayerNumber == 2)
+                else if (owner == 2 && Utility.ActivePlayerNumber == 2)
                 {
                     if (nextTiles[random].swords != null)
                     {
@@ -91,22 +92,53 @@ namespace FightTheEvilOverlord
                     }
                     else
                     {
-                        nextTiles[random].swords = new SwordsMen(nextTiles[random], 0, 1, 1, sword, Utility.swordPlayer, null);
+                        nextTiles[random].swords = new SwordsMen(nextTiles[random], 0, 1, 1, sword, Utility.SwordPlayer, null);
                         isActive = false;
                     }
                 }
-                else if (owner == 3 && Utility.activePlayerNumber == 3)
+                else if (owner == 3 && Utility.ActivePlayerNumber == 3)
                 {
-                    if (nextTiles[random].archer != null)
+                    if (conquerUnit == 0)
                     {
-                        nextTiles[random].archer.activeSoldiers++;
-                        nextTiles[random].archer.totalSoldiers++;
-                        isActive = false;
+                        if (nextTiles[random].archer != null)
+                        {
+                            nextTiles[random].archer.activeSoldiers++;
+                            nextTiles[random].archer.totalSoldiers++;
+                            isActive = false;
+                        }
+                        else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
+                        {
+                            nextTiles[random].archer = new Archer(nextTiles[random], 0, 1, 1, archer, Utility.EvilOverLord, null);
+                            isActive = false;
+                        }
                     }
-                    else
+                    else if (conquerUnit == 1)
                     {
-                        nextTiles[random].archer = new Archer(nextTiles[random], 0, 1, 1, archer, Utility.archPlayer, null);
-                        isActive = false;
+                        if (nextTiles[random].pigs != null)
+                        {
+                            nextTiles[random].pigs.activeSoldiers++;
+                            nextTiles[random].pigs.totalSoldiers++;
+                            isActive = false;
+                        }
+                        else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
+                        {
+                            nextTiles[random].pigs = new FlyingPigs(nextTiles[random], 0, 1, 1, pig, Utility.EvilOverLord, null);
+                            isActive = false;
+                        }
+                    }
+                    else if (conquerUnit == 2)
+                    {
+                        if (nextTiles[random].swords != null)
+                        {
+                            nextTiles[random].swords.activeSoldiers++;
+                            nextTiles[random].swords.totalSoldiers++;
+                            isActive = false;
+                        }
+                        else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
+                        {
+                            nextTiles[random].swords = new SwordsMen(nextTiles[random], 0, 1, 1, sword, Utility.EvilOverLord, null);
+                            isActive = false;
+                        }
                     }
                 }
             }

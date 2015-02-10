@@ -58,31 +58,31 @@ namespace FightTheEvilOverlord
 
         public void NextPlayer()
         {
-            if (Utility.activePlayerNumber == 0)
+            if (Utility.ActivePlayerNumber == 0)
             {
                 activeplayer = this.pig;
-                Utility.activePlayerNumber++;
+                Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
             }
-            else if (Utility.activePlayerNumber == 1)
+            else if (Utility.ActivePlayerNumber == 1)
             {
                 activeplayer = this.swords;
-                Utility.activePlayerNumber++;
+                Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
             }
-            else if (Utility.activePlayerNumber == 2)
+            else if (Utility.ActivePlayerNumber == 2)
             {
                 activeplayer = this.overlord;
-                Utility.activePlayerNumber++;
+                Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
             }
-            else if (Utility.activePlayerNumber == 3)
+            else if (Utility.ActivePlayerNumber == 3)
             {
                 activeplayer = this.archer;
-                Utility.activePlayerNumber = 0;
+                Utility.ActivePlayerNumber = 0;
                 setSoldiersToActive();
                 setVillagesToActive();
             }
@@ -94,25 +94,25 @@ namespace FightTheEvilOverlord
             {
                 if (tile != null)
                 {
-                    if (Utility.activePlayerNumber == 0 && tile.owner == 0 && tile.archer != null)
+                    if (Utility.ActivePlayerNumber == 0 && tile.owner == 0 && tile.archer != null)
                     {
                         tile.archer.activeSoldiers = tile.archer.totalSoldiers;
                         tile.isActive = true;
                     }
 
-                    else if (Utility.activePlayerNumber == 1 && tile.owner == 1 && tile.pigs != null)
+                    else if (Utility.ActivePlayerNumber == 1 && tile.owner == 1 && tile.pigs != null)
                     {
                         tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
                         tile.isActive = true;
                     }
 
-                    else if (Utility.activePlayerNumber == 2 && tile.owner == 2 && tile.swords != null)
+                    else if (Utility.ActivePlayerNumber == 2 && tile.owner == 2 && tile.swords != null)
                     {
                         tile.swords.activeSoldiers = tile.swords.totalSoldiers;
                         tile.isActive = true;
                     }
 
-                    else if (Utility.activePlayerNumber == 3 && tile.owner == 3)
+                    else if (Utility.ActivePlayerNumber == 3 && tile.owner == 3)
                     {
                         if (tile.archer != null)
                         {

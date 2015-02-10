@@ -48,7 +48,7 @@ namespace FightTheEvilOverlord
 
         private void Draw(GameTime gameTime)
         {
-            if (Utility.activePlayerNumber == 0)
+            if (Utility.ActivePlayerNumber == 0)
             {
                 render.PicColor = Color.Green;
                 render.SetInteger(totalSoldiers);
@@ -70,10 +70,10 @@ namespace FightTheEvilOverlord
         {
             if (currentState.LeftButton == ButtonState.Pressed &&
                 Utility.isColliding(this.transform, currentState, image) &&
-                Utility.activePlayerNumber == owner.playerNumber &&
+                Utility.ActivePlayerNumber == owner.playerNumber &&
                 activeSoldiers != 0)
             {
-                if (Utility.activePlayerNumber == owner.playerNumber)
+                if (Utility.ActivePlayerNumber == owner.playerNumber)
                 {
                     foreach (var nextTile in tile.nextTiles)
                     {
@@ -108,7 +108,7 @@ namespace FightTheEvilOverlord
             }
             else if (currentState.LeftButton == ButtonState.Released &&
                 lastState.LeftButton == ButtonState.Pressed &&
-                Utility.activePlayerNumber == owner.playerNumber &&
+                Utility.ActivePlayerNumber == owner.playerNumber &&
                 Utility.isColliding(this.transform, currentState, image))
             {
                 if (!checkIfToMoveOnVillage())
@@ -168,6 +168,21 @@ namespace FightTheEvilOverlord
                     nextVillage.owner = playerNumber;
                     this.activeSoldiers = 0;
                     nextVillage.render.drawColor = Color.White;
+                    if (playerNumber == 3)
+                    {
+                        if (this.tile.archer != null)
+                        {
+                            nextVillage.conquerUnit = 0;
+                        }
+                        else if (this.tile.pigs != null)
+                        {
+                            nextVillage.conquerUnit = 1;
+                        }
+                        else if (this.tile.swords != null)
+                        {
+                            nextVillage.conquerUnit = 2;
+                        }
+                    }
                     this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
                     return true;
                 }
