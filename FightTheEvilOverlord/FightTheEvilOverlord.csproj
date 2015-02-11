@@ -43,6 +43,7 @@
     <Compile Include="GameObjects\Menue\Menue.cs" />
     <Compile Include="Component\SpriteFontRenderer.cs" />
     <Compile Include="GameObjects\Hud.cs" />
+    <Compile Include="Component\HudRenderer.cs" />
     <Compile Include="System\Utility.cs" />
     <Compile Include="System\GameManager.cs" />
     <Compile Include="GameObjects\Background.cs" />
@@ -84,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\abstand.png" />
     <Content Include="Content\Background-Test.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

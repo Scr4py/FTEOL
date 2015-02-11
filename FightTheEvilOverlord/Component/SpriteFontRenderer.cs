@@ -10,18 +10,22 @@ namespace FightTheEvilOverlord
 {
     class SpriteFontRenderer : Component
     {
-        Transform transform;
+        
         SpriteFont font;
-        string text;
+        List<string> textList = new List<string>();
+        List<Vector2> vectorList = new List<Vector2>();
         public void start()
         {
-            this.transform = GameObject.GetComponent<Transform>();
             EventManager.OnRender += SpriteFontRender;
         }
 
         private void SpriteFontRender(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(font, text, this.transform.Position, Color.White);
+            for (int i = 0; i < this.textList.Count; i++)
+            {
+                spriteBatch.DrawString(font, textList[i], vectorList[i], Color.White);
+            }
+            
         }
 
         public void SetFont(SpriteFont spriteFont)
@@ -29,14 +33,10 @@ namespace FightTheEvilOverlord
             this.font = spriteFont;
         }
 
-        public void SetText(string text)
+        public void SetText(string text, Vector2 position)
         {
-            this.text = text;
-        }
-
-        public void SetVector(Vector2 transform)
-        {
-            this.transform.Position = transform;
+            this.textList.Add(text);
+            this.vectorList.Add(position);
         }
 
     }
