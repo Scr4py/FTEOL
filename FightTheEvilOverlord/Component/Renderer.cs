@@ -11,6 +11,7 @@ namespace FightTheEvilOverlord
     class Renderer : Component
     {
         public const float scale = 0.085f;
+        public float SecScale = 0.085f;
         Transform transform;
         Texture2D image;
         public Color drawColor = Color.White;
@@ -24,7 +25,7 @@ namespace FightTheEvilOverlord
         {
             if (this.image != null)
             {
-                spriteBatch.Draw(this.image, this.transform.Position, null, drawColor, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+                spriteBatch.Draw(this.image, this.transform.Position, null, drawColor, 0, Vector2.Zero, SecScale, SpriteEffects.None, 0);
             }
         }
 

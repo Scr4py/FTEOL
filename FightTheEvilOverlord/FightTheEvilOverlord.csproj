@@ -44,6 +44,8 @@
     <Compile Include="Component\SpriteFontRenderer.cs" />
     <Compile Include="GameObjects\Hud.cs" />
     <Compile Include="Component\HudRenderer.cs" />
+    <Compile Include="GameObjects\Slider.cs" />
+    <Compile Include="GameObjects\SliderBar.cs" />
     <Compile Include="System\Utility.cs" />
     <Compile Include="System\GameManager.cs" />
     <Compile Include="GameObjects\Background.cs" />
@@ -111,6 +113,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\plains_tile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Slider.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Slider_Button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Start.png">

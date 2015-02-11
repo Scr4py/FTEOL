@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
 
 namespace FightTheEvilOverlord
 {
@@ -16,6 +17,9 @@ namespace FightTheEvilOverlord
         public static Player PigPlayer;
         public static Player SwordPlayer;
         public static Player EvilOverLord;
+
+        public static ContentManager CurrentContent;
+        public static GraphicsDevice CurrentGraphicsDevice;
 
         public static bool isColliding(Tile toCheckTile, MouseState currentState)
         {
@@ -51,6 +55,20 @@ namespace FightTheEvilOverlord
             {
                 if (currentState.Position.X <= toCheckTransform.Position.X + (image.Width * UnitRenderer.scale) &&
                     currentState.Position.Y <= toCheckTransform.Position.Y + (image.Height * UnitRenderer.scale))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool isCollidingWithNoUnit(Transform toCheckTransform, MouseState currentState, Texture2D image)
+        {
+            if (currentState.Position.X >= toCheckTransform.Position.X &&
+                currentState.Position.Y >= toCheckTransform.Position.Y)
+            {
+                if (currentState.Position.X <= toCheckTransform.Position.X + (image.Width) &&
+                    currentState.Position.Y <= toCheckTransform.Position.Y + (image.Height))
                 {
                     return true;
                 }
