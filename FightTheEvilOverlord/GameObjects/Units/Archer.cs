@@ -81,85 +81,88 @@ namespace FightTheEvilOverlord
 
         private void checkIfToMoveOnTile()
         {
-            if (currentState.LeftButton == ButtonState.Pressed &&
-                Utility.isColliding(this.transform, currentState, image) &&
-                Utility.ActivePlayerNumber == owner.playerNumber &&
-                activeSoldiers != 0)
+            if (movementEngaged == false)
             {
-                if (Utility.ActivePlayerNumber == owner.playerNumber)
+                if (currentState.LeftButton == ButtonState.Pressed &&
+                    Utility.isColliding(this.transform, currentState, image) &&
+                    Utility.ActivePlayerNumber == owner.playerNumber &&
+                    activeSoldiers != 0)
                 {
-                    foreach (var nextTile in tile.nextTiles)
+                    if (Utility.ActivePlayerNumber == owner.playerNumber)
                     {
-                        if (nextTile.owner == 4 || nextTile.owner == playerNumber)
-                        {
-                            nextTile.render.drawColor = Color.DodgerBlue;
-                        }
-                        if (Utility.isColliding(nextTile, currentState))
+                        foreach (var nextTile in tile.nextTiles)
                         {
                             if (nextTile.owner == 4 || nextTile.owner == playerNumber)
                             {
-                                nextTile.render.drawColor = Color.Green;
+                                nextTile.render.drawColor = Color.DodgerBlue;
+                            }
+                            if (Utility.isColliding(nextTile, currentState))
+                            {
+                                if (nextTile.owner == 4 || nextTile.owner == playerNumber)
+                                {
+                                    nextTile.render.drawColor = Color.Green;
+                                }
                             }
                         }
-                    }
-                    foreach (var nextVillage in tile.nextVillages)
-                    {
-                        if (nextVillage.owner == 4 || nextVillage.owner == playerNumber)
-                        {
-                            nextVillage.render.drawColor = Color.DodgerBlue;
-                        }
-                        if (Utility.isColliding(nextVillage, currentState))
+                        foreach (var nextVillage in tile.nextVillages)
                         {
                             if (nextVillage.owner == 4 || nextVillage.owner == playerNumber)
                             {
-                                nextVillage.render.drawColor = Color.OrangeRed;
+                                nextVillage.render.drawColor = Color.DodgerBlue;
+                            }
+                            if (Utility.isColliding(nextVillage, currentState))
+                            {
+                                if (nextVillage.owner == 4 || nextVillage.owner == playerNumber)
+                                {
+                                    nextVillage.render.drawColor = Color.OrangeRed;
+                                }
                             }
                         }
+                        this.transform.Position = new Vector2(currentState.Position.X - ((image.Width / 2) * UnitRenderer.scale), currentState.Position.Y - (image.Height / 2) * UnitRenderer.scale);
                     }
-                    this.transform.Position = new Vector2(currentState.Position.X - ((image.Width / 2) * UnitRenderer.scale), currentState.Position.Y - (image.Height / 2) * UnitRenderer.scale);
                 }
-            }
-            else if (currentState.LeftButton == ButtonState.Released &&
-                lastState.LeftButton == ButtonState.Pressed &&
-                Utility.ActivePlayerNumber == owner.playerNumber &&
-                Utility.isColliding(this.transform, currentState, image))
-            {
-                if (!checkIfToMoveOnVillage())
+                else if (currentState.LeftButton == ButtonState.Released &&
+                    lastState.LeftButton == ButtonState.Pressed &&
+                    Utility.ActivePlayerNumber == owner.playerNumber &&
+                    Utility.isColliding(this.transform, currentState, image))
                 {
-                    foreach (var nextTile in tile.nextTiles)
+                    if (!checkIfToMoveOnVillage())
                     {
-                        nextTile.render.drawColor = Color.White;
-
-                        if (Utility.isColliding(nextTile, currentState) &&
-                            activeSoldiers != 0 && nextTile.owner == 4)
+                        foreach (var nextTile in tile.nextTiles)
                         {
-                            movementEngaged = true;
-                            slider = new Slider(activeSoldiers);
-                            this.nextTile = nextTile;
-                            moveToEmptyTile = true;
+                            nextTile.render.drawColor = Color.White;
 
-                        }
-                        else if (Utility.isColliding(nextTile, currentState) &&
-                            activeSoldiers != 0 && nextTile.owner == this.playerNumber)
-                        {
-                            movementEngaged = true;
-                            slider = new Slider(activeSoldiers);
-                            this.nextTile = nextTile;
-                            moveToOwnedTile = true;
-                        }
+                            if (Utility.isColliding(nextTile, currentState) &&
+                                activeSoldiers != 0 && nextTile.owner == 4)
+                            {
+                                movementEngaged = true;
+                                slider = new Slider(activeSoldiers);
+                                this.nextTile = nextTile;
+                                moveToEmptyTile = true;
 
-                        else if (Utility.isColliding(nextTile, currentState) &&
-                            activeSoldiers != 0 &&
-                            (((tile.owner == 0 || tile.owner == 1 || tile.owner == 2) && nextTile.owner == 3) ||
-                            (nextTile.owner == 0 || nextTile.owner == 1 || nextTile.owner == 2) && tile.owner == 3))
-                        {
-                            //INSERT FIGHT-REFERENCE HERE!!!!!
-                            fightManager.Attack(this.tile, nextTile);
-                        }
+                            }
+                            else if (Utility.isColliding(nextTile, currentState) &&
+                                activeSoldiers != 0 && nextTile.owner == this.playerNumber)
+                            {
+                                movementEngaged = true;
+                                slider = new Slider(activeSoldiers);
+                                this.nextTile = nextTile;
+                                moveToOwnedTile = true;
+                            }
 
-                        else
-                        {
-                            this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
+                            else if (Utility.isColliding(nextTile, currentState) &&
+                                activeSoldiers != 0 &&
+                                (((tile.owner == 0 || tile.owner == 1 || tile.owner == 2) && nextTile.owner == 3) ||
+                                (nextTile.owner == 0 || nextTile.owner == 1 || nextTile.owner == 2) && tile.owner == 3))
+                            {
+                                //INSERT FIGHT-REFERENCE HERE!!!!!
+                                fightManager.Attack(this.tile, nextTile);
+                            }
+
+                            else
+                            {
+                                this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
+                            }
                         }
                     }
                 }
@@ -172,8 +175,9 @@ namespace FightTheEvilOverlord
             {
                 if (slider.Selected == true && moveToEmptyTile == true)
                 {
+                    totalSoldiers = activeSoldiers - slider.ToMoveSoldiers;
                     activeSoldiers = activeSoldiers - slider.ToMoveSoldiers;
-                    if (activeSoldiers == 0)
+                    if (totalSoldiers == 0)
                     {
                         this.tile.owner = 4;
                         this.tile.archer.Destroy();
@@ -188,12 +192,15 @@ namespace FightTheEvilOverlord
                     }
                     slider.SliderBar.Destroy();
                     slider.Destroy();
+                    moveToEmptyTile = false;
+                    movementEngaged = false;
                 }
 
                 else if (slider.Selected == true && moveToOwnedTile == true)
                 {
+                    totalSoldiers = activeSoldiers - slider.ToMoveSoldiers;
                     activeSoldiers = activeSoldiers - slider.ToMoveSoldiers;
-                    if (activeSoldiers == 0)
+                    if (totalSoldiers == 0)
                     {
                         this.tile.owner = 4;
                         this.tile.archer.Destroy();
@@ -201,6 +208,8 @@ namespace FightTheEvilOverlord
                     nextTile.archer.totalSoldiers += slider.ToMoveSoldiers;
                     slider.SliderBar.Destroy();
                     slider.Destroy();
+                    moveToOwnedTile = false;
+                    movementEngaged = false;
                 }
             }
         }

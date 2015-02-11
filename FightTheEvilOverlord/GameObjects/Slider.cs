@@ -55,7 +55,8 @@ namespace FightTheEvilOverlord
             }
             else if (currentState.LeftButton == ButtonState.Released && lastState.LeftButton == ButtonState.Pressed)
             {
-                float a = MaxToMoveSoldiers / 100;
+                float g = MaxToMoveSoldiers;
+                float a = (g / 100);
                 float b = (transform.Position.X - SliderBar.Transform.Position.X + 12);
                 ToMoveSoldiers = (int)(a * b);
                 Selected = true;
