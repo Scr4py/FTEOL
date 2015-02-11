@@ -18,7 +18,6 @@ namespace FightTheEvilOverlord
         public void start()
         {
             EventManager.OnUpdate += Update;
-            MouseState = new MouseState();
         }
 
         private void Update(GameTime gameTime)
@@ -27,7 +26,6 @@ namespace FightTheEvilOverlord
         }
         public void ButtonClick()
         {
-            prevMouseState = MouseState;
             MouseState = Mouse.GetState();
             if (MouseState.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
             {
@@ -38,12 +36,19 @@ namespace FightTheEvilOverlord
                     OnClick();
                 }
             }
+            prevMouseState = MouseState;
         }
 
         public override void Destroy()
         {
             EventManager.OnUpdate -= Update;
             base.Destroy();
+        }
+
+        public void SetRectangle(int width, int height)
+        {
+            mouseRectangle.Width = width;
+            mouseRectangle.Height = height;
         }
     }
 }

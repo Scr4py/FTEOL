@@ -30,9 +30,10 @@ namespace FightTheEvilOverlord
             this.render = this.AddComponent<CompoundRenderer>();
             this.render.AddInLists(image, source);
             this.render.start();
-            this.mouse.start();
             this.mouse.OnClick += OnClick;
+            this.mouse.SetRectangle(source.Width, source.Height);
             this.mouse.ButtonClick();
+            this.mouse.start();
             
         }
 
