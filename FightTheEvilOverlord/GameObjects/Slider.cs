@@ -58,7 +58,13 @@ namespace FightTheEvilOverlord
                 float g = MaxToMoveSoldiers;
                 float a = (g / 100);
                 float b = (transform.Position.X - SliderBar.Transform.Position.X + 12);
-                ToMoveSoldiers = (int)(a * b);
+                if (b > 85)
+                {
+                    b = 100;
+                }
+                float c = a * b;
+                ToMoveSoldiers = (int)c;
+                //ToMoveSoldiers = (int)(a * b);
                 Selected = true;
             }
         }

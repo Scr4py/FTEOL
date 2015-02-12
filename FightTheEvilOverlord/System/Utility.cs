@@ -18,6 +18,8 @@ namespace FightTheEvilOverlord
         public static Player SwordPlayer;
         public static Player EvilOverLord;
 
+        public static bool movementEngaged;
+
         public static ContentManager CurrentContent;
         public static GraphicsDevice CurrentGraphicsDevice;
 

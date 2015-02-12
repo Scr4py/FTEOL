@@ -22,7 +22,7 @@ namespace FightTheEvilOverlord
 
         bool moveToEmptyTile;
         bool moveToOwnedTile;
-        bool movementEngaged;
+        bool moveToEnemyTile;
 
         MouseState currentState;
         MouseState lastState;
@@ -33,7 +33,7 @@ namespace FightTheEvilOverlord
         FightManager fightManager;
         public UnitRenderer render;
 
-        public Archer(Tile Spawntile, int PlayerNumber, int ActiveSoldiers, int SoldiersNumber, Texture2D image, Player player, Archer lastArcher)
+        public Archer(Tile Spawntile, int PlayerNumber, int ActiveSoldiers, int SoldiersNumber, Texture2D image, Player player)
         {
             this.owner = player;
             this.image = image;
@@ -81,7 +81,7 @@ namespace FightTheEvilOverlord
 
         private void checkIfToMoveOnTile()
         {
-            if (movementEngaged == false)
+            if (Utility.movementEngaged == false)
             {
                 if (currentState.LeftButton == ButtonState.Pressed &&
                     Utility.isColliding(this.transform, currentState, image) &&
@@ -135,7 +135,7 @@ namespace FightTheEvilOverlord
                             if (Utility.isColliding(nextTile, currentState) &&
                                 activeSoldiers != 0 && nextTile.owner == 4)
                             {
-                                movementEngaged = true;
+                                Utility.movementEngaged = true;
                                 slider = new Slider(activeSoldiers);
                                 this.nextTile = nextTile;
                                 moveToEmptyTile = true;
@@ -144,7 +144,7 @@ namespace FightTheEvilOverlord
                             else if (Utility.isColliding(nextTile, currentState) &&
                                 activeSoldiers != 0 && nextTile.owner == this.playerNumber)
                             {
-                                movementEngaged = true;
+                                Utility.movementEngaged = true;
                                 slider = new Slider(activeSoldiers);
                                 this.nextTile = nextTile;
                                 moveToOwnedTile = true;
@@ -155,8 +155,10 @@ namespace FightTheEvilOverlord
                                 (((tile.owner == 0 || tile.owner == 1 || tile.owner == 2) && nextTile.owner == 3) ||
                                 (nextTile.owner == 0 || nextTile.owner == 1 || nextTile.owner == 2) && tile.owner == 3))
                             {
-                                //INSERT FIGHT-REFERENCE HERE!!!!!
-                                fightManager.Attack(this.tile, nextTile);
+                                Utility.movementEngaged = true;
+                                slider = new Slider(activeSoldiers);
+                                this.nextTile = nextTile;
+                                moveToEnemyTile = true;
                             }
 
                             else
@@ -171,45 +173,57 @@ namespace FightTheEvilOverlord
 
         void MoveSoldiers()
         {
-            if (movementEngaged == true)
+            if (Utility.movementEngaged == true)
             {
-                if (slider.Selected == true && moveToEmptyTile == true)
+                if (moveToEmptyTile == true)
                 {
-                    totalSoldiers = activeSoldiers - slider.ToMoveSoldiers;
-                    activeSoldiers = activeSoldiers - slider.ToMoveSoldiers;
-                    if (totalSoldiers == 0)
+                    if (slider.Selected == true)
                     {
-                        this.tile.owner = 4;
-                        this.tile.archer.Destroy();
-                    }
+                        totalSoldiers = activeSoldiers - slider.ToMoveSoldiers;
+                        activeSoldiers = activeSoldiers - slider.ToMoveSoldiers;
+                        if (totalSoldiers == 0)
+                        {
+                            this.tile.owner = 4;
+                            this.tile.archer.Destroy();
+                        }
 
-                    if (slider.ToMoveSoldiers > 0)
-                    {
-                        this.lastTile = tile;
-                        this.tile = nextTile;
-                        this.tile.owner = playerNumber;
-                        nextTile.archer = new Archer(nextTile, playerNumber, 0, slider.ToMoveSoldiers, image, owner, this);
+                        if (slider.ToMoveSoldiers > 0)
+                        {
+                            nextTile.archer = new Archer(nextTile, playerNumber, 0, slider.ToMoveSoldiers, image, owner);
+                        }
+                        slider.SliderBar.Destroy();
+                        slider.Destroy();
+                        moveToEmptyTile = false;
+                        Utility.movementEngaged = false;
                     }
-                    slider.SliderBar.Destroy();
-                    slider.Destroy();
-                    moveToEmptyTile = false;
-                    movementEngaged = false;
                 }
-
-                else if (slider.Selected == true && moveToOwnedTile == true)
+                else if (moveToOwnedTile == true)
                 {
-                    totalSoldiers = activeSoldiers - slider.ToMoveSoldiers;
-                    activeSoldiers = activeSoldiers - slider.ToMoveSoldiers;
-                    if (totalSoldiers == 0)
+
+                    if (slider.Selected == true)
                     {
-                        this.tile.owner = 4;
-                        this.tile.archer.Destroy();
+                        totalSoldiers = activeSoldiers - slider.ToMoveSoldiers;
+                        activeSoldiers = activeSoldiers - slider.ToMoveSoldiers;
+                        if (totalSoldiers == 0)
+                        {
+                            this.tile.owner = 4;
+                            this.tile.archer.Destroy();
+                        }
+                        nextTile.archer.totalSoldiers += slider.ToMoveSoldiers;
+                        slider.SliderBar.Destroy();
+                        slider.Destroy();
+                        moveToOwnedTile = false;
+                        Utility.movementEngaged = false;
                     }
-                    nextTile.archer.totalSoldiers += slider.ToMoveSoldiers;
-                    slider.SliderBar.Destroy();
-                    slider.Destroy();
-                    moveToOwnedTile = false;
-                    movementEngaged = false;
+                }
+                else if (moveToEnemyTile == true)
+                {
+                    if (slider.Selected == true)
+                    {
+                        fightManager.Attack(this.tile, nextTile);
+                        moveToEnemyTile = false;
+                        Utility.movementEngaged = false;
+                    }
                 }
             }
         }
@@ -256,8 +270,6 @@ namespace FightTheEvilOverlord
                 archer.render.Destroy();
                 archer.transform.Destroy();
                 archer.fightManager.Destroy();
-                //archer.tile.owner = 4;
-                //archer.tile.archer = null;
                 archer = null;
             }
         }
