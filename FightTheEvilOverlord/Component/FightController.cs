@@ -140,7 +140,7 @@ namespace FightTheEvilOverlord
             if (attackerPower > defenderPower)
             {
                 remainingAttackers = attackerPower - defenderPower;
-                remainingAttackers = remainingAttackers / attackerPower;
+                remainingAttackers = remainingAttackers / attackerBonus;
 
                 if (remainingAttackers % 1 != 0)
                 {

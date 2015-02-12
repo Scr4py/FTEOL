@@ -34,7 +34,7 @@ namespace FightTheEvilOverlord
             renderer.SetImage(buttonTex);
             renderer.Start();
             renderer.SecScale = 0.5f;
-            this.intRenderer = new IntRenderer();
+            this.intRenderer = this.AddComponent<IntRenderer>();
             this.intRenderer.Update(new Vector2(this.transform.Position.X + 15, this.transform.Position.Y + 10), ToMoveSoldiers);
             this.intRenderer.Start();
             EventManager.OnUpdate += Update;
