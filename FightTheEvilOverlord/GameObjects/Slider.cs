@@ -35,14 +35,14 @@ namespace FightTheEvilOverlord
             renderer.Start();
             renderer.SecScale = 0.5f;
             this.intRenderer = new IntRenderer();
-            this.intRenderer.Update(new Vector2(this.transform.Position.X + 15, this.transform.Position.Y + 15), ToMoveSoldiers);
+            this.intRenderer.Update(new Vector2(this.transform.Position.X + 15, this.transform.Position.Y + 10), ToMoveSoldiers);
             this.intRenderer.Start();
             EventManager.OnUpdate += Update;
         }
 
         void Update(GameTime gameTime)
         {
-            this.intRenderer.Update(new Vector2(this.transform.Position.X + 15, this.transform.Position.Y + 15), ToMoveSoldiers);
+            this.intRenderer.Update(new Vector2(this.renderer.transform.Position.X + 15, this.renderer.transform.Position.Y + 10), ToMoveSoldiers);
             moveSliderButton();
             lastState = currentState;
             currentState = Mouse.GetState();
@@ -55,7 +55,15 @@ namespace FightTheEvilOverlord
                 if (currentState.Position.X >= SliderBar.Transform.Position.X + 13 && currentState.Position.X <= SliderBar.Transform.Position.X + (SliderBar.SliderTex.Width * SliderBar.scale) - 12)
                 {
                     transform.Position = new Vector2(currentState.Position.X - ((buttonTex.Width / 2) * renderer.SecScale), SliderBar.Transform.Position.Y - 5);
-                    ToMoveSoldiers = (int)((MaxToMoveSoldiers / 100) * (transform.Position.X - SliderBar.Transform.Position.X - 12));
+                    float g = MaxToMoveSoldiers;
+                    float a = (g / 100);
+                    float b = (transform.Position.X - SliderBar.Transform.Position.X + 12);
+                    if (b > 85)
+                    {
+                        b = 100;
+                    }
+                    float c = a * b;
+                    ToMoveSoldiers = (int)c;
                 }
             }
             else if (currentState.LeftButton == ButtonState.Released && lastState.LeftButton == ButtonState.Pressed)
@@ -69,7 +77,6 @@ namespace FightTheEvilOverlord
                 }
                 float c = a * b;
                 ToMoveSoldiers = (int)c;
-                //ToMoveSoldiers = (int)(a * b);
                 Selected = true;
             }
         }

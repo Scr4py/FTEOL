@@ -12,7 +12,7 @@ namespace FightTheEvilOverlord
     {
         public const float scale = 0.085f;
         public float SecScale = 0.085f;
-        Transform transform;
+        public Transform transform;
         Texture2D image;
         public Color drawColor = Color.White;
         public void Start()
