@@ -11,6 +11,7 @@ namespace FightTheEvilOverlord
         public SliderBar SliderBar;
         Transform transform;
         Renderer renderer;
+        IntRenderer intRenderer;
 
         MouseState currentState;
         MouseState lastState;
@@ -33,11 +34,15 @@ namespace FightTheEvilOverlord
             renderer.SetImage(buttonTex);
             renderer.Start();
             renderer.SecScale = 0.5f;
+            this.intRenderer = new IntRenderer();
+            this.intRenderer.Update(new Vector2(this.transform.Position.X + 15, this.transform.Position.Y + 15), ToMoveSoldiers);
+            this.intRenderer.Start();
             EventManager.OnUpdate += Update;
         }
 
         void Update(GameTime gameTime)
         {
+            this.intRenderer.Update(new Vector2(this.transform.Position.X + 15, this.transform.Position.Y + 15), ToMoveSoldiers);
             moveSliderButton();
             lastState = currentState;
             currentState = Mouse.GetState();
@@ -73,6 +78,7 @@ namespace FightTheEvilOverlord
         {
             SliderBar.Destroy();
             EventManager.OnUpdate -= Update;
+            intRenderer.Destroy();
             transform.Destroy();
             renderer.Destroy();
             slider = null;

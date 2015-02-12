@@ -221,6 +221,8 @@ namespace FightTheEvilOverlord
                     if (slider.Selected == true)
                     {
                         fightManager.Attack(this.tile, nextTile);
+                        slider.SliderBar.Destroy();
+                        slider.Destroy();
                         moveToEnemyTile = false;
                         Utility.movementEngaged = false;
                     }

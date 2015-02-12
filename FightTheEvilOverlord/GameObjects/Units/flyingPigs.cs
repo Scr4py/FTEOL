@@ -209,7 +209,7 @@ namespace FightTheEvilOverlord
                             this.tile.owner = 4;
                             this.tile.pigs.Destroy();
                         }
-                        nextTile.archer.totalSoldiers += slider.ToMoveSoldiers;
+                        nextTile.pigs.totalSoldiers += slider.ToMoveSoldiers;
                         slider.SliderBar.Destroy();
                         slider.Destroy();
                         moveToOwnedTile = false;
@@ -221,6 +221,10 @@ namespace FightTheEvilOverlord
                     if (slider.Selected == true)
                     {
                         fightManager.Attack(this.tile, nextTile);
+                        slider.SliderBar.Destroy();
+                        slider.Destroy();
+                        moveToEnemyTile = false;
+                        Utility.movementEngaged = false;
                     }
                 }
             }
