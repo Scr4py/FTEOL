@@ -103,6 +103,10 @@ namespace FightTheEvilOverlord
                                     nextTile.render.drawColor = Color.Green;
                                 }
                             }
+                            if ((nextTile.owner == 3 && (Utility.ActivePlayerNumber == 0 || Utility.ActivePlayerNumber == 1 || Utility.ActivePlayerNumber == 2)) || ((nextTile.owner == 0 || nextTile.owner == 1 || nextTile.owner == 2) && Utility.ActivePlayerNumber == 3))
+                            {
+                                nextTile.render.drawColor = Color.OrangeRed;
+                            }
                         }
                         foreach (var nextVillage in tile.nextVillages)
                         {
@@ -114,7 +118,7 @@ namespace FightTheEvilOverlord
                             {
                                 if (nextVillage.owner == 4 || nextVillage.owner == playerNumber)
                                 {
-                                    nextVillage.render.drawColor = Color.OrangeRed;
+                                    nextVillage.render.drawColor = Color.DodgerBlue;
                                 }
                             }
                         }
@@ -185,6 +189,7 @@ namespace FightTheEvilOverlord
                         {
                             this.tile.owner = 4;
                             this.tile.archer.Destroy();
+                            this.tile.archer = null;
                         }
 
                         if (slider.ToMoveSoldiers > 0)
@@ -208,6 +213,7 @@ namespace FightTheEvilOverlord
                         {
                             this.tile.owner = 4;
                             this.tile.archer.Destroy();
+                            this.tile.archer = null;
                         }
                         nextTile.archer.totalSoldiers += slider.ToMoveSoldiers;
                         slider.SliderBar.Destroy();
@@ -276,15 +282,16 @@ namespace FightTheEvilOverlord
             }
         }
 
-        public void Destroy(Archer archer)
-        {
-            if (archer != null)
-            {
-                this.render.Destroy();
-                this.transform.Destroy();
-                this.fightManager.Destroy();
-                archer = null;
-            }
-        }
+        //public void Destroy(Archer archer)
+        //{
+        //    if (archer != null)
+        //    {
+        //        this.render.Destroy();
+        //        this.transform.Destroy();
+        //        this.fightManager.Destroy();
+        //        tile.archer = null;
+        //        archer = null;
+        //    }
+        //}
     }
 }
