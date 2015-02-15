@@ -11,6 +11,7 @@ namespace FightTheEvilOverlord
     {
         private List<Texture2D> textureList = new List<Texture2D>();
         private List<Rectangle> rectangleList = new List<Rectangle>();
+
         Transform transform;
 
         public void start()

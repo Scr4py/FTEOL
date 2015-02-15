@@ -26,18 +26,19 @@ namespace FightTheEvilOverlord
         public Button(Texture2D image, Rectangle source, GameState gameState)
         {
             this.transform = this.AddComponent<Transform>();
-            this.mouse = this.AddComponent<MouseMenueInteractive>();
             this.render = this.AddComponent<CompoundRenderer>();
             this.render.AddInLists(image, source);
             this.render.start();
+            this.mouse = this.AddComponent<MouseMenueInteractive>();
+            this.mouse.SetSize(source.Width,source.Height);
             this.mouse.OnClick += OnClick;
-            this.mouse.SetRectangle(source.Width, source.Height);
-            this.mouse.ButtonClick();
             this.mouse.start();
+            
+
             
         }
 
-        private void OnClick()
+        private void OnClick(int x, int y)
         {
             Console.WriteLine("Test");
         }

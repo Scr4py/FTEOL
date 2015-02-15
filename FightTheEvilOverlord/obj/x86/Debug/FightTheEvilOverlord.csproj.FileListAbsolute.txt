@@ -138,3 +138,5 @@ C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Deb
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Arial.xnb
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Slider.png
 C:\Users\Max\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Slider_Button.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Slider.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Slider_Button.png

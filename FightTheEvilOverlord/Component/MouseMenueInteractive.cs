@@ -4,39 +4,45 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
+
 namespace FightTheEvilOverlord
 {
     class MouseMenueInteractive : Component
     {
-        public delegate void MouseEventHandler();
+        public delegate void MouseEventHandler(int x, int y);
         public event MouseEventHandler OnClick = delegate{ };
+        Transform transform;
         Rectangle mouseRectangle;
         MouseState prevMouseState;
-        MouseState MouseState;
+        MouseState mouseState;
         
 
         public void start()
         {
+            this.transform = this.GameObject.GetComponent<Transform>();
             EventManager.OnUpdate += Update;
         }
 
         private void Update(GameTime gameTime)
         {
+            UpdatePosition();
+            Console.WriteLine(mouseState.Position);
+            //Console.WriteLine(mouseRectangle);
             ButtonClick();
         }
+        
         public void ButtonClick()
         {
-            MouseState = Mouse.GetState();
-            if (MouseState.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
+            mouseState = Mouse.GetState();
+            Point point = mouseState.Position;
+            if (mouseState.LeftButton == ButtonState.Pressed)
             {
-                Point mousePos = MouseState.Position;
-                
-                if (this.mouseRectangle.Contains(mousePos))
+                if (this.mouseRectangle.Contains(point))
                 {
-                    OnClick();
+                    OnClick(mouseState.X,mouseState.Y);
                 }
             }
-            prevMouseState = MouseState;
+            prevMouseState = mouseState;
         }
 
         public override void Destroy()
@@ -45,7 +51,13 @@ namespace FightTheEvilOverlord
             base.Destroy();
         }
 
-        public void SetRectangle(int width, int height)
+        private void UpdatePosition()
+        {
+            this.mouseRectangle.X = (int)transform.Position.X;
+            this.mouseRectangle.Y = (int)transform.Position.Y;
+        }
+
+        public void SetSize(int width, int height)
         {
             mouseRectangle.Width = width;
             mouseRectangle.Height = height;
