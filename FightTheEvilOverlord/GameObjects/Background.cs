@@ -16,7 +16,7 @@ namespace FightTheEvilOverlord
             this.render = this.AddComponent<BackgroundRender>();
             this.render.SetImage(image);
             this.render.start();
-            this.render.SetPosition(new Vector2(960, 0));
+            this.render.SetPosition(new Vector2(600, 0));
 
         }
     }

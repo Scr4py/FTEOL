@@ -12,8 +12,8 @@ namespace FightTheEvilOverlord
     {
         Transform transform;
         Texture2D image;
-        
 
+        public float Scale = 0.85f;
         List<Texture2D> distanceImageList = new List<Texture2D>();
         List<Vector2> distanceVectorList = new List<Vector2>();
 

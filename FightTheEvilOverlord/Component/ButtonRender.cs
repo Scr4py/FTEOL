@@ -9,6 +9,7 @@ namespace FightTheEvilOverlord
 {
     class ButtonRender : Component
     {
+        public float Scale = 1f;
         private List<Texture2D> textureList = new List<Texture2D>();
         private List<Rectangle> rectangleList = new List<Rectangle>();
 
@@ -25,7 +26,7 @@ namespace FightTheEvilOverlord
 
             for (int i = 0; i < textureList.Count ; i++)
             {
-                spriteBatch.Draw(textureList[i],this.transform.Position,rectangleList[i],Color.White);
+                spriteBatch.Draw(textureList[i],this.transform.Position,rectangleList[i],Color.White,0,Vector2.Zero,Scale,SpriteEffects.None,0);
             }
         }
 
