@@ -35,6 +35,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Component\BackgroundRender.cs" />
     <Compile Include="Component\CheckButtonPress.cs" />
     <Compile Include="Component\FightController.cs" />
     <Compile Include="Component\IntRenderer.cs" />
@@ -100,12 +101,19 @@
     <Content Include="Content\Button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\cursor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\forest_tile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\HudButton.png" />
     <Content Include="Content\hudTex.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\logo_wip.png" />
+    <Content Include="Content\MenueBackground.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\MiniMapTexture.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

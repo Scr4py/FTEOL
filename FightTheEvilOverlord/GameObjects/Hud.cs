@@ -40,13 +40,14 @@ namespace FightTheEvilOverlord
             fontRender.SetText("Bow: 0/ 100", new Vector2(20, 1038));
             fontRender.SetText("Pig: 0/100", new Vector2(185, 1038));
             fontRender.SetText("Swords: 0/100", new Vector2(350,1038));
-            render.SetDisctanceImage(Utility.CurrentContent.Load<Texture2D>("abstand"),new Vector2(525,1025));
+            render.SetDisctanceImage(Utility.CurrentContent.Load<Texture2D>("abstand"),new Vector2(525, 1025));
             this.menue = new Button(Utility.CurrentContent.Load<Texture2D>("HudButton"), new Rectangle(200, 75, 225, 75), GameState.Menue);
             this.menue.GetComponent<Transform>().Position = new Vector2(600, 1025);
             this.exit = new Button(Utility.CurrentContent.Load<Texture2D>("HudButton"), new Rectangle(200, 75, 225, 75), GameState.Exit);
             this.exit.GetComponent<Transform>().Position = new Vector2(850, 1025);
             this.nextPlayer = new Button(Utility.CurrentContent.Load<Texture2D>("HudButton"), new Rectangle(200, 75, 225, 75), GameState.NextPlayer);
             this.nextPlayer.GetComponent<Transform>().Position = new Vector2(1100, 1025);
+            render.SetDisctanceImage(Utility.CurrentContent.Load<Texture2D>("abstand"), new Vector2(1250, 1025));
             
             
 
