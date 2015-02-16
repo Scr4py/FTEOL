@@ -10,6 +10,7 @@ namespace FightTheEvilOverlord
     enum GameState
     {
         GameStart,
+        Menue,
         Options,
         Cancel,
         Exit,
