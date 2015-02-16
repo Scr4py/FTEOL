@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,8 +15,9 @@ namespace FightTheEvilOverlord
             this.transform = this.AddComponent<Transform>();
             this.render = this.AddComponent<BackgroundRender>();
             this.render.SetImage(image);
-            this.render.SetPosition(new Vector2(960, 0));
             this.render.start();
+            this.render.SetPosition(new Vector2(960, 0));
+
         }
     }
 }

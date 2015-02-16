@@ -112,13 +112,13 @@ namespace FightTheEvilOverlord
                         {
                             if (nextVillage.owner == 4 || nextVillage.owner == playerNumber)
                             {
-                                nextVillage.render.drawColor = Color.DodgerBlue;
+                                nextVillage.render.drawColor = Color.OrangeRed;
                             }
                             if (Utility.isColliding(nextVillage, currentState))
                             {
                                 if (nextVillage.owner == 4 || nextVillage.owner == playerNumber)
                                 {
-                                    nextVillage.render.drawColor = Color.DodgerBlue;
+                                    nextVillage.render.drawColor = Color.OrangeRed;
                                 }
                             }
                         }

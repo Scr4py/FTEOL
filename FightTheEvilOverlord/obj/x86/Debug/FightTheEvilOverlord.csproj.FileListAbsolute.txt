@@ -58,7 +58,6 @@ C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\C
 C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\wheat_tile.png
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.exe
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.pdb
-C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\SDL.dll
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Background-Test.png
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Button.png
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\forest_tile.png
@@ -145,3 +144,13 @@ C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\abstand.png
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\cursor.png
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenueBackground.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\hudTex.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\abstand.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\cursor.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenueBackground.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MiniMapTexture.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Slider.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Slider_Button.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Arial.xnb
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Courier New.spritefont
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Font.xnb

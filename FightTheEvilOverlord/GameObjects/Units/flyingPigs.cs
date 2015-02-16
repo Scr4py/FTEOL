@@ -103,23 +103,23 @@ namespace FightTheEvilOverlord
                                     nextTile.render.drawColor = Color.Green;
                                 }
                             }
+                            if ((nextTile.owner == 3 && (Utility.ActivePlayerNumber == 0 || Utility.ActivePlayerNumber == 1 || Utility.ActivePlayerNumber == 2)) || ((nextTile.owner == 0 || nextTile.owner == 1 || nextTile.owner == 2) && Utility.ActivePlayerNumber == 3))
+                            {
+                                nextTile.render.drawColor = Color.OrangeRed;
+                            }
                         }
                         foreach (var nextVillage in tile.nextVillages)
                         {
                             if (nextVillage.owner == 4 || nextVillage.owner == playerNumber)
                             {
-                                nextVillage.render.drawColor = Color.DodgerBlue;
+                                nextVillage.render.drawColor = Color.OrangeRed;
                             }
                             if (Utility.isColliding(nextVillage, currentState))
                             {
                                 if (nextVillage.owner == 4 || nextVillage.owner == playerNumber)
                                 {
-                                    nextVillage.render.drawColor = Color.DodgerBlue;
+                                    nextVillage.render.drawColor = Color.OrangeRed;
                                 }
-                            }
-                            if ((nextTile.owner == 3 && (Utility.ActivePlayerNumber == 0 || Utility.ActivePlayerNumber == 1 || Utility.ActivePlayerNumber == 2)) || ((nextTile.owner == 0 || nextTile.owner == 1 || nextTile.owner == 2) && Utility.ActivePlayerNumber == 3))
-                            {
-                                nextTile.render.drawColor = Color.OrangeRed;
                             }
                         }
                         this.transform.Position = new Vector2(currentState.Position.X - ((image.Width / 2) * UnitRenderer.scale), currentState.Position.Y - (image.Height / 2) * UnitRenderer.scale);
