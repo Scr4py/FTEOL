@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace FightTheEvilOverlord
 {
-    class CompoundRenderer : Component
+    class ButtonRender : Component
     {
         private List<Texture2D> textureList = new List<Texture2D>();
         private List<Rectangle> rectangleList = new List<Rectangle>();

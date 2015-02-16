@@ -35,7 +35,6 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ButtonRender.cs" />
     <Compile Include="Component\CheckButtonPress.cs" />
     <Compile Include="Component\FightController.cs" />
     <Compile Include="Component\IntRenderer.cs" />
@@ -51,7 +50,7 @@
     <Compile Include="System\Utility.cs" />
     <Compile Include="System\GameManager.cs" />
     <Compile Include="GameObjects\Background.cs" />
-    <Compile Include="Component\CompoundRenderer.cs" />
+    <Compile Include="Component\ButtonRender.cs" />
     <Compile Include="Component\SpriteAnimation.cs" />
     <Compile Include="Component\Renderer.cs" />
     <Compile Include="GameObjects\Map\Map.cs" />

@@ -19,14 +19,14 @@ namespace FightTheEvilOverlord
 
     class Button : GameObject
     {
-        private CompoundRenderer render;
+        private ButtonRender render;
         private Transform transform;
         private MouseMenueInteractive mouse;
 
         public Button(Texture2D image, Rectangle source, GameState gameState)
         {
             this.transform = this.AddComponent<Transform>();
-            this.render = this.AddComponent<CompoundRenderer>();
+            this.render = this.AddComponent<ButtonRender>();
             this.render.AddInLists(image, source);
             this.render.start();
             this.mouse = this.AddComponent<MouseMenueInteractive>();

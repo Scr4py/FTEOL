@@ -9,12 +9,12 @@ namespace FightTheEvilOverlord
     class Background : GameObject
     {
         Transform transform;
-        CompoundRenderer render;
+        ButtonRender render;
 
         public Background(Texture2D image, Rectangle source)
         {
             this.transform = this.AddComponent<Transform>();
-            this.render = this.AddComponent<CompoundRenderer>();
+            this.render = this.AddComponent<ButtonRender>();
             this.render.AddInLists(image, source);
             this.render.start();
         }

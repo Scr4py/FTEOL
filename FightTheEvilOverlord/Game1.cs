@@ -59,13 +59,13 @@ namespace FightTheEvilOverlord
             //Utility.Font = Font;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             this.background = new Background(Content.Load<Texture2D>("Background-Test"), new Rectangle(0, 0, 800, 600));
-            this.play = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75), GameState.GameStart);
+            this.play = new Button(Content.Load<Texture2D>("Button"), new Rectangle(200, 75, 200, 75), GameState.GameStart);
             this.play.GetComponent<Transform>().Position = new Vector2(300, 150);
-            this.option = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75), GameState.Options);
+            this.option = new Button(Content.Load<Texture2D>("Button"), new Rectangle(200, 75, 200, 75), GameState.Options);
             this.option.GetComponent<Transform>().Position = new Vector2(300, 250);
-            this.credits = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75), GameState.Credits);
+            this.credits = new Button(Content.Load<Texture2D>("Button"), new Rectangle(200, 75, 200, 75), GameState.Credits);
             this.credits.GetComponent<Transform>().Position = new Vector2(300, 350);
-            this.exit = new Button(Content.Load<Texture2D>("Button"), new Rectangle(0, 0, 200, 75), GameState.Exit);
+            this.exit = new Button(Content.Load<Texture2D>("Button"), new Rectangle(200, 75, 200, 75), GameState.Exit);
             this.exit.GetComponent<Transform>().Position = new Vector2(300, 450);
 
             Utility.CurrentGraphicsDevice = this.GraphicsDevice;
