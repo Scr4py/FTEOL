@@ -182,7 +182,7 @@ namespace FightTheEvilOverlord
                 {
                     if (slider.Selected == true)
                     {
-                        totalSoldiers = activeSoldiers - slider.ToMoveSoldiers;
+                        totalSoldiers = totalSoldiers - slider.ToMoveSoldiers;
                         activeSoldiers = activeSoldiers - slider.ToMoveSoldiers;
                         if (totalSoldiers == 0)
                         {
@@ -242,7 +242,7 @@ namespace FightTheEvilOverlord
             }
             foreach (var nextVillage in tile.nextVillages)
             {
-                if (nextVillage.render.drawColor == Color.OrangeRed)
+                if (Utility.isColliding(nextVillage, currentState))
                 {
                     nextVillage.owner = playerNumber;
                     this.activeSoldiers = 0;

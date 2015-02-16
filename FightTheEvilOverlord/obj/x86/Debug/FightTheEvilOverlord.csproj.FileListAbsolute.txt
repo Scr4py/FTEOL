@@ -161,3 +161,7 @@ C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Menue.png
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\NextPlayer.png
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\HudButton.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Exit.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\HudButton.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Menue.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\NextPlayer.png
