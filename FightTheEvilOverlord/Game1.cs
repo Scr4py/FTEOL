@@ -33,6 +33,7 @@ namespace FightTheEvilOverlord
 
         GameManager gameManager;
 
+        Cursor cursor;
         Map map;
         Hud hud;
         SpriteFont Font;
@@ -42,7 +43,6 @@ namespace FightTheEvilOverlord
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
         }
 
 
@@ -83,9 +83,9 @@ namespace FightTheEvilOverlord
             Utility.SwordPlayer = this.swordPlayer;
             Utility.EvilOverLord = this.evilOverLord;
             this.hud = new Hud(Content.Load<Texture2D>("hudTex"), Content.Load<SpriteFont>("Arial"));
-            this.hud.SetVector(new Vector2(0, 1020));
+            this.hud.SetVector(new Vector2(0, 1010));
+            this.cursor = new Cursor(Content.Load<Texture2D>("cursor"));
             graphics.IsFullScreen = true;
-
         }
 
       
@@ -112,7 +112,6 @@ namespace FightTheEvilOverlord
 
             spriteBatch.Begin();
             EventManager.InvokeRender(spriteBatch);
-            //this.map.generateAndDrawTiles(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

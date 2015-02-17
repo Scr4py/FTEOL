@@ -15,6 +15,7 @@ namespace FightTheEvilOverlord
         public Transform transform;
         Texture2D image;
         public Color drawColor = Color.White;
+        public int layer;
         public void Start()
         {
             this.transform = GameObject.GetComponent<Transform>();
@@ -25,7 +26,7 @@ namespace FightTheEvilOverlord
         {
             if (this.image != null)
             {
-                spriteBatch.Draw(this.image, this.transform.Position, null, drawColor, 0, Vector2.Zero, SecScale, SpriteEffects.None, 0);
+                spriteBatch.Draw(this.image, this.transform.Position, null, drawColor, 0, Vector2.Zero, SecScale, SpriteEffects.None, layer);
             }
         }
 

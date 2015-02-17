@@ -23,6 +23,7 @@ namespace FightTheEvilOverlord
         bool moveToEmptyTile;
         bool moveToOwnedTile;
         bool moveToEnemyTile;
+        bool moveActive = false;
 
         MouseState currentState;
         MouseState lastState;
@@ -88,6 +89,7 @@ namespace FightTheEvilOverlord
                     Utility.ActivePlayerNumber == owner.playerNumber &&
                     activeSoldiers != 0)
                 {
+                    moveActive = true;
                     if (Utility.ActivePlayerNumber == owner.playerNumber)
                     {
                         foreach (var nextTile in tile.nextTiles)

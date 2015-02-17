@@ -12,7 +12,7 @@ namespace FightTheEvilOverlord
     {
         
         SpriteFont font;
-        List<string> textList = new List<string>();
+        public List<string> textList = new List<string>();
         List<Vector2> vectorList = new List<Vector2>();
         public void start()
         {

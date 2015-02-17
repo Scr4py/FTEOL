@@ -40,6 +40,7 @@
     <Compile Include="Component\FightController.cs" />
     <Compile Include="Component\IntRenderer.cs" />
     <Compile Include="Component\UnitMovement.cs" />
+    <Compile Include="GameObjects\Cursor.cs" />
     <Compile Include="GameObjects\Map\MiniMapTile.cs" />
     <Compile Include="Component\MouseMenueInteractive.cs" />
     <Compile Include="Component\SpriteFontRenderer.cs" />
@@ -88,9 +89,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\abstand.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Background-Test.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -98,6 +96,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\button_endturn.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\button_hud.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\cursor.png">
@@ -109,11 +113,8 @@
     <Content Include="Content\forest_tile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\HudButton.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\hudTex.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\logo_wip.png" />
     <Content Include="Content\Menue.png">

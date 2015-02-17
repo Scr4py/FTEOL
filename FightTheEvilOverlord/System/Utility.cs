@@ -12,6 +12,20 @@ namespace FightTheEvilOverlord
     static class Utility
     {
         public static int ActivePlayerNumber = 0;
+
+        public static int activeSoldiersGoodArch;
+        public static int totalSoldiersGoodArch;
+        public static int activeSoldiersBadArch;
+        public static int totalSoldiersBadArch;
+        public static int activeSoldiersGoodPig;
+        public static int totalSoldiersGoodPig;
+        public static int activeSoldiersBadPig;
+        public static int totalSoldiersBadPig;
+        public static int activeSoldiersGoodSword;
+        public static int totalSoldiersGoodSword;
+        public static int activeSoldiersBadSword;
+        public static int totalSoldiersBadSword;
+
         public static SpriteFont Font;
         public static Player ArchPlayer;
         public static Player PigPlayer;
