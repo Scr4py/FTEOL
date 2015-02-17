@@ -53,5 +53,12 @@ namespace FightTheEvilOverlord
         {
             this.transform.Position = position;
         }
+
+        public override void Destroy()
+        {
+            EventManager.OnRender -= HudRender;
+            EventManager.OnRender -= DistanceRender;
+            base.Destroy();
+        }
     }
 }

@@ -39,5 +39,9 @@ namespace FightTheEvilOverlord
             this.vectorList.Add(position);
         }
 
+        public override void Destroy()
+        {
+            EventManager.OnRender -= SpriteFontRender;
+        }
     }
 }

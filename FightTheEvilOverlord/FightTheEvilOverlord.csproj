@@ -42,7 +42,6 @@
     <Compile Include="Component\UnitMovement.cs" />
     <Compile Include="GameObjects\Map\MiniMapTile.cs" />
     <Compile Include="Component\MouseMenueInteractive.cs" />
-    <Compile Include="GameObjects\Menue\Menue.cs" />
     <Compile Include="Component\SpriteFontRenderer.cs" />
     <Compile Include="GameObjects\Hud.cs" />
     <Compile Include="Component\HudRenderer.cs" />
