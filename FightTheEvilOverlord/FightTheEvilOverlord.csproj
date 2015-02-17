@@ -43,9 +43,8 @@
     <Compile Include="GameObjects\Cursor.cs" />
     <Compile Include="GameObjects\Map\MiniMapTile.cs" />
     <Compile Include="Component\MouseMenueInteractive.cs" />
-    <Compile Include="Component\SpriteFontRenderer.cs" />
+    <Compile Include="Component\HudRender.cs" />
     <Compile Include="GameObjects\Hud.cs" />
-    <Compile Include="Component\HudRenderer.cs" />
     <Compile Include="GameObjects\Slider.cs" />
     <Compile Include="GameObjects\SliderBar.cs" />
     <Compile Include="System\Utility.cs" />
@@ -95,6 +94,9 @@
     <Content Include="Content\bow_unit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\bow_unit_hud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -135,6 +137,9 @@
     <Content Include="Content\pig_unit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\pig_unit_hud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\plains_tile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -148,6 +153,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\sword_unit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sword_unit_hud.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\test.mp4">

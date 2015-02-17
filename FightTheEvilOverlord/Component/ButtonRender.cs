@@ -10,6 +10,7 @@ namespace FightTheEvilOverlord
     class ButtonRender : Component
     {
         public float Scale = 1f;
+        Rectangle source;
         private List<Texture2D> textureList = new List<Texture2D>();
         private List<Rectangle> rectangleList = new List<Rectangle>();
 
@@ -30,8 +31,9 @@ namespace FightTheEvilOverlord
             }
         }
 
-        public void AddInLists(Texture2D image, Rectangle source)
+        public void AddInLists(Texture2D image)
         {
+            this.source = new Rectangle((int)this.transform.Position.X,(int)this.transform.Position.Y, image.Width, image.Height);
             textureList.Add(image);
             rectangleList.Add(source);
         }
