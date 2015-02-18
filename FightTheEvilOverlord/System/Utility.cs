@@ -31,6 +31,7 @@ namespace FightTheEvilOverlord
         public static Player PigPlayer;
         public static Player SwordPlayer;
         public static Player EvilOverLord;
+        public static GameManager GameManager;
 
         public static bool movementEngaged;
 

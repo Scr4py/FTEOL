@@ -80,6 +80,7 @@ namespace FightTheEvilOverlord
             Utility.PigPlayer = this.pigPlayer;
             Utility.SwordPlayer = this.swordPlayer;
             Utility.EvilOverLord = this.evilOverLord;
+            Utility.GameManager = this.gameManager;
             this.hud = new Hud(Content.Load<Texture2D>("HudGraphics\\hudTex"), Content.Load<SpriteFont>("Arial"));
             this.hud.SetVector(new Vector2(0, 1005));
             

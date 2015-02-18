@@ -21,7 +21,6 @@ namespace FightTheEvilOverlord
 
     class Button : GameObject
     {
-        GameManager gM;
         private ButtonRender render;
         private Transform transform;
         private MouseMenueInteractive mouse;
@@ -73,7 +72,7 @@ namespace FightTheEvilOverlord
             }
             else if (this.state == GameState.NextPlayer)
             {
-                this.gM.NextPlayer(); 
+                Utility.GameManager.NextPlayer();
             }
         }
     }
