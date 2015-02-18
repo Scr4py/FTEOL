@@ -26,8 +26,6 @@ namespace FightTheEvilOverlord
         private void Update(GameTime gameTime)
         {
             UpdatePosition();
-            Console.WriteLine(mouseState.Position);
-            //Console.WriteLine(mouseRectangle);
             ButtonClick();
         }
         
@@ -35,7 +33,7 @@ namespace FightTheEvilOverlord
         {
             mouseState = Mouse.GetState();
             Point point = mouseState.Position;
-            if (mouseState.LeftButton == ButtonState.Pressed)
+            if (mouseState.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
             {
                 if (this.mouseRectangle.Contains(point))
                 {
