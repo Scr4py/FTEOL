@@ -12,7 +12,6 @@ namespace FightTheEvilOverlord
         Button menue;
         Button exit;
         Button nextPlayer;
-        Archer archer;
         HudRender hudRenderer;
         Transform transform;
         Texture2D hudTex;
@@ -34,17 +33,17 @@ namespace FightTheEvilOverlord
         private void prepareHud()
         {
             this.menue = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\button_hud"), GameState.Menue);
-            this.menue.GetComponent<Transform>().Position = new Vector2(600, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50);
+            this.menue.GetComponent<Transform>().Position = new Vector2(600, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 55);
             this.exit = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\button_hud"), GameState.Exit);
-            this.exit.GetComponent<Transform>().Position = new Vector2(850, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50);
+            this.exit.GetComponent<Transform>().Position = new Vector2(850, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 55);
             this.nextPlayer = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\button_hud"), GameState.NextPlayer);
-            this.nextPlayer.GetComponent<Transform>().Position = new Vector2(1100, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50);
-            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\bow_unit_hud"), new Vector2(100, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50));
-            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\pig_unit_hud"), new Vector2(250, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 45));
-            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\sword_unit_hud"), new Vector2(400, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50));
-            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\bow_unit_hud"), new Vector2(1400, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50));
-            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\pig_unit_hud"), new Vector2(1550, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 45));
-            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\sword_unit_hud"), new Vector2(1700, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50));
+            this.nextPlayer.GetComponent<Transform>().Position = new Vector2(1100, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 55);
+            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\bow_unit_hud"), new Vector2(100, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 55));
+            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\pig_unit_hud"), new Vector2(250, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50));
+            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\sword_unit_hud"), new Vector2(400, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 55));
+            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\bow_unit_hud"), new Vector2(1400, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 55));
+            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\pig_unit_hud"), new Vector2(1550, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50));
+            hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\sword_unit_hud"), new Vector2(1700, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 55));
             
         }
 

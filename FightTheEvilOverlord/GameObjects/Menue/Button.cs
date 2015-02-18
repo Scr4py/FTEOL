@@ -9,26 +9,27 @@ namespace FightTheEvilOverlord
 {
     enum GameState
     {
-        GameStart,
-        Accept,
-        Menue,
-        Options,
-        Cancel,
-        Exit,
-        Credits,
-        NextPlayer
+        GameStart = 5,
+        Accept  = 6,
+        Menue = 7,
+        Options = 8,
+        Cancel = 9,
+        Exit = 10,
+        Credits = 11,
+        NextPlayer = 12
     }
 
     class Button : GameObject
     {
+        GameManager gM;
         private ButtonRender render;
         private Transform transform;
         private MouseMenueInteractive mouse;
-        private GameState state;
-        public bool start = false;
+        public GameState state;
 
         public Button(Texture2D image, GameState gameState)
         {
+            this.state = gameState;
             this.transform = this.AddComponent<Transform>();
             this.render = this.AddComponent<ButtonRender>();
             this.render.start();
@@ -41,11 +42,39 @@ namespace FightTheEvilOverlord
 
         private void OnClick(int x, int y)
         {
-            if (state == GameState.GameStart)
-            {
-                this.start = true;
-            }
             
+            if(this.state == GameState.GameStart)
+            {
+                Console.WriteLine("Test");
+            }
+            else if (this.state == GameState.Accept)
+            {
+                Console.WriteLine("Accept Test");
+            }
+            else if (this.state == GameState.Menue)
+            {
+                Console.WriteLine("Menu Test");
+            }
+            else if (this.state == GameState.Options)
+            {
+                Console.WriteLine("Option Test");
+            }
+            else if (this.state == GameState.Cancel)
+            {
+                Console.WriteLine("Cancel Test");
+            }
+            else if (this.state == GameState.Exit)
+            {
+                Environment.Exit(0);
+            }
+            else if (this.state == GameState.GameStart)
+            {
+                Console.WriteLine("Credits Test");
+            }
+            else if (this.state == GameState.NextPlayer)
+            {
+                this.gM.NextPlayer(); 
+            }
         }
     }
 }
