@@ -33,7 +33,7 @@ namespace FightTheEvilOverlord
 
         private void prepareHud()
         {
-            this.menue = new Button(Utility.CurrentContent.Load<Texture2D>("button_endturn"), GameState.Menue);
+            this.menue = new Button(Utility.CurrentContent.Load<Texture2D>("button_hud"), GameState.Menue);
             this.menue.GetComponent<Transform>().Position = new Vector2(600, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50);
             this.exit = new Button(Utility.CurrentContent.Load<Texture2D>("button_hud"), GameState.Exit);
             this.exit.GetComponent<Transform>().Position = new Vector2(850, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 50);
