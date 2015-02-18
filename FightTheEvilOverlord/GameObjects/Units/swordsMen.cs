@@ -145,7 +145,8 @@ namespace FightTheEvilOverlord
                                 moveToEmptyTile = true;
                             }
                             else if (Utility.isColliding(nextTile, currentState) &&
-                                activeSoldiers != 0 && nextTile.owner == this.playerNumber)
+                                activeSoldiers != 0 && nextTile.owner == this.playerNumber &&
+                                nextTile.archer == null && nextTile.pigs == null)
                             {
                                 this.nextTile = nextTile;
                                 slider = new Slider(activeSoldiers);

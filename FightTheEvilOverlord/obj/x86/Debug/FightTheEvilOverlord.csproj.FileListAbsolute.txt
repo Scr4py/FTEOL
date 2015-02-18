@@ -143,7 +143,6 @@ C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\cursor.png
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenueBackground.png
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\hudTex.png
-C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\abstand.png
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\cursor.png
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenueBackground.png
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MiniMapTexture.png
@@ -158,7 +157,6 @@ C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Menue.png
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\NextPlayer.png
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Exit.png
-C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\HudButton.png
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Menue.png
 C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\NextPlayer.png
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Exit.png
@@ -175,3 +173,8 @@ C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\button_hud.png
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\pig_unit_hud.png
 C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\sword_unit_hud.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\bow_unit_hud.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\button_endturn.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\button_hud.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\pig_unit_hud.png
+C:\Users\Max\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\sword_unit_hud.png
