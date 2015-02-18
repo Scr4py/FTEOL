@@ -19,7 +19,6 @@ namespace FightTheEvilOverlord
         Background background;
 
         Button play;
-        Button startImage;
         Button option;
         Button credits;
         Button exit;
@@ -56,34 +55,36 @@ namespace FightTheEvilOverlord
         {
             Font = Content.Load<SpriteFont>("Font");
             Utility.Font = Font;
-            //Utility.Font = Font;
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            this.background = new Background(Content.Load<Texture2D>("MenueBackground"));
-            this.play = new Button(Content.Load<Texture2D>("button_hud"), GameState.GameStart);
+            this.background = new Background(Content.Load<Texture2D>("MenuGraphics\\MenueBackground"));
+            this.play = new Button(Content.Load<Texture2D>("MenuGraphics\\button_menu_start"), GameState.GameStart);
             this.play.GetComponent<Transform>().Position = new Vector2(700, 400);
-            this.option = new Button(Content.Load<Texture2D>("button_hud"), GameState.Options);
+            this.option = new Button(Content.Load<Texture2D>("MenuGraphics\\button_menu_option"), GameState.Options);
             this.option.GetComponent<Transform>().Position = new Vector2(700, 500);
-            this.credits = new Button(Content.Load<Texture2D>("button_hud"), GameState.Credits);
+            this.credits = new Button(Content.Load<Texture2D>("MenuGraphics\\button_menu_credits"), GameState.Credits);
             this.credits.GetComponent<Transform>().Position = new Vector2(700, 600);
-            this.exit = new Button(Content.Load<Texture2D>("button_hud"), GameState.Exit);
+            this.exit = new Button(Content.Load<Texture2D>("MenuGraphics\\button_menu_exit"), GameState.Exit);
             this.exit.GetComponent<Transform>().Position = new Vector2(700, 700);
 
             Utility.CurrentGraphicsDevice = this.GraphicsDevice;
             Utility.CurrentContent = this.Content;
-
-            //this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"), Content.Load<Texture2D>("MiniMapTexture"), Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("bow_unit"), Content.Load<Texture2D>("sword_unit"));
-            //spawner = new UnitSpawner(Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("sword_unit"), Content.Load<Texture2D>("bow_unit"));
-            //this.pigPlayer = new Player(1, 2, spawner, this.map.tilesArray[1, map.mapHeight / 2], Content.Load<Texture2D>("pig_unit"), map);
-            //this.archerPlayer = new Player(0, 2, spawner, this.map.tilesArray[1, 1], Content.Load<Texture2D>("bow_unit"), map);
-            //this.swordPlayer = new Player(2, 2, spawner, this.map.tilesArray[1, map.mapHeight - 2], Content.Load<Texture2D>("sword_unit"), map);
-            //this.evilOverLord = new Player(3, 3, spawner, this.map.tilesArray[map.mapWidth - 2, map.mapHeight / 2], Content.Load<Texture2D>("sword_unit"), map);
-            //this.gameManager = new GameManager(pigPlayer, archerPlayer, swordPlayer, swordPlayer, map);
-            //Utility.ArchPlayer = this.archerPlayer;
-            //Utility.PigPlayer = this.pigPlayer;
-            //Utility.SwordPlayer = this.swordPlayer;
-            //Utility.EvilOverLord = this.evilOverLord;
-            //this.hud = new Hud(Content.Load<Texture2D>("hudTex"), Content.Load<SpriteFont>("Arial"));
-            //this.hud.SetVector(new Vector2(0, 1010));
+            
+            if (this.play.start)
+            {
+                this.map = new Map(Content.Load<Texture2D>("mountain_tile"), Content.Load<Texture2D>("forest_tile"), Content.Load<Texture2D>("plains_tile"), Content.Load<Texture2D>("village_tile_wip"), Content.Load<Texture2D>("wheat_tile"), Content.Load<Texture2D>("MiniMapTexture"), Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("bow_unit"), Content.Load<Texture2D>("sword_unit"));
+                spawner = new UnitSpawner(Content.Load<Texture2D>("pig_unit"), Content.Load<Texture2D>("sword_unit"), Content.Load<Texture2D>("bow_unit"));
+                this.pigPlayer = new Player(1, 2, spawner, this.map.tilesArray[1, map.mapHeight / 2], Content.Load<Texture2D>("pig_unit"), map);
+                this.archerPlayer = new Player(0, 2, spawner, this.map.tilesArray[1, 1], Content.Load<Texture2D>("bow_unit"), map);
+                this.swordPlayer = new Player(2, 2, spawner, this.map.tilesArray[1, map.mapHeight - 2], Content.Load<Texture2D>("sword_unit"), map);
+                this.evilOverLord = new Player(3, 3, spawner, this.map.tilesArray[map.mapWidth - 2, map.mapHeight / 2], Content.Load<Texture2D>("sword_unit"), map);
+                this.gameManager = new GameManager(pigPlayer, archerPlayer, swordPlayer, swordPlayer, map);
+                Utility.ArchPlayer = this.archerPlayer;
+                Utility.PigPlayer = this.pigPlayer;
+                Utility.SwordPlayer = this.swordPlayer;
+                Utility.EvilOverLord = this.evilOverLord;
+                this.hud = new Hud(Content.Load<Texture2D>("HudGraphics\\hudTex"), Content.Load<SpriteFont>("Arial"));
+                this.hud.SetVector(new Vector2(0, 1010));
+            }
             this.cursor = new Cursor(Content.Load<Texture2D>("cursor"));
             graphics.IsFullScreen = true;
         }

@@ -10,6 +10,7 @@ namespace FightTheEvilOverlord
     enum GameState
     {
         GameStart,
+        Accept,
         Menue,
         Options,
         Cancel,
@@ -23,6 +24,8 @@ namespace FightTheEvilOverlord
         private ButtonRender render;
         private Transform transform;
         private MouseMenueInteractive mouse;
+        private GameState state;
+        public bool start = false;
 
         public Button(Texture2D image, GameState gameState)
         {
@@ -34,14 +37,15 @@ namespace FightTheEvilOverlord
             this.mouse.SetSize(image.Width,image.Height);
             this.mouse.OnClick += OnClick;
             this.mouse.start();
-            
-
-            
         }
 
         private void OnClick(int x, int y)
         {
-            Console.WriteLine("Test");
+            if (state == GameState.GameStart)
+            {
+                this.start = true;
+            }
+            
         }
     }
 }
