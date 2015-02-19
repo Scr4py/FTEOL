@@ -44,8 +44,10 @@
     <Compile Include="Component\MouseMenueInteractive.cs" />
     <Compile Include="Component\HudRender.cs" />
     <Compile Include="GameObjects\Hud.cs" />
+    <Compile Include="GameObjects\Menue\Menue.cs" />
     <Compile Include="GameObjects\Slider.cs" />
     <Compile Include="GameObjects\SliderBar.cs" />
+    <Compile Include="System\Camera.cs" />
     <Compile Include="System\Utility.cs" />
     <Compile Include="System\GameManager.cs" />
     <Compile Include="GameObjects\Background.cs" />
