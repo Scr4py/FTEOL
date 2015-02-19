@@ -13,6 +13,11 @@ namespace FightTheEvilOverlord
         public Background(Texture2D image)
         {
             this.transform = this.AddComponent<Transform>();
+            this.render = this.AddComponent<BackgroundRender>();
+            this.render.SetImage(image);
+            this.render.start();
+            this.render.SetPosition(new Vector2(600, 0));
         }
+
     }
 }

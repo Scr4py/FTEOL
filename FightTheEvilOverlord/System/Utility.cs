@@ -37,7 +37,7 @@ namespace FightTheEvilOverlord
         public static Hud hud;
         public static UnitSpawner spawner;
 
-        public static ParallaxManager parallaxManager;
+        //public static ParallaxManager parallaxManager;
 
         public static bool movementEngaged;
 

@@ -55,7 +55,7 @@ namespace FightTheEvilOverlord
             Utility.CurrentGraphicsDevice = this.GraphicsDevice;
             Utility.CurrentContent = this.Content;
 
-            Utility.parallaxManager = new ParallaxManager();
+            //Utility.parallaxManager = new ParallaxManager();
             menue = new Menue();
 
             Utility.map = this.map;
