@@ -39,7 +39,6 @@
     <Compile Include="Component\CheckButtonPress.cs" />
     <Compile Include="Component\FightController.cs" />
     <Compile Include="Component\IntRenderer.cs" />
-    <Compile Include="Component\UnitMovement.cs" />
     <Compile Include="GameObjects\Cursor.cs" />
     <Compile Include="GameObjects\Map\MiniMapTile.cs" />
     <Compile Include="Component\MouseMenueInteractive.cs" />

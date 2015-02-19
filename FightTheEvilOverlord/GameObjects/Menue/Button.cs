@@ -9,14 +9,14 @@ namespace FightTheEvilOverlord
 {
     enum GameState
     {
-        GameStart = 5,
-        Accept  = 6,
-        Menue = 7,
-        Options = 8,
-        Cancel = 9,
-        Exit = 10,
-        Credits = 11,
-        NextPlayer = 12
+        GameStart,
+        Accept,
+        Menue,
+        Options,
+        Cancel,
+        Exit,
+        Credits,
+        NextPlayer
     }
 
     class Button : GameObject
@@ -66,7 +66,7 @@ namespace FightTheEvilOverlord
             {
                 Environment.Exit(0);
             }
-            else if (this.state == GameState.GameStart)
+            else if (this.state == GameState.Credits)
             {
                 Console.WriteLine("Credits Test");
             }
