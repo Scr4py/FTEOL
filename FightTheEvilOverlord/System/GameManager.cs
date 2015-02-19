@@ -46,7 +46,7 @@ namespace FightTheEvilOverlord
             lastState = currentState;
             currentState = Keyboard.GetState();
 
-            if (currentState.IsKeyDown(Keys.N) && !lastState.IsKeyDown(Keys.N) && mouseState.LeftButton == ButtonState.Released)
+            if (currentState.IsKeyDown(Keys.N) && !lastState.IsKeyDown(Keys.N) && mouseState.LeftButton == ButtonState.Released && Utility.movementEngaged == false)
             {
                 NextPlayer();
             }

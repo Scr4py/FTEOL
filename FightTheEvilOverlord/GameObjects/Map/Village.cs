@@ -80,11 +80,14 @@ namespace FightTheEvilOverlord
                     {
                         if (nextTiles[random].archer != null)
                         {
-                            nextTiles[random].archer.activeSoldiers++;
-                            nextTiles[random].archer.totalSoldiers++;
-                            isActive = false;
+                            if (nextTiles[random].archer.playerNumber == 0)
+                            {
+                                nextTiles[random].archer.activeSoldiers++;
+                                nextTiles[random].archer.totalSoldiers++;
+                                isActive = false;
+                            }
                         }
-                        else
+                        else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
                         {
                             nextTiles[random].archer = new Archer(nextTiles[random], 0, 1, 1, archer, Utility.ArchPlayer);
                             isActive = false;
@@ -95,11 +98,14 @@ namespace FightTheEvilOverlord
                 { 
                     if (nextTiles[random].pigs != null)
                     {
-                        nextTiles[random].pigs.activeSoldiers++;
-                        nextTiles[random].pigs.totalSoldiers++;
-                        isActive = false;
+                        if (nextTiles[random].pigs.playerNumber == 1)
+                        {
+                            nextTiles[random].pigs.activeSoldiers++;
+                            nextTiles[random].pigs.totalSoldiers++;
+                            isActive = false;
+                        }
                     }
-                    else
+                    else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
                     {
                         nextTiles[random].pigs = new FlyingPigs(nextTiles[random], 1, 1, 1, pig, Utility.PigPlayer);
                         isActive = false;
@@ -109,11 +115,14 @@ namespace FightTheEvilOverlord
                 {
                     if (nextTiles[random].swords != null)
                     {
-                        nextTiles[random].swords.activeSoldiers++;
-                        nextTiles[random].swords.totalSoldiers++;
-                        isActive = false;
+                        if (nextTiles[random].swords.playerNumber == 2)
+                        {
+                            nextTiles[random].swords.activeSoldiers++;
+                            nextTiles[random].swords.totalSoldiers++;
+                            isActive = false;
+                        }
                     }
-                    else
+                    else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
                     {
                         nextTiles[random].swords = new SwordsMen(nextTiles[random], 2, 1, 1, sword, Utility.SwordPlayer);
                         isActive = false;
@@ -125,9 +134,12 @@ namespace FightTheEvilOverlord
                     {
                         if (nextTiles[random].archer != null)
                         {
-                            nextTiles[random].archer.activeSoldiers++;
-                            nextTiles[random].archer.totalSoldiers++;
-                            isActive = false;
+                            if (nextTiles[random].archer.playerNumber == 3)
+                            {
+                                nextTiles[random].archer.activeSoldiers++;
+                                nextTiles[random].archer.totalSoldiers++;
+                                isActive = false;
+                            }
                         }
                         else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
                         {
@@ -139,9 +151,12 @@ namespace FightTheEvilOverlord
                     {
                         if (nextTiles[random].pigs != null)
                         {
-                            nextTiles[random].pigs.activeSoldiers++;
-                            nextTiles[random].pigs.totalSoldiers++;
-                            isActive = false;
+                            if (nextTiles[random].pigs.playerNumber == 3)
+                            {
+                                nextTiles[random].pigs.activeSoldiers++;
+                                nextTiles[random].pigs.totalSoldiers++;
+                                isActive = false;
+                            }
                         }
                         else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
                         {
@@ -153,9 +168,12 @@ namespace FightTheEvilOverlord
                     {
                         if (nextTiles[random].swords != null)
                         {
-                            nextTiles[random].swords.activeSoldiers++;
-                            nextTiles[random].swords.totalSoldiers++;
-                            isActive = false;
+                            if (nextTiles[random].swords.playerNumber == 3)
+                            {
+                                nextTiles[random].swords.activeSoldiers++;
+                                nextTiles[random].swords.totalSoldiers++;
+                                isActive = false;
+                            }
                         }
                         else if (nextTiles[random].archer == null && nextTiles[random].pigs == null && nextTiles[random].swords == null)
                         {
