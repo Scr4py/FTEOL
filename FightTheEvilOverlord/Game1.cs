@@ -55,8 +55,7 @@ namespace FightTheEvilOverlord
             Utility.CurrentGraphicsDevice = this.GraphicsDevice;
             Utility.CurrentContent = this.Content;
 
-            //Utility.parallaxManager = new ParallaxManager();
-            menue = new Menue();
+            Utility.menue = new Menue();
 
             Utility.map = this.map;
             Utility.hud = this.hud;
@@ -87,7 +86,14 @@ namespace FightTheEvilOverlord
        
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
+            if (Utility.map != null)
+            {
+                GraphicsDevice.Clear(Color.White);
+            }
+            else
+            {
+                GraphicsDevice.Clear(Color.DarkGray);
+            }
 
             spriteBatch.Begin();
             EventManager.InvokeRender(spriteBatch);

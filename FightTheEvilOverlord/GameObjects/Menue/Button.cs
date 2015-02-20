@@ -21,7 +21,6 @@ namespace FightTheEvilOverlord
 
     class Button : GameObject
     {
-        private ButtonRender render;
         private Transform transform;
         private MouseMenueInteractive mouse;
         public GameState state;
@@ -30,9 +29,6 @@ namespace FightTheEvilOverlord
         {
             this.state = gameState;
             this.transform = this.AddComponent<Transform>();
-            this.render = this.AddComponent<ButtonRender>();
-            this.render.start();
-            this.render.AddInLists(image);
             this.mouse = this.AddComponent<MouseMenueInteractive>();
             this.mouse.SetSize(image.Width, image.Height);
             this.mouse.OnClick += OnClick;

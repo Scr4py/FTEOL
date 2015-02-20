@@ -45,12 +45,13 @@
     <Compile Include="Component\HudRender.cs" />
     <Compile Include="GameObjects\Hud.cs" />
     <Compile Include="GameObjects\Menue\Menue.cs" />
+    <Compile Include="GameObjects\Menue\ParallaxLayer.cs" />
+    <Compile Include="GameObjects\Menue\ParallaxManager.cs" />
     <Compile Include="GameObjects\Slider.cs" />
     <Compile Include="GameObjects\SliderBar.cs" />
     <Compile Include="System\Camera.cs" />
     <Compile Include="System\Utility.cs" />
     <Compile Include="System\GameManager.cs" />
-    <Compile Include="GameObjects\Background.cs" />
     <Compile Include="Component\ButtonRender.cs" />
     <Compile Include="Component\SpriteAnimation.cs" />
     <Compile Include="Component\Renderer.cs" />
@@ -93,6 +94,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\bow_unit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MenuGraphics\charac1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MenuGraphics\charac2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\HudGraphics\bow_unit_hud.png">

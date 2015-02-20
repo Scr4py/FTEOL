@@ -32,6 +32,7 @@ namespace FightTheEvilOverlord
         public static Player SwordPlayer;
         public static Player EvilOverLord;
         public static GameManager GameManager;
+        public static Menue menue;
 
         public static Map map;
         public static Hud hud;
@@ -111,13 +112,18 @@ namespace FightTheEvilOverlord
             Utility.hud.SetVector(new Vector2(0, 1005));
         }
 
-        public static void destroyMenue(Menue menue)
+        public static void destroyMenue(Menue menu)
         {
-            menue.background.Destroy();
-            menue.credits.Destroy();
-            menue.exit.Destroy();
-            menue.option.Destroy();
-            menue.play.Destroy();
+            if (menu != null && menu.pm != null)
+            {
+                menu.credits.Destroy();
+                menu.exit.Destroy();
+                menu.option.Destroy();
+                menu.play.Destroy();
+                menu.pm.Destroy();
+                menu.pm = null;
+                menu = null;
+            }
         }
     }
 }
