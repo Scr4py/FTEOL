@@ -178,15 +178,18 @@ namespace FightTheEvilOverlord
                 }
                 if (defenderType == 0)
                 {
-                    defenderTile.archer.removeLastArcher(defenderTile.archer);
+                    defenderTile.archer.Destroy();
+                    defenderTile.archer = null;
                 }
                 else if (defenderType == 1)
                 {
-                    defenderTile.pigs.removeLastPig(defenderTile.pigs);
+                    defenderTile.pigs.Destroy();
+                    defenderTile.pigs = null;
                 }
                 else if (defenderType == 2)
                 {
-                    defenderTile.swords.removeLastSwordsMen(defenderTile.swords);
+                    defenderTile.swords.Destroy();
+                    defenderTile.swords = null;
                 }
             }
 
@@ -206,15 +209,18 @@ namespace FightTheEvilOverlord
                 }
                 if (attackerType == 0)
                 {
-                    attackerTile.archer.removeLastArcher(attackerTile.archer);
+                    attackerTile.archer.Destroy();
+                    attackerTile.archer = null;
                 }
                 else if (attackerType == 1)
                 {
-                    attackerTile.pigs.removeLastPig(attackerTile.pigs);
+                    attackerTile.pigs.Destroy();
+                    attackerTile.pigs = null;
                 }
                 else if (attackerType == 2)
                 {
-                    attackerTile.swords.removeLastSwordsMen(attackerTile.swords);
+                    attackerTile.swords.Destroy();
+                    attackerTile.swords = null;
                 }
             }
         }
