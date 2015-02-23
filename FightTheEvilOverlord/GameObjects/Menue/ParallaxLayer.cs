@@ -16,7 +16,7 @@ namespace FightTheEvilOverlord
         {
             this.Image = image;
             this.ScrollSpeed = scrollSpeed;
-            this.scale = scale;
+            this.scale = scale * (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1920.0f);
             this.speed = speed;
             this.Position = position;
         }
