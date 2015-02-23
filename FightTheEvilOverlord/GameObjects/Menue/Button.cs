@@ -26,6 +26,8 @@ namespace FightTheEvilOverlord
         private MouseMenueInteractive mouse;
         public GameState state;
 
+        ParallaxManager pm;
+
         public Button(Texture2D image, GameState gameState)
         {
             this.image = image;
@@ -40,11 +42,19 @@ namespace FightTheEvilOverlord
 
         private void Render(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(this.image, this.transform.Position, Color.White);
+            if (this.mouse.onMouse)
+            {
+                spriteBatch.Draw(this.image, this.transform.Position, Color.Yellow);
+            }
+            else
+            {
+                spriteBatch.Draw(this.image, this.transform.Position, Color.White);
+            }
         }
 
-        public Button(Texture2D image, GameState gameState, string ksduhg)
+        public Button(Texture2D image, GameState gameState, string ksduhg, ParallaxManager pm)
         {
+            this.pm = pm;
             this.state = gameState;
             this.transform = this.AddComponent<Transform>();
             this.mouse = this.AddComponent<MouseMenueInteractive>();
@@ -70,7 +80,7 @@ namespace FightTheEvilOverlord
             }
             else if (this.state == GameState.Options)
             {
-                Console.WriteLine("Option Test");
+                pm.goAway();
             }
             else if (this.state == GameState.Cancel)
             {

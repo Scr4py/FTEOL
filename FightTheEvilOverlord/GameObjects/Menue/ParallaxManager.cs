@@ -19,6 +19,9 @@ namespace FightTheEvilOverlord
         int ch1Position;
         int ch2Position;
         int iCounter;
+
+        bool hasToFuckUp;
+
         public ParallaxManager()
         {
             alpha = 0;
@@ -28,6 +31,7 @@ namespace FightTheEvilOverlord
             ch1Position = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             ch2Position = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width * 2;
             this.Layers = new List<ParallaxLayer>();
+            hasToFuckUp = false;
             EventManager.OnRender += Draw;
         }
 
@@ -45,22 +49,22 @@ namespace FightTheEvilOverlord
         {
             iCounter++;
 
-            if (alpha <= 255 && iCounter >= 300)
+            if (alpha <= 255 && iCounter >= 300 && !hasToFuckUp)
             {
                 alpha++;
             }
 
-            if (menuePosition >= 10)
+            if (menuePosition >= 10 && !hasToFuckUp)
             {
                 menuePosition -= 9;
             }
 
-            if (ch1Position >= 10)
+            if (ch1Position >= 10 && !hasToFuckUp)
             {
                 ch1Position -= 9;
             }
 
-            if (ch2Position >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 650)
+            if (ch2Position >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 650 && !hasToFuckUp)
             {
                 ch2Position -= 9;
             }
@@ -97,7 +101,62 @@ namespace FightTheEvilOverlord
                 }
                 else
                 {
-                    spriteBach.Draw(layer.Image, layer.Position, null, new Color(255, 255, 255, alpha), 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    spriteBach.Draw(layer.Image, layer.Position, null, new Color(255, 255, 255, 0), 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                }
+            }
+        }
+
+        public void goAway()
+        {
+            hasToFuckUp = true;
+            EventManager.OnRender -= Draw;
+            EventManager.OnRender += DrawTheFuckUp;
+        }
+
+        private void DrawTheFuckUp(SpriteBatch spriteBatch)
+        {
+            foreach (var layer in this.Layers)
+            {
+                if (layer.speed == 1.0f)
+                {
+                    if (layer.Position.Y <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2)
+                    {
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 7);
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                }
+                else if (layer.speed == 2.0f)
+                {
+                    if (layer.Position.Y <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2)
+                    {
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 7);
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                }
+                else if (layer.speed == 94.0f)
+                {
+                    if (layer.Position.Y <= -10)
+                    {
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 13);
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                }
+                else
+                {
+                    layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 13);
+                    spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
                 }
             }
         }

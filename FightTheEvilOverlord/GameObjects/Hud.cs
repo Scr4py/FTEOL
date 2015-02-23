@@ -38,7 +38,7 @@ namespace FightTheEvilOverlord
             this.menue.GetComponent<Transform>().Position = new Vector2(600, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 55);
             this.exit = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\button_hud"), GameState.Exit);
             this.exit.GetComponent<Transform>().Position = new Vector2(850, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 55);
-            this.nextPlayer = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\button_hud"), GameState.NextPlayer);
+            this.nextPlayer = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\button_endturn"), GameState.NextPlayer);
             this.nextPlayer.GetComponent<Transform>().Position = new Vector2(1100, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 55);
             hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\bow_unit_hud"), new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 27.0f, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - (55 * scale)));
             hudRenderer.setImage(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\pig_unit_hud"), new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 8.0f, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - (50 * scale)));

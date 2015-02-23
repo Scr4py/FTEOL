@@ -15,7 +15,8 @@ namespace FightTheEvilOverlord
         Rectangle mouseRectangle;
         MouseState prevMouseState;
         MouseState mouseState;
-        
+
+        public bool onMouse;
 
         public void start()
         {
@@ -33,6 +34,14 @@ namespace FightTheEvilOverlord
         {
             mouseState = Mouse.GetState();
             Point point = mouseState.Position;
+            if (this.mouseRectangle.Contains(point))
+            {
+                onMouse = true;
+            }
+            else
+            {
+                onMouse = false;
+            }
             if (mouseState.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
             {
                 if (this.mouseRectangle.Contains(point))
