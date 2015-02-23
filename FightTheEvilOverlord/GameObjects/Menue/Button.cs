@@ -21,18 +21,26 @@ namespace FightTheEvilOverlord
 
     class Button : GameObject
     {
+        Texture2D image;
         private Transform transform;
         private MouseMenueInteractive mouse;
         public GameState state;
 
         public Button(Texture2D image, GameState gameState)
         {
+            this.image = image;
             this.state = gameState;
             this.transform = this.AddComponent<Transform>();
             this.mouse = this.AddComponent<MouseMenueInteractive>();
             this.mouse.SetSize(image.Width, image.Height);
             this.mouse.OnClick += OnClick;
             this.mouse.start();
+            EventManager.OnRender += Render;
+        }
+
+        private void Render(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(this.image, this.transform.Position, Color.White);
         }
 
         public Button(Texture2D image, GameState gameState, string ksduhg)
