@@ -9,7 +9,7 @@ namespace FightTheEvilOverlord
 {
     class Map : GameObject
     {
-        public int mapHeight = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height  / (1252 * Renderer.scale))-1);
+        public int mapHeight = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height  / (1252 * Utility.scale))-1);
         public int mapWidth = (int)((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (1084 * Renderer.scale)));
         public int moveX;
         public int moveY;

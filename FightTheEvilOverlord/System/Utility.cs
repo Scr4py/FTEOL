@@ -12,7 +12,7 @@ namespace FightTheEvilOverlord
     static class Utility
     {
         public static int ActivePlayerNumber = 0;
-
+        public static float scale = 0.085f;
         public static int activeSoldiersGoodArch;
         public static int totalSoldiersGoodArch;
         public static int activeSoldiersBadArch;
