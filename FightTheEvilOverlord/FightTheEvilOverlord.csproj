@@ -97,6 +97,12 @@
     <Content Include="Content\bow_unit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\HudGraphics\button_boardlayout.png" />
+    <Content Include="Content\HudGraphics\button_fight.png" />
+    <Content Include="Content\HudGraphics\button_movement.png" />
+    <Content Include="Content\HudGraphics\button_slider.png" />
+    <Content Include="Content\HudGraphics\button_tilecolor.png" />
+    <Content Include="Content\HudGraphics\button_village.png" />
     <Content Include="Content\MenuGraphics\button_howto.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
