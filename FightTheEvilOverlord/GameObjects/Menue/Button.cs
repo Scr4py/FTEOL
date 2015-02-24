@@ -75,7 +75,8 @@ namespace FightTheEvilOverlord
             }
             else if(this.state == GameState.HowTo)
             {
-                Utility.howToPlay();
+                //Utility.howToPlay();
+                pm.goDown();
             }
             else if (this.state == GameState.Accept)
             {
@@ -87,7 +88,7 @@ namespace FightTheEvilOverlord
             }
             else if (this.state == GameState.Options)
             {
-                pm.goAway();
+                pm.goUp();
             }
             else if (this.state == GameState.Cancel)
             {
