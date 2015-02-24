@@ -18,11 +18,6 @@ namespace FightTheEvilOverlord
 
         UnitSpawner spawner;
 
-        Player pigPlayer;
-        Player archerPlayer;
-        Player swordPlayer;
-        Player evilOverLord;
-
         GameManager gameManager;
 
         Menue menue;
@@ -32,6 +27,9 @@ namespace FightTheEvilOverlord
         Hud hud;
         SpriteFont Font;
 
+        float fps;
+        float currentFps;
+        float currentTime = 0f;
         public Game1()
             : base()
         {
@@ -76,6 +74,7 @@ namespace FightTheEvilOverlord
        
         protected override void Update(GameTime gameTime)
         {
+            
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             EventManager.InVokeUpdate(gameTime);
@@ -86,6 +85,14 @@ namespace FightTheEvilOverlord
        
         protected override void Draw(GameTime gameTime)
         {
+            currentTime += (float)gameTime.ElapsedGameTime.Milliseconds;
+            if (currentTime >= 2000)
+            {
+                currentTime = 0.0f;
+                fps = currentFps / 2;
+                currentFps = 0.0f;
+            }
+            currentFps++;
             if (Utility.map != null)
             {
                 GraphicsDevice.Clear(Color.White);
@@ -98,6 +105,7 @@ namespace FightTheEvilOverlord
             spriteBatch.Begin();
             EventManager.InvokeRender(spriteBatch);
             spriteBatch.Draw(Content.Load<Texture2D>("cursor"), new Vector2(Mouse.GetState().Position.X, Mouse.GetState().Position.Y), Color.White);
+            spriteBatch.DrawString(Font, string.Format("{0}", fps), new Vector2(10, 10), Color.Red);
             spriteBatch.End();
 
             base.Draw(gameTime);
