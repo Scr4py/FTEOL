@@ -12,6 +12,7 @@ namespace FightTheEvilOverlord
         public ParallaxManager pm;
 
         public Button play;
+        public Button howTo;
         public Button option;
         public Button credits;
         public Button exit;
@@ -29,18 +30,22 @@ namespace FightTheEvilOverlord
             this.play = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_start"), GameState.GameStart,"play", pm);
             this.play.GetComponent<Transform>().Position = new Vector2(700, 400);
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_start"), 1.0f, 1.0f, 3.0f, new Vector2(730, 400)));
+           
+            this.howTo = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_howto"), GameState.HowTo, "howTo", pm);
+            this.howTo.GetComponent<Transform>().Position = new Vector2(700, 500);
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_howto"), 1.0f, 1.0f, 3.0f, new Vector2(730, 500)));
 
             this.option = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_option"), GameState.Options, "option", pm);
-            this.option.GetComponent<Transform>().Position = new Vector2(700, 500);
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_option"), 1.0f, 1.0f, 3.0f, new Vector2(730, 500)));
+            this.option.GetComponent<Transform>().Position = new Vector2(700, 600);
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_option"), 1.0f, 1.0f, 3.0f, new Vector2(730, 600)));
 
             this.credits = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_credits"), GameState.Credits, "Credits", pm);
             this.credits.GetComponent<Transform>().Position = new Vector2(700, 600);
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_credits"), 1.0f, 1.0f, 3.0f, new Vector2(730, 600)));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_credits"), 1.0f, 1.0f, 3.0f, new Vector2(730, 700)));
 
             this.exit = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_exit"), GameState.Exit, "exit", pm);
-            this.exit.GetComponent<Transform>().Position = new Vector2(700, 700);
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_exit"), 1.0f, 1.0f, 3.0f, new Vector2(730, 700)));
+            this.exit.GetComponent<Transform>().Position = new Vector2(700,800);
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_exit"), 1.0f, 1.0f, 3.0f, new Vector2(730, 800)));
 
        
             

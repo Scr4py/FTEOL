@@ -19,6 +19,7 @@ namespace FightTheEvilOverlord
         public List<string> textList = new List<string>();
         List<Vector2> vectorList = new List<Vector2>();
         List<Vector2> imageVectorList = new List<Vector2>();
+
         public void start()
         {
             this.transform = this.GameObject.GetComponent<Transform>();

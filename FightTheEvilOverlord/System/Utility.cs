@@ -36,6 +36,7 @@ namespace FightTheEvilOverlord
 
         public static Map map;
         public static Hud hud;
+        public static HowTo howTo;
         public static UnitSpawner spawner;
 
         //public static ParallaxManager parallaxManager;
@@ -125,5 +126,12 @@ namespace FightTheEvilOverlord
                 menu = null;
             }
         }
+
+        public static void howToPlay()
+        {
+            Utility.howTo = new HowTo(Utility.CurrentContent.Load<Texture2D>("backgroundTest"));
+        }
+
+
     }
 }

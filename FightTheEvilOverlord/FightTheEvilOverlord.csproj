@@ -40,6 +40,7 @@
     <Compile Include="Component\FightController.cs" />
     <Compile Include="Component\IntRenderer.cs" />
     <Compile Include="GameObjects\Cursor.cs" />
+    <Compile Include="GameObjects\Menue\HowTo.cs" />
     <Compile Include="GameObjects\Map\MiniMapTile.cs" />
     <Compile Include="Component\MouseMenueInteractive.cs" />
     <Compile Include="Component\HudRender.cs" />
@@ -94,6 +95,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\bow_unit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MenuGraphics\button_howto.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\MenuGraphics\charac1.png">

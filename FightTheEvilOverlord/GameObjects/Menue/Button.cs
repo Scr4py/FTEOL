@@ -10,6 +10,9 @@ namespace FightTheEvilOverlord
     enum GameState
     {
         GameStart,
+        HowTo,
+        ArrowLeft,
+        ArrowRight,
         Accept,
         Menue,
         Options,
@@ -27,7 +30,7 @@ namespace FightTheEvilOverlord
         public GameState state;
 
         ParallaxManager pm;
-
+        
         public Button(Texture2D image, GameState gameState)
         {
             this.image = image;
@@ -69,6 +72,10 @@ namespace FightTheEvilOverlord
             if(this.state == GameState.GameStart)
             {
                 Utility.startGame();
+            }
+            else if(this.state == GameState.HowTo)
+            {
+                Utility.howToPlay();
             }
             else if (this.state == GameState.Accept)
             {
