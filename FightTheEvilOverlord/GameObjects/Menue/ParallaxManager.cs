@@ -110,7 +110,15 @@ namespace FightTheEvilOverlord
         {
             hasToFuckUp = true;
             EventManager.OnRender -= Draw;
-            EventManager.OnRender += DrawTheFuckUp;
+            if (hasToFuckUp)
+            {
+              EventManager.OnRender += DrawTheFuckUp;
+            }
+            else
+            {
+                EventManager.OnRender -= DrawTheFuckUp;
+            }
+            
         }
 
         private void DrawTheFuckUp(SpriteBatch spriteBatch)

@@ -205,3 +205,6 @@ C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\C
 C:\Users\Lucas\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\charac2.png
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\charac1.png
 C:\Users\Scrapy\Documents\GitHub\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\charac2.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\charac1.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\charac2.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL\FTEOL\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\OptionBackground.png
