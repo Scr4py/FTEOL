@@ -16,6 +16,12 @@ namespace FightTheEvilOverlord
         public Button option;
         public Button credits;
         public Button exit;
+        public Button Field;
+        public Button Fight;
+        public Button Village;
+        public Button Movement;
+        public Button TileColor;
+        public Button Slider;
 
         public Menue()
         {
@@ -27,6 +33,21 @@ namespace FightTheEvilOverlord
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.35f, 94.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 350, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height + 65)));
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.2f, 38.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.38f, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height + 65)));
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.2f, 38.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 18, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height + 65)));
+            //How to Buttons
+            this.Field = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_boardlayout"), GameState.Field, "Field", pm);
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_boardlayout"),1.0f,1.0f,39.0f,new Vector2(200,2000)));
+            this.Fight = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_fight"), GameState.Fight, "Fight", pm);
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_fight"), 1.0f, 1.0f, 40.0f, new Vector2(200, 2000)));
+            this.Village = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_village"), GameState.Villages, "village", pm);
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_village"), 1.0f, 1.0f, 41.0f, new Vector2(200, 2000)));
+
+            this.Movement = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_movement"), GameState.Move, "Movement", pm);
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_movement"), 1.0f, 1.0f, 39.0f, new Vector2(1500, 2000)));
+            this.TileColor = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_tilecolor"), GameState.TileColor, "TileColor", pm);
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_tilecolor"), 1.0f, 1.0f, 40.0f, new Vector2(1500, 2000)));
+            this.Slider = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_slider"), GameState.Slider, "Slider", pm);
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_slider"), 1.0f, 1.0f, 41.0f, new Vector2(1500, 2000)));
+
             //Options Background
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.35f, 94.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 350, -GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height + 65)));
             //Characters

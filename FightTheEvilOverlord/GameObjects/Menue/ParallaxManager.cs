@@ -191,6 +191,42 @@ namespace FightTheEvilOverlord
                         spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
                     }
                 }
+                else if (layer.speed == 39.0f)
+                {
+                    if (layer.Position.Y <= -10)
+                    {
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 13);
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                }
+                else if (layer.speed == 40.0f)
+                {
+                    if (layer.Position.Y <= -10)
+                    {
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 13);
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                }
+                else if (layer.speed == 41.0f)
+                {
+                    if (layer.Position.Y <= -10)
+                    {
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 13);
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                }
                 else
                 {
                     layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 13);
@@ -242,6 +278,42 @@ namespace FightTheEvilOverlord
                 else if (layer.speed == 38.0f)
                 {
                     if (layer.Position.Y >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height/2 - 30)
+                    {
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y - 8);
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                }
+                else if (layer.speed == 39.0f)
+                {
+                    if (layer.Position.Y >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2 + 160)
+                    {
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y - 8);
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                }
+                else if (layer.speed == 40.0f)
+                {
+                    if (layer.Position.Y >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2 + 210)
+                    {
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y - 8);
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                }
+                else if (layer.speed == 41.0f)
+                {
+                    if (layer.Position.Y >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2 + 260)
                     {
                         layer.Position = new Vector2(layer.Position.X, layer.Position.Y - 8);
                         spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
