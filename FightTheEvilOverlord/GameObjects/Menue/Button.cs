@@ -11,14 +11,18 @@ namespace FightTheEvilOverlord
     {
         GameStart,
         HowTo,
-        ArrowLeft,
-        ArrowRight,
         Accept,
         Menue,
         Options,
         Cancel,
         Exit,
         Credits,
+        Field,
+        Villages,
+        Fight,
+        Move,
+        TileColor,
+        Slider,
         NextPlayer
     }
 
@@ -75,7 +79,6 @@ namespace FightTheEvilOverlord
             }
             else if(this.state == GameState.HowTo)
             {
-                //Utility.howToPlay();
                 pm.goDown();
             }
             else if (this.state == GameState.Accept)

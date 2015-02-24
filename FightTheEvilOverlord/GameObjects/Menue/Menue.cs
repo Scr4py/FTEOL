@@ -20,9 +20,16 @@ namespace FightTheEvilOverlord
         public Menue()
         {
             this.pm = new ParallaxManager();
-           
+
+            //Menue Background
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\MenueBackground"), 1.0f, 0.35f, 0.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 350, 0)));
+            //How to backgrounds
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.35f, 94.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 350, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height + 65)));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.2f, 38.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.38f, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height + 65)));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.2f, 38.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 18, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height + 65)));
+            //Options Background
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.35f, 94.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 350, -GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height + 65)));
+            //Characters
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\charac1"), 1.0f, 1.0f, 1.0f, new Vector2(0, 100)));
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\charac2"), 1.0f, 1.0f, 2.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 650, 100)));
             //this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("wheat_tile"), 1.0f, 1.0f, 93.0f, new Vector2(800, 400)));
