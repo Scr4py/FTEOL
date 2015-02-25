@@ -105,6 +105,9 @@
     <Content Include="Content\MenuGraphics\button_howto.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\MenuGraphics\button_menu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\MenuGraphics\button_movement.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

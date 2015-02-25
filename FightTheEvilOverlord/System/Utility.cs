@@ -38,8 +38,6 @@ namespace FightTheEvilOverlord
         public static Hud hud;
         public static UnitSpawner spawner;
 
-        //public static ParallaxManager parallaxManager;
-
         public static bool movementEngaged;
 
         public static ContentManager CurrentContent;
@@ -111,6 +109,7 @@ namespace FightTheEvilOverlord
             Utility.hud = new Hud(CurrentContent.Load<Texture2D>("HudGraphics\\hudTex"), CurrentContent.Load<SpriteFont>("Arial"));
             Utility.hud.SetVector(new Vector2(0, 1005));
         }
+
 
         public static void destroyMenue(Menue menu)
         {

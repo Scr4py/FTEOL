@@ -28,6 +28,7 @@ namespace FightTheEvilOverlord
 
     class Button : GameObject
     {
+
         Texture2D image;
         private Transform transform;
         private MouseMenueInteractive mouse;
@@ -72,7 +73,8 @@ namespace FightTheEvilOverlord
 
         private void OnClick(int x, int y)
         {
-            
+
+           
             if(this.state == GameState.GameStart)
             {
                 Utility.startGame();
@@ -104,6 +106,30 @@ namespace FightTheEvilOverlord
             else if (this.state == GameState.Credits)
             {
                 Console.WriteLine("Credits Test");
+            }
+            else if (this.state == GameState.Field)
+            {
+                Console.WriteLine("BoardLayout");
+            }
+            else if (this.state == GameState.Fight)
+            {
+                Console.WriteLine("Fight");
+            }
+            else if (this.state == GameState.Villages)
+            {
+                Console.WriteLine("Villages");
+            }
+            else if (this.state == GameState.Move)
+            {
+                Console.WriteLine("move");
+            }
+            else if (this.state == GameState.TileColor)
+            {
+                Console.WriteLine("TileColor");
+            }
+            else if (this.state == GameState.Slider)
+            {
+                Console.WriteLine("slider");
             }
             else if (this.state == GameState.NextPlayer)
             {

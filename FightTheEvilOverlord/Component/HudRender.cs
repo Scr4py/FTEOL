@@ -75,6 +75,7 @@ namespace FightTheEvilOverlord
         public override void Destroy()
         {
             EventManager.OnRender -= hudRender;
+            EventManager.OnRender -= UnitPic;
         }
     }
 }
