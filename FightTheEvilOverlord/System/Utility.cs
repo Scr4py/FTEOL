@@ -106,8 +106,8 @@ namespace FightTheEvilOverlord
             Utility.SwordPlayer = new Player(2, 2, Utility.spawner, Utility.map.tilesArray[1, map.mapHeight - 2], CurrentContent.Load<Texture2D>("sword_unit"), map);
             Utility.EvilOverLord = new Player(3, 3, Utility.spawner, Utility.map.tilesArray[map.mapWidth - 2, map.mapHeight / 2], CurrentContent.Load<Texture2D>("sword_unit"), map);
             Utility.GameManager = new GameManager(Utility.PigPlayer, Utility.ArchPlayer, Utility.SwordPlayer, Utility.EvilOverLord, Utility.map);
-            Utility.hud = new Hud(CurrentContent.Load<Texture2D>("HudGraphics\\hudTex"), CurrentContent.Load<SpriteFont>("Arial"));
-            Utility.hud.SetVector(new Vector2(0, 1005));
+            //Utility.hud = new Hud(CurrentContent.Load<Texture2D>("HudGraphics\\hudTex"), CurrentContent.Load<SpriteFont>("Arial"));
+            //Utility.hud.SetVector(new Vector2(0, 1005));
         }
 
 

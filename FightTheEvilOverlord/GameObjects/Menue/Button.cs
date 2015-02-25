@@ -89,7 +89,7 @@ namespace FightTheEvilOverlord
             }
             else if (this.state == GameState.Menue)
             {
-                Console.WriteLine("Menu Test");
+                Menue menu = new Menue();
             }
             else if (this.state == GameState.Options)
             {
