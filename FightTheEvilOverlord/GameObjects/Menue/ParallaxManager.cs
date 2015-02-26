@@ -23,8 +23,11 @@ namespace FightTheEvilOverlord
         bool hasToFuckUp;
         bool hasToFuckDown;
 
+        float scale;
+
         public ParallaxManager()
         {
+            this.scale = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1920.0f;
             alpha = 0;
             alphaCha = 0;
             alphaCha2 = 0;
@@ -67,7 +70,7 @@ namespace FightTheEvilOverlord
                 ch1Position -= 9;
             }
 
-            if (ch2Position >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 650 && !hasToFuckUp)
+            if (ch2Position >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - (650 * scale) && !hasToFuckUp)
             {
                 ch2Position -= 9;
             }
