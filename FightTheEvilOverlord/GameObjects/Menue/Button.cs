@@ -34,10 +34,13 @@ namespace FightTheEvilOverlord
         private MouseMenueInteractive mouse;
         public GameState state;
 
+        float scale;
+
         ParallaxManager pm;
         
         public Button(Texture2D image, GameState gameState)
         {
+            this.scale = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1920.0f;
             this.image = image;
             this.state = gameState;
             this.transform = this.AddComponent<Transform>();
@@ -52,11 +55,11 @@ namespace FightTheEvilOverlord
         {
             if (this.mouse.onMouse)
             {
-                spriteBatch.Draw(this.image, this.transform.Position, Color.Yellow);
+                spriteBatch.Draw(this.image, this.transform.Position, null, Color.Yellow, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
             }
             else
             {
-                spriteBatch.Draw(this.image, this.transform.Position, Color.White);
+                spriteBatch.Draw(this.image, this.transform.Position, null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
             }
         }
 
