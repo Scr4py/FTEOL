@@ -29,7 +29,7 @@ namespace FightTheEvilOverlord
     class Button : GameObject
     {
 
-        Texture2D image;
+        public Texture2D image;
         private Transform transform;
         private MouseMenueInteractive mouse;
         public GameState state;
