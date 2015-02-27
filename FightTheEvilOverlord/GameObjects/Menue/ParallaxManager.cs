@@ -11,6 +11,7 @@ namespace FightTheEvilOverlord
     class ParallaxManager
     {
         public List<ParallaxLayer> Layers { get; private set; }
+        public List<ParallaxLayer> HowToLayer { get; private set; }
 
         int alpha;
         int alphaCha;
@@ -35,6 +36,7 @@ namespace FightTheEvilOverlord
             ch1Position = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             ch2Position = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width * 2;
             this.Layers = new List<ParallaxLayer>();
+            this.HowToLayer = new List<ParallaxLayer>();
             hasToFuckUp = false;
             EventManager.OnRender += Draw;
         }
