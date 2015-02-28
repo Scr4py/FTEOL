@@ -27,7 +27,6 @@ namespace FightTheEvilOverlord
         Texture2D archerTex;
         Texture2D swordTex;
 
-
         public Tile[,] tilesArray;
         public Village[,] villageArray;
         public Map(Texture2D texMountain, Texture2D texForrest, Texture2D texPlaines, Texture2D texVillage, Texture2D texField, Texture2D miniField, Texture2D pigTex, Texture2D archerTex, Texture2D swordTex)

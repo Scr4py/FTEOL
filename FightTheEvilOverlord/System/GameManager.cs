@@ -18,6 +18,8 @@ namespace FightTheEvilOverlord
         public Map map;
 
         UnitMovement uM;
+        KI ki;
+        KITrigger kit;
 
         MouseState mouseState;
 
@@ -33,6 +35,9 @@ namespace FightTheEvilOverlord
             this.overlord = overlord;
             this.uM = this.AddComponent<UnitMovement>();
             this.map = map;
+            this.ki = this.AddComponent<KI>();
+            this.kit = this.AddComponent <KITrigger>();
+            this.kit.Start();
             EventManager.OnUpdate += OnUpdate;
 
             setSoldiersToActive();
@@ -56,31 +61,56 @@ namespace FightTheEvilOverlord
         {
             if (Utility.ActivePlayerNumber == 0)
             {
+                setTilesInactive();
                 activeplayer = this.pig;
                 Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
+
+                if (pig.KIControlled)
+                {
+                    ki.GetActiveTiles(map);
+                }
             }
             else if (Utility.ActivePlayerNumber == 1)
             {
+                setTilesInactive();
                 activeplayer = this.swords;
                 Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
+
+                if (swords.KIControlled)
+                {
+                    ki.GetActiveTiles(map);
+                }
             }
             else if (Utility.ActivePlayerNumber == 2)
             {
+                setTilesInactive();
+
                 activeplayer = this.overlord;
                 Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
+                kit.checkNextTiles(map);
+                if (overlord.KIControlled)
+                {
+                    ki.GetActiveTiles(map);
+                }
             }
             else if (Utility.ActivePlayerNumber == 3)
             {
+                setTilesInactive();
                 activeplayer = this.archer;
                 Utility.ActivePlayerNumber = 0;
                 setSoldiersToActive();
                 setVillagesToActive();
+
+                if (archer.KIControlled)
+                {
+                    ki.GetActiveTiles(map);
+                }
             }
         }
 
@@ -113,16 +143,46 @@ namespace FightTheEvilOverlord
                         if (tile.archer != null)
                         {
                             tile.archer.activeSoldiers = tile.archer.totalSoldiers;
+                            tile.isActive = true;
                         }
                         if (tile.pigs != null)
                         {
                             tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
+                            tile.isActive = true;
                         }
                         if (tile.swords != null)
                         {
                             tile.swords.activeSoldiers = tile.swords.totalSoldiers;
+                            tile.isActive = true;
                         }
                         tile.isActive = true;
+                    }
+                }
+            }
+        }
+
+        void setTilesInactive()
+        {
+            foreach (var tile in map.tilesArray)
+            {
+                if (tile != null)
+                {
+                    if (tile.isActive)
+                    {
+                        if (tile.archer != null)
+                        {
+                            tile.archer.activeSoldiers = 0;
+                        }
+                        else if (tile.pigs != null)
+                        {
+                            tile.pigs.activeSoldiers = 0;
+                        }
+                        else if (tile.swords != null)
+                        {
+                            tile.swords.activeSoldiers = 0;
+                        }
+
+                        tile.isActive = false;
                     }
                 }
             }

@@ -19,8 +19,12 @@ namespace FightTheEvilOverlord
         public List<Village> nextVillages = new List<Village>();
 
         public bool isActive;
-
+        
         public int owner = 4;
+        public int mapX;
+        public int mapY;
+        public int KIRelevance;
+        int moveX;
 
         public float tileWidth;
         public float tileHeight;
@@ -28,11 +32,6 @@ namespace FightTheEvilOverlord
         public Texture2D image;
 
         CheckButtonPress checkPress;
-
-        public int mapX;
-        public int mapY;
-
-        int moveX;
 
         public Renderer render;
         public Transform transform;

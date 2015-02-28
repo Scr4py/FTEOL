@@ -12,6 +12,7 @@ namespace FightTheEvilOverlord
         public int playerNumber;
         int privatePlayerNumber;
         int unitNumber;
+        public bool KIControlled;
         //Archer[] archerArray;
         //FlyingPigs[] pigArray;
         //SwordsMen[] swordArray;

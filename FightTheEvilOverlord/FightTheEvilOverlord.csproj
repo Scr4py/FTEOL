@@ -39,6 +39,8 @@
     <Compile Include="Component\CheckButtonPress.cs" />
     <Compile Include="Component\FightManager.cs" />
     <Compile Include="Component\IntRenderer.cs" />
+    <Compile Include="Component\KI.cs" />
+    <Compile Include="Component\KITrigger.cs" />
     <Compile Include="Component\UnitMovement.cs" />
     <Compile Include="GameObjects\Cursor.cs" />
     <Compile Include="GameObjects\Map\MiniMapTile.cs" />

@@ -223,6 +223,7 @@ namespace FightTheEvilOverlord
                     attackerTile.swords = null;
                 }
             }
+            attackerTile.isActive = false;
         }
 
         public override void Destroy()
