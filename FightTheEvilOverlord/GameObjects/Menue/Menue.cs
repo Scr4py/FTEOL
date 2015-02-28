@@ -57,7 +57,7 @@ namespace FightTheEvilOverlord
             this.Slider = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_slider"), GameState.Slider, "Slider", pm);
             this.Slider.GetComponent<Transform>().Position = new Vector2(1500, 800);
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_slider"), 1.0f, 1.0f, 41.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.28f, 2000)));
-
+            this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test"), 0.35f, 0.35f, 1.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - (100*scale), 1800)));
             //Options Background
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.35f, 94.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - (350 * scale), -GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height)));
             //Characters
