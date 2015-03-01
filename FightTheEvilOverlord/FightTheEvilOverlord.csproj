@@ -154,7 +154,7 @@
     <Content Include="Content\Menue.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\MenuGraphics\HowTo\Test.png">
+    <Content Include="Content\MenuGraphics\HowTo\BoardLayout.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\MenuGraphics\HowTo\Test1.png">

@@ -113,27 +113,28 @@ namespace FightTheEvilOverlord
             }
             else if (this.state == GameState.Field)
             {
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test"), 0.35f, 0.35f, 2.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100*scale), 390)));
+                this.pm.HowToLayer.RemoveAt(0);
+                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\BoardLayout"), 0.35f, 0.35f, 2.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100*scale), -25)));
             }
             else if (this.state == GameState.Fight)
             {
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test"), 0.35f, 0.35f, 3.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
+                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 3.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
             }
             else if (this.state == GameState.Villages)
             {
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test"), 0.35f, 0.35f, 4.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
+                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 4.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
             }
             else if (this.state == GameState.Move)
             {
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test"), 0.35f, 0.35f, 5.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
+                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 5.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
             }
             else if (this.state == GameState.TileColor)
             {
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test"), 0.35f, 0.35f, 6.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
+                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 6.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
             }
             else if (this.state == GameState.Slider)
             {
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test"), 0.35f, 0.35f, 7.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
+                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 7.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
             }
             else if (this.state == GameState.NextPlayer)
             {

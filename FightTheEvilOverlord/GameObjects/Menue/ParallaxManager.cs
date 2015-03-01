@@ -183,7 +183,7 @@ namespace FightTheEvilOverlord
                 }
                 else if (layer.speed == 2.0f)
                 {
-                    if (layer.Position.X >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 120)
+                    if (layer.Position.X >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 344.075f)
                     {
                         layer.Position = new Vector2(layer.Position.X - 8 , layer.Position.Y);
                         spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
