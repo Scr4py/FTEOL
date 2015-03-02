@@ -9,7 +9,7 @@ namespace FightTheEvilOverlord
     {
         public Texture2D SliderTex;
         public Transform Transform;
-        public float scale = 0.5f;
+        public float scale = 1;
         Renderer renderer;
 
         public SliderBar(MouseState currentState)

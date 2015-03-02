@@ -17,32 +17,32 @@ namespace FightTheEvilOverlord
 
         public void checkNextTiles(Map map)
         {
-            foreach (Tile  possibleTile  in map.tilesArray)
+            foreach (Tile  tile  in map.tilesArray)
             {
-                if (possibleTile != null)
+                if (tile != null)
                 {
-                    if (possibleTile.isActive)
+                    if (tile.isActive)
                     {
-                        checkBaseTile(possibleTile);
+                        checkBaseTile(tile);
 
-                        if (possibleTile.isActive)
+                        if (tile.isActive)
                         {
-                            checkFirstCircleNextTiles(possibleTile);
+                            checkFirstCircleNextTiles(tile);
 
-                            if (possibleTile.isActive)
+                            if (tile.isActive)
                             {
-                                checkSecondCircleNextTiles(possibleTile);
+                                checkSecondCircleNextTiles(tile);
 
-                                if (possibleTile.isActive)
+                                if (tile.isActive)
                                 {
-                                    checkThirdCicleNextTiles(possibleTile);
+                                    checkThirdCicleNextTiles(tile);
 
-                                    if (possibleTile.isActive)
+                                    if (tile.isActive)
                                     {
-                                        checkFourthCircleNextTiles(possibleTile);
-                                        if (possibleTile.isActive)
+                                        checkFourthCircleNextTiles(tile);
+                                        if (tile.isActive)
                                         {
-                                            baseMove(possibleTile, map);
+                                            baseMove(tile, map);
                                         }
                                     }
                                 }

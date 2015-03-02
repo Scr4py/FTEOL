@@ -193,7 +193,7 @@ namespace FightTheEvilOverlord
                 }
             }
 
-            else if (remainingDefenders != 0)
+            if (remainingDefenders != 0)
             {
                 if (defenderType == 0)
                 {
