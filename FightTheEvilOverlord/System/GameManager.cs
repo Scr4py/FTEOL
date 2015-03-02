@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace FightTheEvilOverlord
 {
-    class GameManager 
+    class GameManager : GameObject
     {
         Player pig;
         Player archer;
@@ -17,12 +17,17 @@ namespace FightTheEvilOverlord
 
         public Map map;
 
+        FightManager fightManager;
+        KI ki;
+        KITrigger kit;
+
         MouseState mouseState;
 
         KeyboardState currentState;
         KeyboardState lastState;
         public GameManager(Player pig, Player archer, Player swords, Player overlord, Map map)
         {
+            fightManager = this.AddComponent<FightManager>();
             mouseState = new MouseState();
             currentState = new KeyboardState();
             this.pig = pig;
@@ -30,6 +35,10 @@ namespace FightTheEvilOverlord
             this.swords = swords;
             this.overlord = overlord;
             this.map = map;
+            this.ki = this.AddComponent<KI>();
+            this.kit = this.AddComponent<KITrigger>();
+            this.kit.Start();
+            this.fightManager = this.AddComponent<FightManager>();
             EventManager.OnUpdate += OnUpdate;
 
             setSoldiersToActive();
@@ -43,7 +52,7 @@ namespace FightTheEvilOverlord
             lastState = currentState;
             currentState = Keyboard.GetState();
 
-            if (currentState.IsKeyDown(Keys.N) && !lastState.IsKeyDown(Keys.N) && mouseState.LeftButton == ButtonState.Released)
+            if (currentState.IsKeyDown(Keys.N) && !lastState.IsKeyDown(Keys.N) && mouseState.LeftButton == ButtonState.Released && Utility.movementEngaged == false)
             {
                 NextPlayer();
             }
@@ -53,31 +62,56 @@ namespace FightTheEvilOverlord
         {
             if (Utility.ActivePlayerNumber == 0)
             {
+                setTilesInactive();
                 activeplayer = this.pig;
                 Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
+
+                if (pig.KIControlled)
+                {
+                    ki.GetActiveTiles(map);
+                }
             }
             else if (Utility.ActivePlayerNumber == 1)
             {
+                setTilesInactive();
                 activeplayer = this.swords;
                 Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
+
+                if (swords.KIControlled)
+                {
+                    ki.GetActiveTiles(map);
+                }
             }
             else if (Utility.ActivePlayerNumber == 2)
             {
+                setTilesInactive();
+
                 activeplayer = this.overlord;
                 Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
+                kit.checkNextTiles(map);
+                if (overlord.KIControlled)
+                {
+                    ki.GetActiveTiles(map);
+                }
             }
             else if (Utility.ActivePlayerNumber == 3)
             {
+                setTilesInactive();
                 activeplayer = this.archer;
                 Utility.ActivePlayerNumber = 0;
                 setSoldiersToActive();
                 setVillagesToActive();
+
+                if (archer.KIControlled)
+                {
+                    ki.GetActiveTiles(map);
+                }
             }
         }
 
@@ -110,16 +144,46 @@ namespace FightTheEvilOverlord
                         if (tile.archer != null)
                         {
                             tile.archer.activeSoldiers = tile.archer.totalSoldiers;
+                            tile.isActive = true;
                         }
                         if (tile.pigs != null)
                         {
                             tile.pigs.activeSoldiers = tile.pigs.totalSoldiers;
+                            tile.isActive = true;
                         }
                         if (tile.swords != null)
                         {
                             tile.swords.activeSoldiers = tile.swords.totalSoldiers;
+                            tile.isActive = true;
                         }
                         tile.isActive = true;
+                    }
+                }
+            }
+        }
+
+        void setTilesInactive()
+        {
+            foreach (var tile in map.tilesArray)
+            {
+                if (tile != null)
+                {
+                    if (tile.isActive)
+                    {
+                        if (tile.archer != null)
+                        {
+                            tile.archer.activeSoldiers = 0;
+                        }
+                        else if (tile.pigs != null)
+                        {
+                            tile.pigs.activeSoldiers = 0;
+                        }
+                        else if (tile.swords != null)
+                        {
+                            tile.swords.activeSoldiers = 0;
+                        }
+
+                        tile.isActive = false;
                     }
                 }
             }

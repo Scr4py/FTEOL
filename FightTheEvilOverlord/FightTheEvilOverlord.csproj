@@ -35,10 +35,11 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Component\BackgroundRender.cs" />
+    <Compile Include="Audio.cs" />
     <Compile Include="Component\CheckButtonPress.cs" />
-    <Compile Include="Component\FightController.cs" />
     <Compile Include="Component\IntRenderer.cs" />
+    <Compile Include="Component\KI.cs" />
+    <Compile Include="Component\KITrigger.cs" />
     <Compile Include="GameObjects\Cursor.cs" />
     <Compile Include="GameObjects\Map\MiniMapTile.cs" />
     <Compile Include="Component\MouseMenueInteractive.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="GameObjects\Slider.cs" />
     <Compile Include="GameObjects\SliderBar.cs" />
     <Compile Include="System\Camera.cs" />
+    <Compile Include="Component\FightManager.cs" />
     <Compile Include="System\Utility.cs" />
     <Compile Include="System\GameManager.cs" />
     <Compile Include="Component\ButtonRender.cs" />
@@ -90,6 +92,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Audio\button_click.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\GameMusic.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\MenuMusic.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Background-Test.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

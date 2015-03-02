@@ -14,7 +14,7 @@ namespace FightTheEvilOverlord
         public FlyingPigs pigs;
         public SwordsMen swords;
         public Archer archer;
-
+        public int KIRelevance;
         public List<Tile> nextTiles = new List<Tile>();
         public List<Village> nextVillages = new List<Village>();
 

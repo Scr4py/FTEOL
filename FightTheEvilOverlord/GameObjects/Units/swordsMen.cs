@@ -26,7 +26,7 @@ namespace FightTheEvilOverlord
         MouseState currentState;
         MouseState lastState;
 
-        Texture2D image;
+        public Texture2D image;
 
         Transform transform;
         public UnitRenderer render;

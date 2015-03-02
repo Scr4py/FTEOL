@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace FightTheEvilOverlord
 {
-    class Menue 
+    class Menue : GameObject
     {
         public ParallaxManager pm;
-
+        public Audio Audio;
         public Button play;
         public Button howTo;
         public Button option;
@@ -30,7 +31,8 @@ namespace FightTheEvilOverlord
             this.scale = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1920.0f;
 
             this.pm = new ParallaxManager();
-
+            this.Audio = AddComponent<Audio>();
+            this.Audio.SetMenuMusicAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\MenuMusic"));
             //Menue Background
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\MenueBackground"), 1.0f, 0.35f, 0.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 350 * (scale), 0)));
             //How to backgrounds
@@ -99,6 +101,7 @@ namespace FightTheEvilOverlord
         {
             if (Utility.map != null)
             {
+                this.Audio.StopMusic();
                 Utility.destroyMenue(this);
             }
         }
