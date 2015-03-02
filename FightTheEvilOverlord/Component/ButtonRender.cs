@@ -24,7 +24,6 @@ namespace FightTheEvilOverlord
 
         private void Render(SpriteBatch spriteBatch)
         {
-
             for (int i = 0; i < textureList.Count ; i++)
             {
                 spriteBatch.Draw(textureList[i],this.transform.Position,rectangleList[i],Color.White,0,Vector2.Zero,Scale,SpriteEffects.None,0);

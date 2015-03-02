@@ -15,7 +15,8 @@ namespace FightTheEvilOverlord
         Rectangle mouseRectangle;
         MouseState prevMouseState;
         MouseState mouseState;
-        
+
+        public bool onMouse;
 
         public void start()
         {
@@ -26,8 +27,6 @@ namespace FightTheEvilOverlord
         private void Update(GameTime gameTime)
         {
             UpdatePosition();
-            Console.WriteLine(mouseState.Position);
-            //Console.WriteLine(mouseRectangle);
             ButtonClick();
         }
         
@@ -35,7 +34,15 @@ namespace FightTheEvilOverlord
         {
             mouseState = Mouse.GetState();
             Point point = mouseState.Position;
-            if (mouseState.LeftButton == ButtonState.Pressed)
+            if (this.mouseRectangle.Contains(point))
+            {
+                onMouse = true;
+            }
+            else
+            {
+                onMouse = false;
+            }
+            if (mouseState.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
             {
                 if (this.mouseRectangle.Contains(point))
                 {
@@ -59,8 +66,8 @@ namespace FightTheEvilOverlord
 
         public void SetSize(int width, int height)
         {
-            mouseRectangle.Width = width;
-            mouseRectangle.Height = height;
+            mouseRectangle.Width = (int)(width * Utility.globalScale);
+            mouseRectangle.Height = (int)(height * Utility.globalScale);
         }
     }
 }

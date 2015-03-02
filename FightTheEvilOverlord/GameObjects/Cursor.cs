@@ -17,10 +17,6 @@ namespace FightTheEvilOverlord
         {
             this.transform = this.AddComponent<Transform>();
             
-            this.render = this.AddComponent<Renderer>();
-            this.render.SecScale = 1.0f;
-            render.Start();
-            render.SetImage(image);
             EventManager.OnUpdate += Update;
         }
 

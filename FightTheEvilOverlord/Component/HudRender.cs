@@ -14,11 +14,12 @@ namespace FightTheEvilOverlord
         SpriteFont font;
         Transform transform;
 
-        float scale = 0.08f;
+        float scale = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1920.0f;
         List<Texture2D> imageList = new List<Texture2D>();
         public List<string> textList = new List<string>();
         List<Vector2> vectorList = new List<Vector2>();
         List<Vector2> imageVectorList = new List<Vector2>();
+
         public void start()
         {
             this.transform = this.GameObject.GetComponent<Transform>();
@@ -30,7 +31,7 @@ namespace FightTheEvilOverlord
         {
             for (int i = 0; i < imageList.Count; i++)
             {
-                spriteBatch.Draw(imageList[i], imageVectorList[i], null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+                spriteBatch.Draw(imageList[i], imageVectorList[i], null, Color.White, 0, Vector2.Zero, scale / 13, SpriteEffects.None, 0);
             }
 
         }
@@ -38,7 +39,7 @@ namespace FightTheEvilOverlord
 
         private void hudRender(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(this.image, this.transform.Position, Color.White);
+            spriteBatch.Draw(this.image, new Vector2(0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - (76 * scale)), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
             for (int i = 0; i < this.textList.Count; i++)
             {
                     spriteBatch.DrawString(font, textList[i], vectorList[i], Color.White);
@@ -74,6 +75,7 @@ namespace FightTheEvilOverlord
         public override void Destroy()
         {
             EventManager.OnRender -= hudRender;
+            EventManager.OnRender -= UnitPic;
         }
     }
 }

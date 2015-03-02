@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace FightTheEvilOverlord
 {
-    class GameManager : GameObject
+    class GameManager 
     {
         Player pig;
         Player archer;
@@ -16,8 +16,6 @@ namespace FightTheEvilOverlord
         Player activeplayer;
 
         public Map map;
-
-        UnitMovement uM;
 
         MouseState mouseState;
 
@@ -31,7 +29,6 @@ namespace FightTheEvilOverlord
             this.archer = archer;
             this.swords = swords;
             this.overlord = overlord;
-            this.uM = this.AddComponent<UnitMovement>();
             this.map = map;
             EventManager.OnUpdate += OnUpdate;
 

@@ -12,7 +12,8 @@ namespace FightTheEvilOverlord
     static class Utility
     {
         public static int ActivePlayerNumber = 0;
-
+        public static float scale = 0.085f;
+        public static float globalScale = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1920.0f;
         public static int activeSoldiersGoodArch;
         public static int totalSoldiersGoodArch;
         public static int activeSoldiersBadArch;
@@ -31,6 +32,12 @@ namespace FightTheEvilOverlord
         public static Player PigPlayer;
         public static Player SwordPlayer;
         public static Player EvilOverLord;
+        public static GameManager GameManager;
+        public static Menue menue;
+
+        public static Map map;
+        public static Hud hud;
+        public static UnitSpawner spawner;
 
         public static bool movementEngaged;
 
@@ -90,6 +97,33 @@ namespace FightTheEvilOverlord
                 }
             }
             return false;
+        }
+
+        public static void startGame()
+        {
+            Utility.map = new Map(CurrentContent.Load<Texture2D>("mountain_tile"), CurrentContent.Load<Texture2D>("forest_tile"), CurrentContent.Load<Texture2D>("plains_tile"), CurrentContent.Load<Texture2D>("village_tile_wip"), CurrentContent.Load<Texture2D>("wheat_tile"), CurrentContent.Load<Texture2D>("MiniMapTexture"), CurrentContent.Load<Texture2D>("pig_unit"), CurrentContent.Load<Texture2D>("bow_unit"), CurrentContent.Load<Texture2D>("sword_unit"));
+            Utility.PigPlayer = new Player(1, 2, Utility.spawner, Utility.map.tilesArray[1, map.mapHeight / 2], CurrentContent.Load<Texture2D>("pig_unit"), map);
+            Utility.ArchPlayer = new Player(0, 2, Utility.spawner, Utility.map.tilesArray[1, 1], CurrentContent.Load<Texture2D>("bow_unit"), map);
+            Utility.SwordPlayer = new Player(2, 2, Utility.spawner, Utility.map.tilesArray[1, map.mapHeight - 2], CurrentContent.Load<Texture2D>("sword_unit"), map);
+            Utility.EvilOverLord = new Player(3, 3, Utility.spawner, Utility.map.tilesArray[map.mapWidth - 2, map.mapHeight / 2], CurrentContent.Load<Texture2D>("sword_unit"), map);
+            Utility.GameManager = new GameManager(Utility.PigPlayer, Utility.ArchPlayer, Utility.SwordPlayer, Utility.EvilOverLord, Utility.map);
+            Utility.hud = new Hud(CurrentContent.Load<Texture2D>("HudGraphics\\hudTex"), CurrentContent.Load<SpriteFont>("Arial"));
+            Utility.hud.SetVector(new Vector2(0, 1005));
+        }
+
+
+        public static void destroyMenue(Menue menu)
+        {
+            if (menu != null && menu.pm != null)
+            {
+                menu.credits.Destroy();
+                menu.exit.Destroy();
+                menu.option.Destroy();
+                menu.play.Destroy();
+                menu.pm.Destroy();
+                menu.pm = null;
+                menu = null;
+            }
         }
     }
 }
