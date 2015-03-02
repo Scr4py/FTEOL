@@ -13,6 +13,7 @@ namespace FightTheEvilOverlord
     {
         public static int ActivePlayerNumber = 0;
         public static float scale = 0.085f;
+        public static float globalScale = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1920.0f;
         public static int activeSoldiersGoodArch;
         public static int totalSoldiersGoodArch;
         public static int activeSoldiersBadArch;

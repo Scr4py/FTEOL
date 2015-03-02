@@ -1,4 +1,4 @@
-﻿#region Using Statements
+﻿ #region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -105,7 +105,7 @@ namespace FightTheEvilOverlord
             spriteBatch.Begin();
             EventManager.InvokeRender(spriteBatch);
             spriteBatch.Draw(Content.Load<Texture2D>("cursor"), new Vector2(Mouse.GetState().Position.X, Mouse.GetState().Position.Y), Color.White);
-            spriteBatch.DrawString(Font, string.Format("{0}", fps), new Vector2(10, 10), Color.Red);
+            spriteBatch.DrawString(Font, string.Format("{0}", fps), new Vector2(10, 10), Color.Red, 0.0f, Vector2.Zero, 30, SpriteEffects.None, 1);
             spriteBatch.End();
 
             base.Draw(gameTime);

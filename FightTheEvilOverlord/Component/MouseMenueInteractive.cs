@@ -66,8 +66,8 @@ namespace FightTheEvilOverlord
 
         public void SetSize(int width, int height)
         {
-            mouseRectangle.Width = width;
-            mouseRectangle.Height = height;
+            mouseRectangle.Width = (int)(width * Utility.globalScale);
+            mouseRectangle.Height = (int)(height * Utility.globalScale);
         }
     }
 }
