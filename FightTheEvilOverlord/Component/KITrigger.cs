@@ -254,7 +254,7 @@ namespace FightTheEvilOverlord
                         }
                     }
                 }
-                else if (Utility.ActivePlayerNumber == 3)
+                if (Utility.ActivePlayerNumber == 3)
                 {
                     if (currentTile.mapX > 0)
                     {
@@ -292,7 +292,7 @@ namespace FightTheEvilOverlord
                         }
                     }
                 }
-                else if (Utility.ActivePlayerNumber == 3)
+                if (Utility.ActivePlayerNumber == 3)
                 {
                     if (currentTile.mapX > 0)
                     {
