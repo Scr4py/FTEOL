@@ -8,6 +8,8 @@ namespace FightTheEvilOverlord
         public Tile toMoveToTile;
         FightManager fightManager;
 
+        Tile nextTile;
+
         public void Start()
         {
             this.fightManager = GameObject.GetComponent<FightManager>();
@@ -38,6 +40,10 @@ namespace FightTheEvilOverlord
                                     if (possibleTile.isActive)
                                     {
                                         checkFourthCircleNextTiles(possibleTile);
+                                        if (possibleTile.isActive)
+                                        {
+                                            baseMove(possibleTile, map);
+                                        }
                                     }
                                 }
                             }
@@ -102,7 +108,7 @@ namespace FightTheEvilOverlord
                         }
                         else if (baseTile.pigs != null)
                         {
-                            baseTile.archer.activeSoldiers = 0;
+                            baseTile.pigs.activeSoldiers = 0;
                             baseTile.nextVillages[0].owner = 3;
                             baseTile.nextVillages[0].conquerUnit = 1;
                             baseTile.isActive = false;
@@ -227,12 +233,94 @@ namespace FightTheEvilOverlord
             }
         }
 
+        void baseMove(Tile currentTile, Map map)
+        {
+            if (currentTile.mapX % 2 == 0)
+            {
+                if (currentTile.mapX < map.mapWidth)
+                {
+                    if (Utility.ActivePlayerNumber == 0 || Utility.ActivePlayerNumber == 1 || Utility.ActivePlayerNumber == 2)
+                    {
+                        if (map.tilesArray[currentTile.mapX + 1, currentTile.mapY] != null)
+                        {
+                            MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX + 1, currentTile.mapY]);
+                        }
+                        else if (currentTile.mapY > 0)
+                        { 
+                            if (map.tilesArray[currentTile.mapX + 1, currentTile.mapY - 1] != null)
+                            {
+                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX + 1, currentTile.mapY - 1]);
+                            }
+                        }
+                    }
+                }
+                else if (Utility.ActivePlayerNumber == 3)
+                {
+                    if (currentTile.mapX > 0)
+                    {
+                        if (map.tilesArray[currentTile.mapX - 1, currentTile.mapY] != null)
+                        {
+                            MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX - 1, currentTile.mapY]);
+                        }
+                        else if (currentTile.mapY < map.mapHeight)
+                        {
+                            if (map.tilesArray[currentTile.mapX - 1, currentTile.mapY + 1] != null)
+                            {
+                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX - 1, currentTile.mapY + 1]);
+                            }
+                        }
+                    }
+                }
+
+            }
+            else if (currentTile.mapX % 2 != 0)
+            {
+                if (Utility.ActivePlayerNumber == 0 || Utility.ActivePlayerNumber == 1 || Utility.ActivePlayerNumber == 2)
+                {
+                    if (currentTile.mapX < map.mapWidth)
+                    {
+                        if (map.tilesArray[currentTile.mapX + 1, currentTile.mapY] != null)
+                        {
+                            MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX + 1, currentTile.mapY]);
+                        }
+                        else if (currentTile.mapY > 0)
+                        {
+                            if (map.tilesArray[currentTile.mapX + 1, currentTile.mapY - 1] != null)
+                            {
+                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX + 1, currentTile.mapY - 1]);
+                            }
+                        }
+                    }
+                }
+                else if (Utility.ActivePlayerNumber == 3)
+                {
+                    if (currentTile.mapX > 0)
+                    {
+                        if (map.tilesArray[currentTile.mapX - 1, currentTile.mapY] != null)
+                        {
+                            MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX - 1, currentTile.mapY]);
+                        }
+                        else if (currentTile.mapY > map.mapHeight)
+                        {
+                            if (map.tilesArray[currentTile.mapX - 1, currentTile.mapY + 1] != null)
+                            {
+                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX - 1, currentTile.mapY + 1]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         void CheckTile(Tile toRateTile, Tile baseTile, Tile toMoveOnTile)
         {
             if (toRateTile.nextVillages.Count > 0)
             {
-                MoveSoldiers(baseTile, toMoveOnTile);
-                baseTile.isActive = false;
+                if (toRateTile.nextVillages[0].owner != 3)
+                {
+                    MoveSoldiers(baseTile, toMoveOnTile);
+                    baseTile.isActive = false;
+                }
             }
         }
 

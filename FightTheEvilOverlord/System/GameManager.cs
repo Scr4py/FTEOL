@@ -18,6 +18,7 @@ namespace FightTheEvilOverlord
         public Map map;
 
         UnitMovement uM;
+        FightManager fightManager;
         KI ki;
         KITrigger kit;
 
@@ -27,6 +28,7 @@ namespace FightTheEvilOverlord
         KeyboardState lastState;
         public GameManager(Player pig, Player archer, Player swords, Player overlord, Map map)
         {
+            fightManager = this.AddComponent<FightManager>();
             mouseState = new MouseState();
             currentState = new KeyboardState();
             this.pig = pig;
@@ -38,6 +40,7 @@ namespace FightTheEvilOverlord
             this.ki = this.AddComponent<KI>();
             this.kit = this.AddComponent <KITrigger>();
             this.kit.Start();
+            this.fightManager = this.AddComponent<FightManager>();
             EventManager.OnUpdate += OnUpdate;
 
             setSoldiersToActive();
